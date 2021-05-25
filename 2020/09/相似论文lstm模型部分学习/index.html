@@ -1,0 +1,198 @@
+<!doctype html><html lang=zh><head><title>相似论文LSTM模型部分学习 - 胡思乱想集散中心</title><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui"><meta name=renderer content="webkit"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="black"><meta name=format-detection content="telephone=no,email=no,adress=no"><meta name=theme-color content="#000000"><meta http-equiv=window-target content="_top"><meta name=description content="学长安排的更新一下Montage模型的学习进度
+"><meta name=generator content="Hugo 0.83.1 with theme pure"><title>相似论文LSTM模型部分学习 - 胡思乱想集散中心</title><link rel=stylesheet href=https://example.com/css/style.min.084a5eb24fb0cf9d5aade7246f19ba0c820cf904996a28ffe88039427693ac68.css><link rel=stylesheet href=https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css async><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css async><meta property="og:title" content="相似论文LSTM模型部分学习"><meta property="og:description" content="学长安排的更新一下Montage模型的学习进度"><meta property="og:type" content="article"><meta property="og:url" content="https://example.com/2020/09/%E7%9B%B8%E4%BC%BC%E8%AE%BA%E6%96%87lstm%E6%A8%A1%E5%9E%8B%E9%83%A8%E5%88%86%E5%AD%A6%E4%B9%A0/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-09-20T22:32:27+00:00"><meta property="article:modified_time" content="2020-09-20T22:32:27+00:00"><meta itemprop=name content="相似论文LSTM模型部分学习"><meta itemprop=description content="学长安排的更新一下Montage模型的学习进度"><meta itemprop=datePublished content="2020-09-20T22:32:27+00:00"><meta itemprop=dateModified content="2020-09-20T22:32:27+00:00"><meta itemprop=wordCount content="2837"><meta itemprop=keywords content="LSTM,Montage,"><meta name=twitter:card content="summary"><meta name=twitter:title content="相似论文LSTM模型部分学习"><meta name=twitter:description content="学长安排的更新一下Montage模型的学习进度"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body class="main-center theme-black" itemscope itemtype=http://schema.org/WebPage><header class=header itemscope itemtype=http://schema.org/WPHeader><div class=slimContent><div class=navbar-header><div class="profile-block text-center"><a id=avatar href=https://github.com/qeryu target=_blank><img class="img-circle img-rotate" src=https://example.com/avatar.png width=200 height=200></a><h2 id=name class="hidden-xs hidden-sm">Qeryu</h2><h3 id=title class="hidden-xs hidden-sm hidden-md">author title</h3><small id=location class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Wuhan, China</small></div><div class=search id=search-form-wrap><form class="search-form sidebar-form"><div class=input-group><input type=text class="search-form-input form-control" placeholder=搜索>
+<span class=input-group-btn><button type=submit class="search-form-submit btn btn-flat" onclick=return!1><i class="icon icon-search"></i></button></span></div><div class=ins-search><div class=ins-search-mask></div><div class=ins-search-container><div class=ins-input-wrapper><input type=text class=ins-search-input placeholder=想要查找什么... x-webkit-speech>
+<button type=button class="close ins-close ins-selectable" data-dismiss=modal aria-label=Close><span aria-hidden=true>×</span></button></div><div class=ins-section-wrapper><div class=ins-section-container></div></div></div></div></form></div><button class="navbar-toggle collapsed" type=button data-toggle=collapse data-target=#main-navbar aria-controls=main-navbar aria-expanded=false>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button></div><nav id=main-navbar class="collapse navbar-collapse" itemscope itemtype=http://schema.org/SiteNavigationElement role=navigation><ul class="nav navbar-nav main-nav"><li class="menu-item menu-item-home"><a href=/><i class="icon icon-home-fill"></i>
+<span class=menu-title>Home</span></a></li><li class="menu-item menu-item-archives"><a href=/posts/><i class="icon icon-archives-fill"></i>
+<span class=menu-title>Archives</span></a></li><li class="menu-item menu-item-categories"><a href=/categories/><i class="icon icon-folder"></i>
+<span class=menu-title>Categories</span></a></li><li class="menu-item menu-item-tags"><a href=/tags/><i class="icon icon-tags"></i>
+<span class=menu-title>Tags</span></a></li><li class="menu-item menu-item-about"><a href=/about/><i class="icon icon-cup-fill"></i>
+<span class=menu-title>About</span></a></li></ul></nav></div></header><aside class=sidebar itemscope itemtype=http://schema.org/WPSideBar><div class=slimContent><div class=widget><h3 class=widget-title>公告</h3><div class=widget-body><div id=board><div class=content><p>enjoy~</p></div></div></div></div><div class=widget><h3 class=widget-title>标签</h3><div id=tag-cloud-list class=widget-body><a href=https://example.com/tags/beego/ class=tag-list-link rel=1>beego<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/blog/ class=tag-list-link rel=1>blog<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/c++/ class=tag-list-link rel=1>c++<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/coolq/ class=tag-list-link rel=1>coolq<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/docker/ class=tag-list-link rel=1>docker<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/eslint/ class=tag-list-link rel=1>eslint<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/fuzzing/ class=tag-list-link rel=3>fuzzing<span class=tag-list-count>3</span></a>
+<a href=https://example.com/tags/git/ class=tag-list-link rel=1>git<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/golang/ class=tag-list-link rel=1>golang<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/java/ class=tag-list-link rel=3>java<span class=tag-list-count>3</span></a>
+<a href=https://example.com/tags/javascript/ class=tag-list-link rel=3>javascript<span class=tag-list-count>3</span></a>
+<a href=https://example.com/tags/linux/ class=tag-list-link rel=1>linux<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/lstm/ class=tag-list-link rel=2>lstm<span class=tag-list-count>2</span></a>
+<a href=https://example.com/tags/maven/ class=tag-list-link rel=1>maven<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/montage/ class=tag-list-link rel=1>montage<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/python/ class=tag-list-link rel=2>python<span class=tag-list-count>2</span></a>
+<a href=https://example.com/tags/rnn/ class=tag-list-link rel=1>rnn<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/semanticfuzzing/ class=tag-list-link rel=1>semanticfuzzing<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/v2ray/ class=tag-list-link rel=1>v2ray<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/vim/ class=tag-list-link rel=1>vim<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/wordpress/ class=tag-list-link rel=1>wordpress<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/xml/ class=tag-list-link rel=1>xml<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/zest/ class=tag-list-link rel=2>zest<span class=tag-list-count>2</span></a>
+<a href=https://example.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ class=tag-list-link rel=1>学习笔记<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/%E7%88%AC%E8%99%AB/ class=tag-list-link rel=1>爬虫<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/ class=tag-list-link rel=1>科学上网<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ class=tag-list-link rel=1>论文阅读<span class=tag-list-count>1</span></a></div><script>document.onreadystatechange=()=>{document.readyState==='complete'&&tagCloud('#tag-cloud-list a',8,20)};function tagCloud(c,d,e){let b=0,a=0;$(c).each(function(){let c=Number($(this).attr("rel"));b<c&&(b=c),(a>c||a==0)&&(a=c)});let f=(e-d)/(b-a);$(c).each(function(){let b=$(this).attr("rel")-a;$(this).css({"font-size":d+b*f+'px'})})}</script></div><div class=widget><h3 class=widget-title>分类</h3><div class=widget-body><ul class=category-list><li class=category-list-item><a href=https://example.com/categories/cs61a/ class=category-list-link>cs61a</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://example.com/categories/fuzzing/ class=category-list-link>fuzzing</a><span class=category-list-count>3</span></li><li class=category-list-item><a href=https://example.com/categories/javascrip/ class=category-list-link>javascrip</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://example.com/categories/language/ class=category-list-link>language</a><span class=category-list-count>4</span></li><li class=category-list-item><a href=https://example.com/categories/linux/ class=category-list-link>linux</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://example.com/categories/lstm/ class=category-list-link>lstm</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://example.com/categories/machine-learning/ class=category-list-link>machine-learning</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://example.com/categories/notes/ class=category-list-link>notes</a><span class=category-list-count>3</span></li><li class=category-list-item><a href=https://example.com/categories/web/ class=category-list-link>web</a><span class=category-list-count>5</span></li><li class=category-list-item><a href=https://example.com/categories/xml/ class=category-list-link>xml</a><span class=category-list-count>1</span></li></ul></div></div><div class=widget><h3 class=widget-title>标签</h3><div class=widget-body><ul class=tag-list><li class=tag-list-item><a href=https://example.com/tags/beego/ class=tag-list-link>beego</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/blog/ class=tag-list-link>blog</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/c++/ class=tag-list-link>c++</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/coolq/ class=tag-list-link>coolq</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/docker/ class=tag-list-link>docker</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/eslint/ class=tag-list-link>eslint</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/fuzzing/ class=tag-list-link>fuzzing</a><span class=tag-list-count>3</span></li><li class=tag-list-item><a href=https://example.com/tags/git/ class=tag-list-link>git</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/golang/ class=tag-list-link>golang</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/java/ class=tag-list-link>java</a><span class=tag-list-count>3</span></li><li class=tag-list-item><a href=https://example.com/tags/javascript/ class=tag-list-link>javascript</a><span class=tag-list-count>3</span></li><li class=tag-list-item><a href=https://example.com/tags/linux/ class=tag-list-link>linux</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/lstm/ class=tag-list-link>lstm</a><span class=tag-list-count>2</span></li><li class=tag-list-item><a href=https://example.com/tags/maven/ class=tag-list-link>maven</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/montage/ class=tag-list-link>montage</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/python/ class=tag-list-link>python</a><span class=tag-list-count>2</span></li><li class=tag-list-item><a href=https://example.com/tags/rnn/ class=tag-list-link>rnn</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/semanticfuzzing/ class=tag-list-link>semanticfuzzing</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/v2ray/ class=tag-list-link>v2ray</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/vim/ class=tag-list-link>vim</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/wordpress/ class=tag-list-link>wordpress</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/xml/ class=tag-list-link>xml</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/zest/ class=tag-list-link>zest</a><span class=tag-list-count>2</span></li><li class=tag-list-item><a href=https://example.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ class=tag-list-link>学习笔记</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/%E7%88%AC%E8%99%AB/ class=tag-list-link>爬虫</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/ class=tag-list-link>科学上网</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ class=tag-list-link>论文阅读</a><span class=tag-list-count>1</span></li></ul></div></div><div class=widget><h3 class=widget-title>最新文章</h3><div class=widget-body><ul class="recent-post-list list-unstyled no-thumbnail"><li><div class=item-inner><p class=item-title><a href=https://example.com/2020/09/%E7%9B%B8%E4%BC%BC%E8%AE%BA%E6%96%87lstm%E6%A8%A1%E5%9E%8B%E9%83%A8%E5%88%86%E5%AD%A6%E4%B9%A0/ class=title>相似论文LSTM模型部分学习</a></p><p class=item-date><time datetime="2020-09-20 22:32:27 +0000 UTC" itemprop=datePublished>2020-09-20</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://example.com/2020/08/lstm%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/ class=title>LSTM入门笔记</a></p><p class=item-date><time datetime="2020-08-24 00:00:00 +0000 UTC" itemprop=datePublished>2020-08-24</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://example.com/2020/06/tinyxml-2%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ class=title>TinyXML-2学习笔记</a></p><p class=item-date><time datetime="2020-06-08 21:44:48 +0000 UTC" itemprop=datePublished>2020-06-08</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://example.com/2020/05/funfuzz%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ class=title>funfuzz学习笔记</a></p><p class=item-date><time datetime="2020-05-28 22:35:08 +0000 UTC" itemprop=datePublished>2020-05-28</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://example.com/2020/05/javascript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ class=title>JavaScript学习笔记</a></p><p class=item-date><time datetime="2020-05-26 12:27:24 +0000 UTC" itemprop=datePublished>2020-05-26</time></p></div></li></ul></div></div></div></aside><aside class="sidebar sidebar-toc collapse" id=collapseToc itemscope itemtype=http://schema.org/WPSideBar><div class=slimContent><h4 class=toc-title>文章目录</h4><nav id=toc class="js-toc toc"></nav></div></aside><main class=main role=main><div class=content><article id=- class="article article-type-" itemscope itemtype=http://schema.org/BlogPosting><div class=article-header><h1 itemprop=name><a class=article-title href=/2020/09/%E7%9B%B8%E4%BC%BC%E8%AE%BA%E6%96%87lstm%E6%A8%A1%E5%9E%8B%E9%83%A8%E5%88%86%E5%AD%A6%E4%B9%A0/>相似论文LSTM模型部分学习</a></h1><div class=article-meta><span class=article-date><i class="icon icon-calendar-check"></i>&nbsp;
+<a href=https://example.com/2020/09/%E7%9B%B8%E4%BC%BC%E8%AE%BA%E6%96%87lstm%E6%A8%A1%E5%9E%8B%E9%83%A8%E5%88%86%E5%AD%A6%E4%B9%A0/ class=article-date><time datetime="2020-09-20 22:32:27 +0000 UTC" itemprop=datePublished>2020-09-20</time></a></span>
+<span class=article-category><i class="icon icon-folder"></i>&nbsp;
+<a class=article-category-link href=/categories/lstm/>LSTM</a></span>
+<span class=article-tag><i class="icon icon-tags"></i>&nbsp;
+<a class=article-tag-link href=/tags/lstm/>LSTM</a>
+<a class=article-tag-link href=/tags/montage/>Montage</a></span>
+<span class="post-wordcount hidden-xs" itemprop=wordCount>字数统计: 2837字</span>
+<span class="post-readcount hidden-xs" itemprop=timeRequired>阅读时长: 6分</span></div></div><div class="article-entry marked-body js-toc-content" itemprop=articleBody><p>学长安排的更新一下Montage模型的学习进度</p><h1 id=大致流程>大致流程</h1><h2 id=准备运行环境>准备运行环境</h2><p>Montage运行需要Linux环境以及CUDA（也就是说需要一张显卡&mldr;）</p><p>而本菜菜之前从来没有用过有独显的电脑，所以学习CUDA以及显卡驱动之间的关系耽误了一些时间，主要遇到的问题的解决思路是：</p><h3 id=更新显卡驱动>更新显卡驱动</h3><p>先查看已有的显卡驱动的版本（上方会有显示，比如服务器原本的版本是330.***），如果足够高那就不用更新了</p><pre><code class=language-bash>nvidia-msi
+</code></pre><p>如果版本较低，需要先卸载掉已有的版本</p><pre><code class=language-bash>sudo apt purge nvidia*
+</code></pre><p>然后可以在 <a href="http://www.nvidia.com/Download/index.aspx?lang=en-us">NVIDIA官网</a> 上查询与显卡型号对应的最新的显卡驱动，然后手动下载安装（<code>wget</code>下来然后<code>sh</code>运行<code>run</code>文件），网上也有通过<code>apt</code>安装的方法，但是我捣鼓了一个小时发现总会有获取不到信息的问题，这个没能解决，参考内容 <a href=https://www.cnblogs.com/lovychen/p/9714405.html>CSDN 更新显卡驱动</a></p><table><thead><tr><th>本次更新的显卡驱动版本信息</th><th></th></tr></thead><tbody><tr><td>Version:</td><td>440.118.02</td></tr><tr><td>Release Date:</td><td>2020.9.30</td></tr><tr><td>Operating System:</td><td>Linux 64-bit</td></tr><tr><td>CUDA Toolkit:</td><td>10.2</td></tr><tr><td>Language:</td><td>English (US)</td></tr><tr><td>File Size:</td><td>137.71 MB</td></tr></tbody></table><table><thead><tr><th>服务器显卡信息</th><th></th></tr></thead><tbody><tr><td>Product Type</td><td>Tesla</td></tr><tr><td>Product Series</td><td>V-Series</td></tr><tr><td>Product</td><td>Tesla V100</td></tr><tr><td>Operating System</td><td>Linux 64-bit</td></tr><tr><td>CUDA Toolkit</td><td>10.2</td></tr></tbody></table><h3 id=下载安装cuda>下载安装<code>CUDA</code></h3><p>接下来内容就比较简单了，从NVIDIA官网下载CUDA-10.2（选择这个版本是因为这个版本能配上最新的pytorch），如何安装都在网页中写了，这里就不复制粘贴了。</p><p><a href="https://developer.nvidia.com/cuda-10.2-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=runfilelocal">https://developer.nvidia.com/cuda-10.2-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=runfilelocal</a></p><p>安装完成后需要重启</p><pre><code class=language-bash>sudo reboot
+</code></pre><h3 id=下载安装pytorch>下载安装<code>PyTorch</code></h3><p>PyTorch官网安装指导 <a href=https://pytorch.org/get-started/locally/>https://pytorch.org/get-started/locally/</a></p><p>Linux系统上，配套CUDA-10.2的安装比较方便</p><pre><code>pip install torch torchvision
+</code></pre><h3 id=检测安装是否成功>检测安装是否成功</h3><p>安装完成后，可以进行以下操作进行检验</p><pre><code class=language-bash>cd /usr/local/cuda-10.2/samples/1_Utilities/deviceQuery
+sudo make
+./deviceQuery
+
+cd ../bandwidthTest/
+sudo make
+./bandwidthTest
+</code></pre><p>如果这两个运行结果都是<code>PASS</code>的话，那就安装成功了，如果不成功，emmm，我也不知道，建议直接Stack Overflow</p><h2 id=载入配置>载入配置</h2><p>配置信息保存在了<code>conf/conf.json</code>文件中，与语言模型相关的属性都在<code>model</code>内容中</p><ul><li><code>bug_dir</code>: 保存发现的bug的文件夹，需要填写绝对路径</li><li><code>data_dir</code>: 保存预处理后的数据，需要填写绝对路径</li><li><code>eng_name</code>: 待测试的 JS 引擎的名字 (&ldquo;chakra&rdquo;, &ldquo;v8&rdquo;, &ldquo;moz&rdquo;, &ldquo;jsc&rdquo;).</li><li><code>eng_path</code>: 保存 JS 引擎的文件夹，需要填绝对路径</li><li><code>max_ins</code>: 生成过程中，新增的 fragment 的数量上限</li><li><code>model_path</code>: 保存学习到的语言模型的文件夹，需要填写绝对路径</li><li><code>batch_size</code>: 训练模型的时候的 batch 大小</li><li><code>emb_size</code>: 将 fragment 嵌入成向量时，嵌入向量的维度</li><li><code>epoch</code>: 训练的最大轮数</li><li><code>gamma</code>: 学习过程中，学习速率需要不断减小，该量为每次减小的倍数</li><li><code>lr</code>: 初始学习速率，即SGD算法中的初始梯度下降速度</li><li><code>momentum</code>: 这里使用的优化器方法为使用Momentum的SGD（一种梯度下降算法），该参数给出了该算法的一个惯性参数，具体解释参见参考资料</li><li><code>split_size</code>: The size of each split. Montage splits each sequence into
+multiple sequences for training efficiency.</li><li><code>weight_decay</code>: 用于减少模型过拟合问题，对神经网络中的新增的权重会有权重衰减，该项也称为L2正则化权重衰减（详细内容可参见参考资料），该参数给出的是L2正则化中的正则化系数</li><li><code>num_gpu</code>: 用于该项目的GPU的个数</li><li><code>num_proc</code>: 用于该项目的CPU的个数</li><li><code>opt</code>: 运行 JS 引擎的其他指令内容</li><li><code>seed_dir</code>: 用于保存 JS 种子文件的文件夹，需要填写绝对路径</li><li><code>timeout</code>: 编译器编译运行 JS 代码的时间上限，如果超过则视为编译失败</li><li><code>top_k</code>: 对应论文中的k_suggestions，即每次编译时提供的最可能的代码片段的数量</li></ul><h2 id=载入数据与预处理>载入数据与预处理</h2><p>从第一部分处理好的数据中载入数据，并进行数据的预处理。其实预处理也没啥内容了，毕竟真正的预处理内容已经在第一部分做过了。</p><p>主要执行这些功能的函数是<code>/src/train.py</code>中的：</p><ul><li>load_data(self)<ul><li>将第一阶段生成的已经序列化的数据反序列化得到信息</li><li>并将数据集的属性信息记录在<code>ModelTrainer</code>类的内部变量中</li><li>最后将纯粹的数据集信息按照1:9的比例划分测试集与数据集</li></ul></li><li>process_data(self, train, test)<ul><li>先分别将训练集与测试集转换为data（见函数arr2data）<ul><li>这部分有一个没有搞明白的，如下图<img src=https://raw.githubusercontent.com/Uniqsy/PicBed/master/Montage%E6%BA%90%E7%A0%81arr2data%E7%89%87%E6%AE%B5%E9%97%AE%E9%A2%98.png alt=image-20201005211103847></li></ul></li><li>再将data信息按照<code>conf.json</code>文件中的配置信息<code>_batch_size</code>截取成合适的batch</li><li>将总inputs以及总outputs中，按照batch_size进行分割得到batches</li><li>即一个batch中batch_size个fragment的序列</li></ul></li></ul><h1 id=模型>模型</h1><p><code>/src/train.py</code>中的主要内容</p><pre><code class=language-python>def init_model(self):
+    self.print_config()
+
+    type_mask = self.build_type_mask()
+    # 交叉熵评定函数，对每个数据都计算交叉熵
+    loss = CrossEntropyLoss(reduction='none')
+    # 语言模型的字典大小
+    vocab_size = len(self._oov_frag_list)
+    # 每个GPU所需要计算的batch数量
+    batch_per_gpu = int(self._emb_size / self._num_gpu)
+    # 初始化训练模型
+    model = LSTM(vocab_size, self._emb_size,
+                 type_mask, loss, batch_per_gpu)
+    # 实现从CPU到GPU的内存信息转移
+    model.cuda()
+
+    # 使用SGD(一种梯度下降算法变种)对模型进行优化
+    # 给出初始梯度下降步长lr，以及初始惯性系数mometum，以及权重衰减系数
+    optimizer = SGD(model.parameters(),
+                    lr=self._lr,
+                    momentum=self._momentum,
+                    weight_decay=self._weight_decay)
+    # 按照指数衰减调整学习率，调整公式为lr = lr * gamma ** epoch
+    scheduler = ExponentialLR(optimizer,
+                              gamma=self._gamma)
+
+    return model, optimizer, scheduler
+</code></pre><p>该函数主要功能有：</p><ul><li>定义交叉熵损失函数</li><li>确定语言模型的字典大小</li><li>初始化训练模型（根据配置信息与数据信息）</li><li>设定模型的优化器以及学习速率调整器</li></ul><h2 id=分层内容>分层内容</h2><p>关于模型的主要代码</p><pre><code class=language-python>def __init__(self, vocab_size, embedding_dim,
+             type_mask, loss_function, batch_per_gpu):
+    super(LSTM, self).__init__()
+    # 输入层
+    self.embeddings = nn.Embedding(vocab_size, embedding_dim)
+
+    # 隐藏层
+    self.lstm = nn.LSTM(input_size=embedding_dim,
+                        hidden_size=embedding_dim)
+
+    # 输出层
+    self.out_dim = embedding_dim * 2 + 1
+    # 最后一层是线性回归函数
+    self.fc = nn.Linear(self.out_dim, vocab_size)
+
+    # 语言模型词典规模
+    self.vocab_size = vocab_size
+    self.type_mask = type_mask
+    # softmax仅对结果tensor的第1维使用（维度从0开始计算）
+    # 其他信息均为从train.py转移到model.py的参数信息
+    self.softmax = nn.Softmax(dim=1)
+    self.loss_function = loss_function
+    self.embedding_dim = embedding_dim
+    self.batch_per_gpu = batch_per_gpu
+</code></pre><p>依旧是导入数据以及配置信息</p><h2 id=训练模型>训练模型</h2><p>以下为本次一轮epoch中的训练函数，其中包括了对数据的pad、投入模型进行训练以及统计准确度与损失</p><pre><code class=language-python>def run_epoch(self, model, batches, epoch,
+              optimizer=None, scheduler=None, mode=None):
+    # 将上一轮的训练信息清零
+    total_cross_entropy = 0.0
+    total_diff = 0.0
+    total_acc = 0.0
+    num_val = 0
+    is_train = (optimizer != None)
+    if is_train:
+        # 进度条
+        batch_iter = tqdm(batches)
+        model.train()
+    else:
+        batch_iter = batches
+        model.eval()
+
+    # 对一组batches中的每一个batch进行pad然后投入训练
+    for batch in batch_iter:
+        # 对batch中的所有信息进行pad
+        padded_batch = pad_input(batch)
+        # 将pad后的input/pfrag/type/output信息，切分成chunk
+        (input_frag_chunks,
+         pfrag_chunks, type_chunks,
+         output_chunks) = map(self.split_batch, padded_batch[:4])
+        # 等到后面用完再切分
+        seq_len_chunks = padded_batch[4]
+        # num_val统计目前已经训练过多少个fragment
+        num_val += sum(seq_len_chunks)
+
+        hidden = None
+        seq_len_chunks = self.split_length(seq_len_chunks)
+        data_chunks = zip(input_frag_chunks,
+                          pfrag_chunks, output_chunks,
+                          seq_len_chunks, type_chunks)
+
+        for data_chunk in data_chunks:
+            # Zero out grads
+            # 清除上一轮训练的梯度信息
+            model.zero_grad()
+            # 将需要训练的数据转换为张量tensor
+            (input_frag_chunk,
+             pfrag_chunk, output_chunk,
+             seq_len_chunk) = map(data2tensor, data_chunk[:4])
+            type_chunk = data2tensor(data_chunk[4],
+                                     tensor_type='Float')
+
+            # Forward pass
+            # 开始LSTM模型的向前传播，这里调用的是model中LSTM类下的forward函数
+            res = model(input_frag_chunk,
+                        pfrag_chunk, type_chunk,
+                        hidden, output_chunk, seq_len_chunk)
+
+            # 计算本次训练的损失值
+            hidden, pred, cross_entropy_loss, top_k_loss = res
+            hidden = repackage_hidden(hidden)
+            if is_train:
+                # 反向传播修正
+                loss = top_k_loss + cross_entropy_loss
+                self.backward_pass(loss, optimizer)
+            # 总偏差、交叉熵以及准确度
+            total_diff += float(torch.sum(top_k_loss))
+            total_cross_entropy += float(torch.sum(cross_entropy_loss))
+            total_acc += float(torch.sum(pred))
+
+    if is_train:
+        # 修改学习步长
+        scheduler.step()
+
+    total_loss = (total_diff + total_cross_entropy) / num_val
+    pplx = np.exp(total_cross_entropy / num_val)
+    acc = total_acc / num_val
+    total_diff = total_diff / num_val
+
+    # 输出本轮训练的结果信息
+    self.print_metrics(mode, epoch,
+                       total_loss, pplx, total_diff, acc)
+    return pplx
+</code></pre><h1 id=参考资料>参考资料</h1><h2 id=机器学习算法>机器学习算法</h2><p><a href=https://www.cnblogs.com/guoyaohua/p/8542554.html>CSDN 机器学习优化器算法Optimizer详解</a></p><p><a href=https://www.zhihu.com/question/305508138>知乎 mask矩阵在深度学习中有哪些应用场景？</a></p><p><a href=https://www.jianshu.com/p/8f5bd75d92e3>简书 SGD+Mometum中的weight decay</a></p><p><a href=https://blog.csdn.net/program_developer/article/details/80867468>CSDN 权重衰减（weight decay）与学习率衰减（learning rate decay）</a></p><h2 id=机器学习工具>机器学习工具</h2><h3 id=python>Python</h3><p><a href=https://www.runoob.com/python/python-func-zip.html>Python zip() 函数</a></p><p><a href=https://docs.python.org/zh-cn/3/library/pickle.html>Python pickle 对象序列化</a></p><h3 id=pytorch>PyTorch</h3><p><a href=https://blog.csdn.net/goodxin_ie/article/details/89645358>pytorch小知识点（二）&mdash;&mdash;-CrossEntropyLoss（reduction参数）</a></p><p><a href=https://pytorch.org/docs/stable/generated/torch.nn.Softmax.html>PyTorch官方文档 关于softmax接口的dim参数内容</a></p><p><a href=https://zhuanlan.zhihu.com/p/59141209>知乎 torch.cat与torch.chunk的使用</a></p><p><a href=https://zhuanlan.zhihu.com/p/79064602>LSTM细节分析理解（pytorch版）</a></p><p><a href=https://stackoverflow.com/questions/44732217/why-do-we-need-to-explicitly-call-zero-grad>StackOverflow 为什么PyTorch中要主动清除上一轮训练的梯度信息</a></p><p><a href=https://www.cnblogs.com/sbj123456789/p/9834018.html>Pytorch中的RNN之pack_padded_sequence()和pad_packed_sequence()</a></p></div><div class=article-footer><blockquote class=mt-2x><ul class="post-copyright list-unstyled"><li class="post-copyright-link hidden-xs"><strong>本文链接:</strong>
+<a href=https://example.com/2020/09/%E7%9B%B8%E4%BC%BC%E8%AE%BA%E6%96%87lstm%E6%A8%A1%E5%9E%8B%E9%83%A8%E5%88%86%E5%AD%A6%E4%B9%A0/ title=相似论文LSTM模型部分学习 target=_blank rel=external>https://example.com/2020/09/%E7%9B%B8%E4%BC%BC%E8%AE%BA%E6%96%87lstm%E6%A8%A1%E5%9E%8B%E9%83%A8%E5%88%86%E5%AD%A6%E4%B9%A0/</a></li><li class=post-copyright-license><strong>License:</strong>
+<a href=http://creativecommons.org/licenses/by/4.0/deed.zh target=_blank rel=external>CC BY 4.0 CN</a></li></ul></blockquote><div class="panel panel-default panel-badger"><div class=panel-body><figure class=media><div class=media-left><a href=https://github.com/qeryu target=_blank class="img-burn thumb-sm visible-lg"><img src=https://example.com/avatar.png class="img-rounded w-full" alt></a></div><div class=media-body><h3 class=media-heading><a href=https://github.com/qeryu target=_blank><span class=text-dark>Qeryu</span><small class=ml-1x>author title</small></a></h3><div>Good Good Study, Day Day Up~</div></div></figure></div></div></div></article></div><nav class="bar bar-footer clearfix" data-stick-bottom><div class=bar-inner><ul class="pager pull-left"><li class=prev><a href=https://example.com/2020/08/lstm%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/ title=LSTM入门笔记><i class="icon icon-angle-left" aria-hidden=true></i><span>&nbsp;&nbsp;下一篇</span></a></li><li class=toggle-toc><a class="toggle-btn collapsed" data-toggle=collapse href=#collapseToc aria-expanded=false title=文章目录 role=button><span>[&nbsp;</span><span>文章目录</span>
+<i class="text-collapsed icon icon-anchor"></i>
+<i class="text-in icon icon-close"></i>
+<span>]</span></a></li></ul><div class=bar-right><div class=share-component data-sites=weibo,qq,wechat,facebook,twitter data-mobile-sites=weibo,qq,qzone></div></div></div></nav></main><footer class=footer itemscope itemtype=http://schema.org/WPFooter><ul class=social-links><li><a href=https://github.com/qeryu target=_blank title=github data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li><li><a href=https://example.com/index.xml target=_blank title=rss data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li></ul><div class=copyright>&copy;2017 -
+2021<div class=publishby>Theme by <a href=https://github.com/xiaoheiAh target=_blank>xiaoheiAh </a>base on<a href=https://github.com/xiaoheiAh/hugo-theme-pure target=_blank> pure</a>.</div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><script type=text/x-mathjax-config>
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script><script src=https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js></script><script>window.jQuery||document.write('<script src="js/jquery.min.js"><\/script>')</script><script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js></script><script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js defer></script><script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js defer></script><script>hljs.configure({tabReplace:'    ',classPrefix:''}),hljs.initHighlightingOnLoad()</script><script src=https://example.com/js/application.min.a94ab19cb63a95c8d7fbd7b85cab3ddeea8c369bdf75b9cab6708787ead123af.js></script><script src=https://example.com/js/plugin.min.19c5bcb2fb0789ab4f2b7834e5ceb5e92635645605bab902c1024b25f1502364.js></script><script>(function(a){var b={TRANSLATION:{POSTS:'文章',PAGES:'页面',CATEGORIES:'分类',TAGS:'标签',UNTITLED:'(未命名)'},ROOT_URL:'https://example.com/',CONTENT_URL:'https://example.com//searchindex.json '};a.INSIGHT_CONFIG=b})(window)</script><script type=text/javascript src=https://example.com/js/insight.min.4a2d52de4bfff73e0c688404fe3d17c9a3ae12d9888e1e1ac9c690e4890de2ded50fe55f2b819c2ba55435a76f396f3ea6805765f0b0af5635cdf74ea459eab0.js defer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js></script><script>tocbot.init({tocSelector:'.js-toc',contentSelector:'.js-toc-content',headingSelector:'h1, h2, h3',hasInnerContainers:!0})</script></body></html>

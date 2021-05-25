@@ -1,0 +1,630 @@
+<!doctype html><html lang=zh><head><title>论文给出例子实现中遇到问题 - 胡思乱想集散中心</title><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui"><meta name=renderer content="webkit"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="black"><meta name=format-detection content="telephone=no,email=no,adress=no"><meta name=theme-color content="#000000"><meta http-equiv=window-target content="_top"><meta name=description content="虽然论文已经写得挺明白的了（老师学长如是说道），但是本垃圾还是看得五步一百度，十步一谷歌&amp;hellip;
+菜死了，理解速度还跟不上，有时候一段文字需要查好几个小时才看明白&amp;hellip;
+"><meta name=generator content="Hugo 0.83.1 with theme pure"><title>论文给出例子实现中遇到问题 - 胡思乱想集散中心</title><link rel=stylesheet href=https://example.com/css/style.min.084a5eb24fb0cf9d5aade7246f19ba0c820cf904996a28ffe88039427693ac68.css><link rel=stylesheet href=https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css async><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css async><meta property="og:title" content="论文给出例子实现中遇到问题"><meta property="og:description" content="虽然论文已经写得挺明白的了（老师学长如是说道），但是本垃圾还是看得五步一百度，十步一谷歌&mldr;
+菜死了，理解速度还跟不上，有时候一段文字需要查好几个小时才看明白&mldr;"><meta property="og:type" content="article"><meta property="og:url" content="https://example.com/2020/03/%E8%AE%BA%E6%96%87%E7%BB%99%E5%87%BA%E4%BE%8B%E5%AD%90%E5%AE%9E%E7%8E%B0%E4%B8%AD%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-03-31T17:43:57+00:00"><meta property="article:modified_time" content="2020-03-31T17:43:57+00:00"><meta itemprop=name content="论文给出例子实现中遇到问题"><meta itemprop=description content="虽然论文已经写得挺明白的了（老师学长如是说道），但是本垃圾还是看得五步一百度，十步一谷歌&mldr;
+菜死了，理解速度还跟不上，有时候一段文字需要查好几个小时才看明白&mldr;"><meta itemprop=datePublished content="2020-03-31T17:43:57+00:00"><meta itemprop=dateModified content="2020-03-31T17:43:57+00:00"><meta itemprop=wordCount content="5229"><meta itemprop=keywords content="Fuzzing,Zest,"><meta name=twitter:card content="summary"><meta name=twitter:title content="论文给出例子实现中遇到问题"><meta name=twitter:description content="虽然论文已经写得挺明白的了（老师学长如是说道），但是本垃圾还是看得五步一百度，十步一谷歌&mldr;
+菜死了，理解速度还跟不上，有时候一段文字需要查好几个小时才看明白&mldr;"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body class="main-center theme-black" itemscope itemtype=http://schema.org/WebPage><header class=header itemscope itemtype=http://schema.org/WPHeader><div class=slimContent><div class=navbar-header><div class="profile-block text-center"><a id=avatar href=https://github.com/qeryu target=_blank><img class="img-circle img-rotate" src=https://example.com/avatar.png width=200 height=200></a><h2 id=name class="hidden-xs hidden-sm">Qeryu</h2><h3 id=title class="hidden-xs hidden-sm hidden-md">author title</h3><small id=location class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Wuhan, China</small></div><div class=search id=search-form-wrap><form class="search-form sidebar-form"><div class=input-group><input type=text class="search-form-input form-control" placeholder=搜索>
+<span class=input-group-btn><button type=submit class="search-form-submit btn btn-flat" onclick=return!1><i class="icon icon-search"></i></button></span></div><div class=ins-search><div class=ins-search-mask></div><div class=ins-search-container><div class=ins-input-wrapper><input type=text class=ins-search-input placeholder=想要查找什么... x-webkit-speech>
+<button type=button class="close ins-close ins-selectable" data-dismiss=modal aria-label=Close><span aria-hidden=true>×</span></button></div><div class=ins-section-wrapper><div class=ins-section-container></div></div></div></div></form></div><button class="navbar-toggle collapsed" type=button data-toggle=collapse data-target=#main-navbar aria-controls=main-navbar aria-expanded=false>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button></div><nav id=main-navbar class="collapse navbar-collapse" itemscope itemtype=http://schema.org/SiteNavigationElement role=navigation><ul class="nav navbar-nav main-nav"><li class="menu-item menu-item-home"><a href=/><i class="icon icon-home-fill"></i>
+<span class=menu-title>Home</span></a></li><li class="menu-item menu-item-archives"><a href=/posts/><i class="icon icon-archives-fill"></i>
+<span class=menu-title>Archives</span></a></li><li class="menu-item menu-item-categories"><a href=/categories/><i class="icon icon-folder"></i>
+<span class=menu-title>Categories</span></a></li><li class="menu-item menu-item-tags"><a href=/tags/><i class="icon icon-tags"></i>
+<span class=menu-title>Tags</span></a></li><li class="menu-item menu-item-about"><a href=/about/><i class="icon icon-cup-fill"></i>
+<span class=menu-title>About</span></a></li></ul></nav></div></header><aside class=sidebar itemscope itemtype=http://schema.org/WPSideBar><div class=slimContent><div class=widget><h3 class=widget-title>公告</h3><div class=widget-body><div id=board><div class=content><p>enjoy~</p></div></div></div></div><div class=widget><h3 class=widget-title>标签</h3><div id=tag-cloud-list class=widget-body><a href=https://example.com/tags/beego/ class=tag-list-link rel=1>beego<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/blog/ class=tag-list-link rel=1>blog<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/c++/ class=tag-list-link rel=1>c++<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/coolq/ class=tag-list-link rel=1>coolq<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/docker/ class=tag-list-link rel=1>docker<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/eslint/ class=tag-list-link rel=1>eslint<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/fuzzing/ class=tag-list-link rel=3>fuzzing<span class=tag-list-count>3</span></a>
+<a href=https://example.com/tags/git/ class=tag-list-link rel=1>git<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/golang/ class=tag-list-link rel=1>golang<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/java/ class=tag-list-link rel=3>java<span class=tag-list-count>3</span></a>
+<a href=https://example.com/tags/javascript/ class=tag-list-link rel=3>javascript<span class=tag-list-count>3</span></a>
+<a href=https://example.com/tags/linux/ class=tag-list-link rel=1>linux<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/lstm/ class=tag-list-link rel=2>lstm<span class=tag-list-count>2</span></a>
+<a href=https://example.com/tags/maven/ class=tag-list-link rel=1>maven<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/montage/ class=tag-list-link rel=1>montage<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/python/ class=tag-list-link rel=2>python<span class=tag-list-count>2</span></a>
+<a href=https://example.com/tags/rnn/ class=tag-list-link rel=1>rnn<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/semanticfuzzing/ class=tag-list-link rel=1>semanticfuzzing<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/v2ray/ class=tag-list-link rel=1>v2ray<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/vim/ class=tag-list-link rel=1>vim<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/wordpress/ class=tag-list-link rel=1>wordpress<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/xml/ class=tag-list-link rel=1>xml<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/zest/ class=tag-list-link rel=2>zest<span class=tag-list-count>2</span></a>
+<a href=https://example.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ class=tag-list-link rel=1>学习笔记<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/%E7%88%AC%E8%99%AB/ class=tag-list-link rel=1>爬虫<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/ class=tag-list-link rel=1>科学上网<span class=tag-list-count>1</span></a>
+<a href=https://example.com/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ class=tag-list-link rel=1>论文阅读<span class=tag-list-count>1</span></a></div><script>document.onreadystatechange=()=>{document.readyState==='complete'&&tagCloud('#tag-cloud-list a',8,20)};function tagCloud(c,d,e){let b=0,a=0;$(c).each(function(){let c=Number($(this).attr("rel"));b<c&&(b=c),(a>c||a==0)&&(a=c)});let f=(e-d)/(b-a);$(c).each(function(){let b=$(this).attr("rel")-a;$(this).css({"font-size":d+b*f+'px'})})}</script></div><div class=widget><h3 class=widget-title>分类</h3><div class=widget-body><ul class=category-list><li class=category-list-item><a href=https://example.com/categories/cs61a/ class=category-list-link>cs61a</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://example.com/categories/fuzzing/ class=category-list-link>fuzzing</a><span class=category-list-count>3</span></li><li class=category-list-item><a href=https://example.com/categories/javascrip/ class=category-list-link>javascrip</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://example.com/categories/language/ class=category-list-link>language</a><span class=category-list-count>4</span></li><li class=category-list-item><a href=https://example.com/categories/linux/ class=category-list-link>linux</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://example.com/categories/lstm/ class=category-list-link>lstm</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://example.com/categories/machine-learning/ class=category-list-link>machine-learning</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://example.com/categories/notes/ class=category-list-link>notes</a><span class=category-list-count>3</span></li><li class=category-list-item><a href=https://example.com/categories/web/ class=category-list-link>web</a><span class=category-list-count>5</span></li><li class=category-list-item><a href=https://example.com/categories/xml/ class=category-list-link>xml</a><span class=category-list-count>1</span></li></ul></div></div><div class=widget><h3 class=widget-title>标签</h3><div class=widget-body><ul class=tag-list><li class=tag-list-item><a href=https://example.com/tags/beego/ class=tag-list-link>beego</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/blog/ class=tag-list-link>blog</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/c++/ class=tag-list-link>c++</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/coolq/ class=tag-list-link>coolq</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/docker/ class=tag-list-link>docker</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/eslint/ class=tag-list-link>eslint</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/fuzzing/ class=tag-list-link>fuzzing</a><span class=tag-list-count>3</span></li><li class=tag-list-item><a href=https://example.com/tags/git/ class=tag-list-link>git</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/golang/ class=tag-list-link>golang</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/java/ class=tag-list-link>java</a><span class=tag-list-count>3</span></li><li class=tag-list-item><a href=https://example.com/tags/javascript/ class=tag-list-link>javascript</a><span class=tag-list-count>3</span></li><li class=tag-list-item><a href=https://example.com/tags/linux/ class=tag-list-link>linux</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/lstm/ class=tag-list-link>lstm</a><span class=tag-list-count>2</span></li><li class=tag-list-item><a href=https://example.com/tags/maven/ class=tag-list-link>maven</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/montage/ class=tag-list-link>montage</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/python/ class=tag-list-link>python</a><span class=tag-list-count>2</span></li><li class=tag-list-item><a href=https://example.com/tags/rnn/ class=tag-list-link>rnn</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/semanticfuzzing/ class=tag-list-link>semanticfuzzing</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/v2ray/ class=tag-list-link>v2ray</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/vim/ class=tag-list-link>vim</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/wordpress/ class=tag-list-link>wordpress</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/xml/ class=tag-list-link>xml</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/zest/ class=tag-list-link>zest</a><span class=tag-list-count>2</span></li><li class=tag-list-item><a href=https://example.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ class=tag-list-link>学习笔记</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/%E7%88%AC%E8%99%AB/ class=tag-list-link>爬虫</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/ class=tag-list-link>科学上网</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://example.com/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ class=tag-list-link>论文阅读</a><span class=tag-list-count>1</span></li></ul></div></div><div class=widget><h3 class=widget-title>最新文章</h3><div class=widget-body><ul class="recent-post-list list-unstyled no-thumbnail"><li><div class=item-inner><p class=item-title><a href=https://example.com/2020/09/%E7%9B%B8%E4%BC%BC%E8%AE%BA%E6%96%87lstm%E6%A8%A1%E5%9E%8B%E9%83%A8%E5%88%86%E5%AD%A6%E4%B9%A0/ class=title>相似论文LSTM模型部分学习</a></p><p class=item-date><time datetime="2020-09-20 22:32:27 +0000 UTC" itemprop=datePublished>2020-09-20</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://example.com/2020/08/lstm%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/ class=title>LSTM入门笔记</a></p><p class=item-date><time datetime="2020-08-24 00:00:00 +0000 UTC" itemprop=datePublished>2020-08-24</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://example.com/2020/06/tinyxml-2%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ class=title>TinyXML-2学习笔记</a></p><p class=item-date><time datetime="2020-06-08 21:44:48 +0000 UTC" itemprop=datePublished>2020-06-08</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://example.com/2020/05/funfuzz%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ class=title>funfuzz学习笔记</a></p><p class=item-date><time datetime="2020-05-28 22:35:08 +0000 UTC" itemprop=datePublished>2020-05-28</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://example.com/2020/05/javascript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ class=title>JavaScript学习笔记</a></p><p class=item-date><time datetime="2020-05-26 12:27:24 +0000 UTC" itemprop=datePublished>2020-05-26</time></p></div></li></ul></div></div></div></aside><aside class="sidebar sidebar-toc collapse" id=collapseToc itemscope itemtype=http://schema.org/WPSideBar><div class=slimContent><h4 class=toc-title>文章目录</h4><nav id=toc class="js-toc toc"></nav></div></aside><main class=main role=main><div class=content><article id=- class="article article-type-" itemscope itemtype=http://schema.org/BlogPosting><div class=article-header><h1 itemprop=name><a class=article-title href=/2020/03/%E8%AE%BA%E6%96%87%E7%BB%99%E5%87%BA%E4%BE%8B%E5%AD%90%E5%AE%9E%E7%8E%B0%E4%B8%AD%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/>论文给出例子实现中遇到问题</a></h1><div class=article-meta><span class=article-date><i class="icon icon-calendar-check"></i>&nbsp;
+<a href=https://example.com/2020/03/%E8%AE%BA%E6%96%87%E7%BB%99%E5%87%BA%E4%BE%8B%E5%AD%90%E5%AE%9E%E7%8E%B0%E4%B8%AD%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/ class=article-date><time datetime="2020-03-31 17:43:57 +0000 UTC" itemprop=datePublished>2020-03-31</time></a></span>
+<span class=article-category><i class="icon icon-folder"></i>&nbsp;
+<a class=article-category-link href=/categories/fuzzing/>Fuzzing</a></span>
+<span class=article-tag><i class="icon icon-tags"></i>&nbsp;
+<a class=article-tag-link href=/tags/fuzzing/>Fuzzing</a>
+<a class=article-tag-link href=/tags/zest/>Zest</a></span>
+<span class="post-wordcount hidden-xs" itemprop=wordCount>字数统计: 5229字</span>
+<span class="post-readcount hidden-xs" itemprop=timeRequired>阅读时长: 11分</span></div></div><div class="article-entry marked-body js-toc-content" itemprop=articleBody><p>虽然论文已经写得挺明白的了（老师学长如是说道），但是本垃圾还是看得五步一百度，十步一谷歌&mldr;</p><p>菜死了，理解速度还跟不上，有时候一段文字需要查好几个小时才看明白&mldr;</p><h1 id=xml格式>XML格式</h1><p>XML格式是一种用语传输以及存储数据的文件格式，特点如下：</p><ul><li>纯文本，使用UTF-8编码</li><li>可嵌套，可以充分表示结构化的数据（可以理解为树状结构）</li></ul><h2 id=固定结构>固定结构</h2><pre><code class=language-xml>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt; 
+&lt;!DOCTYPE note SYSTEM &quot;book.dtd&quot;&gt;
+&lt;book id=&quot;1&quot;&gt;
+    &lt;name&gt;Java核心技术&lt;/name&gt;
+    &lt;author&gt;Cay S. Horstmann&lt;/author&gt;
+    &lt;isbn lang=&quot;CN&quot;&gt;1234567&lt;/isbn&gt;
+    &lt;tags&gt;
+        &lt;tag&gt;Java&lt;/tag&gt;
+        &lt;tag&gt;Network&lt;/tag&gt;
+    &lt;/tags&gt;
+    &lt;pubDate/&gt;
+&lt;/book&gt;
+</code></pre><ul><li>前两行 <code>version</code> <code>encoding</code> <code>dtd</code>（文档定义类型Document Type Definition）都是可以选择的参数</li><li><code>book</code>标签为文档的根节点，一般来说根节点都只有一个</li><li>格式要求完全正确才能被解析，任何没有正确嵌套的标签都会导致错误</li></ul><h2 id=dtd文档>DTD文档</h2><p>上文中的第二行，是把这个xml文件交给了<code>book.dtd</code>文档来验证规则，在DTD文档的内部，可以定义一些xml需要满足的规则，如果不满足就会判定为xml数据结构不符要求。如，可以要求根元素必须是book，还可以要求isbn元素必须有lang元素，甚至可以要求book下的子元素必须含有某些指定元素。</p><h2 id=转义字符>转义字符</h2><p>由于文档格式中大量使用了一些字符，所以&mldr;</p><table><thead><tr><th style=text-align:left>字符</th><th style=text-align:left>表示</th></tr></thead><tbody><tr><td style=text-align:left>&lt;</td><td style=text-align:left>&amp;It;</td></tr><tr><td style=text-align:left>></td><td style=text-align:left>&amp;gt;</td></tr><tr><td style=text-align:left>&</td><td style=text-align:left>&amp;amp;</td></tr><tr><td style=text-align:left>"</td><td style=text-align:left>&amp;quot;</td></tr><tr><td style=text-align:left>'</td><td style=text-align:left>&amp;apos;</td></tr></tbody></table><h2 id=相关拓展>相关拓展</h2><ul><li>DTD和XSD：验证XML结构和数据是否有效；</li><li>Namespace：XML节点和属性的名字空间；</li><li>XSLT：把XML转化为另一种文本；</li><li>XPath：一种XML节点查询语言；</li><li>&mldr;</li></ul><h1 id=dom-api>DOM API</h1><p>DOM将xml文档一次读入，并把内容转换为树状结构放在内存中，在后期调用中十分方便，但是极为消耗内存。对应的也有以流形式读取xml的SAX API，通过一些些奇奇怪怪的方式进行使用（事件回调？）</p><pre><code class=language-java>InputStream input = Main.class.getResourceAsStream(&quot;/book.xml&quot;);
+DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+DocumentBuilder db = dbf.newDocumentBuilder();
+Document doc = db.parse(input);
+</code></pre><p>通过对doc的调用就可以进行读取xml中的数据，调用<code>printNode(doc, 0)</code></p><pre><code class=language-java>void printNode(Node n, int indent) { // 输出xml的内容
+    for (int i = 0; i &lt; indent; i++) { // 打出缩进
+        System.out.print(' ');
+    }
+    switch (n.getNodeType()) {
+    case Node.DOCUMENT_NODE: // Document节点
+        System.out.println(&quot;Document: &quot; + n.getNodeName());
+        break;
+    case Node.ELEMENT_NODE: // 元素节点
+        System.out.println(&quot;Element: &quot; + n.getNodeName());
+        break;
+    case Node.TEXT_NODE: // 文本
+        System.out.println(&quot;Text: &quot; + n.getNodeName() + &quot; = &quot; + n.getNodeValue());
+        break;
+    case Node.ATTRIBUTE_NODE: // 属性
+        System.out.println(&quot;Attr: &quot; + n.getNodeName() + &quot; = &quot; + n.getNodeValue());
+        break;
+    default: // 其他
+        System.out.println(&quot;NodeType: &quot; + n.getNodeType() + &quot;, NodeName: &quot; + n.getNodeName());
+    }
+    for (Node child = n.getFirstChild(); child != null; child = child.getNextSibling()) {
+        printNode(child, indent + 1);
+    }
+}
+</code></pre><h1 id=单元测试-assume-与-assert>单元测试 Assume 与 Assert</h1><h2 id=junit-单元测试>JUnit 单元测试</h2><p>JUnit会吧带有<code>@Test</code>的方法识别为测试方法，测试类一般明明为<code>**Test</code>，测试方法一般命名为<code>test**</code>。常用断言方法如下：</p><ul><li><code>assertTrue()</code>: 期待结果为<code>true</code></li><li><code>assertFalse()</code>: 期待结果为<code>false</code></li><li><code>assertNotNull()</code>: 期待结果为非<code>null</code></li><li><code>assertArrayEquals()</code>: 期待结果为数组并与期望数组每个元素的值均相等</li></ul><p>导入JUnit之后，可以在Eclipse中快速完成单元测试，<a href=https://www.liaoxuefeng.com/wiki/1252599548343744/1304048154181666>具体内容</a></p><h2 id=assume>Assume</h2><p>对方法的参数进行<strong>合法性校验</strong>，如果校验不合格则直接抛异常，而不执行测试，默认的<code>BlockJUnit4ClassRunner</code>及其子类会捕获这个异常并跳过当前测试，如果使用自定义的Runner则无法保证行为，视Runner的实现而定。</p><p>如果有的时候必须规定<strong>具备某个条件才允许测试</strong>，但又不判断为fail,则可以使用：</p><pre><code class=language-java>@Before  
+public void setUp() {  
+	String versionNumber = &quot;7&quot;; //Get it from configuration on runtime  
+	Assume.assumeTrue(Integer.valueOf(versionNumber) == 7);  
+}  
+  
+@Test  
+public void testIfVersioonGreaterThan4() {  
+	System.out.println(&quot;Test executed&quot;);  
+}  
+</code></pre><p>当检查versionNumber不是7的时候，跳过此次测试，并throw一个可被捕获的异常。</p><h1 id=tutorial-1>Tutorial 1</h1><h2 id=预设问题>预设问题</h2><h3 id=闰年判定>闰年判定</h3><p>在400年闰年判定上预设问题。</p><h3 id=时间比较>时间比较</h3><p>没有考虑时区，直接比较了时间。</p><h2 id=生成器>生成器</h2><p>JQF利用<code>junit-quickcheck</code>的框架生成<strong>结构化输入</strong>，为了生成<code>T</code>类型的输入，就必须要有一个<code>Generator&lt;T></code>的拓展类，生成这样的拓展类需要一些生成方法，也就是下文代码中的<code>T_Generator</code>的方法，然后就可以通过拓展类批量生成内容参与测试。</p><pre><code class=language-java>import java.util.GregorianCalendar;
+import java.util.TimeZone;
+
+import com.pholser.junit.quickcheck.generator.GenerationStatus;
+import com.pholser.junit.quickcheck.generator.Generator;
+import com.pholser.junit.quickcheck.random.SourceOfRandomness;
+// 以上三段代码需要后面仔细读一下
+
+import static java.util.GregorianCalendar.*; // 导入GregorianCalendar的静态变量
+
+public class CalendarGenerator extends Generator&lt;GregorianCalendar&gt; {
+    // 继承 GregorianCalendar 的构造方法
+    public CalendarGenerator() {
+        super(GregorianCalendar.class); 
+    }
+
+    // 生成一个随机的时间用于测试
+    @Override
+    public GregorianCalendar generate(SourceOfRandomness random, GenerationStatus __ignore__) {
+        // cal 实例存储随机生成的时间
+        GregorianCalendar cal = new GregorianCalendar();
+        cal.setLenient(true); // 允许了时间的自动跳转，即可以从四月三十一号自动转换为五月一号
+
+        // 随机生成日期
+        cal.set(DAY_OF_MONTH, random.nextInt(31) + 1); 
+        cal.set(MONTH, random.nextInt(12) + 1); 
+        cal.set(YEAR, random.nextInt(cal.getMinimum(YEAR), cal.getMaximum(YEAR)));
+
+        // 随机生成时间
+        if (random.nextBoolean()) {
+            cal.set(HOUR, random.nextInt(24));
+            cal.set(MINUTE, random.nextInt(60));
+            cal.set(SECOND, random.nextInt(60));
+        }
+        
+        // 随机生成时区
+        String[] allTzIds = TimeZone.getAvailableIDs(); // 获取时区列表(e.g. &quot;America/Los_Angeles&quot;)
+        String tzId = random.choose(allTzIds); // 随机抽取一个时区
+        TimeZone tz = TimeZone.getTimeZone(tzId); // 把String时区转换成时区对象
+        cal.setTimeZone(tz); 
+        
+        return cal;
+    }
+}
+</code></pre><h2 id=test代码>Test代码</h2><pre><code class=language-java>import java.util.*;
+import static java.util.GregorianCalendar.*;
+import static org.junit.Assert.*;
+import static org.junit.Assume.*;
+
+// 感觉以下的内容好像都要以后读一读，感觉用起来不明不白的
+import org.junit.runner.RunWith;
+import com.pholser.junit.quickcheck.*;
+import com.pholser.junit.quickcheck.generator.*;
+import edu.berkeley.cs.jqf.fuzz.*;
+
+@RunWith(JQF.class) // 告知JUnit使用JQF来进行测试
+public class CalendarTest {
+
+    @Fuzz // 标记测试用的代码，方便JQF找到，下文FROM标记了测试数据的来源
+    public void testLeapYear(@From(CalendarGenerator.class) GregorianCalendar cal) {
+        // 筛选掉那些不是二月29的时间，这样留下的日期都是闰年了
+        assumeTrue(cal.get(MONTH) == FEBRUARY);
+        assumeTrue(cal.get(DAY_OF_MONTH) == 29);
+        assertTrue(cal.get(YEAR) + &quot; should be a leap year&quot;, CalendarLogic.isLeapYear(cal));
+    }
+
+    @Fuzz
+    public void testCompare(@Size(max=100) List&lt;@From(CalendarGenerator.class) GregorianCalendar&gt; cals) {
+        Collections.sort(cals, CalendarLogic::compare); // 调用有预设问题的逻辑
+
+        // 根据预设好的逻辑，应该是升序排序
+        for (int i = 1; i &lt; cals.size(); i++) {
+            Calendar c1 = cals.get(i-1);
+            Calendar c2 = cals.get(i);
+            assumeFalse(c1.equals(c2)); // 排除掉相等的情况
+            assertTrue(c1 + &quot; should be before &quot; + c2, c1.before(c2));  // 通过正确的方法检验
+        }
+    }
+}
+</code></pre><p>比较迷惑的是文档中在最后一段的话，为什么这个From的标签没有给List而是给了List的元素，我理解的是，元素才是由<code>CalendarGenerator.class</code>生成的，而把这个元素放到List中进行调用的话，在它Generator的父类中就能自动生成一个包含这些生成元素的List，而Size标签就是为了限制这个随机生成的List大小的。</p><h2 id=编译内容与模糊测试及结果>编译内容与模糊测试及结果</h2><h3 id=javac-编译指令参数--cp>Javac 编译指令参数 -cp</h3><p>如果你这个java文件中，引入其他的jar包，需要用到 <code>-cp</code> 参数，全称是<code>classpath</code></p><pre><code class=language-bash>javac -cp .:$(/path/to/jqf/scripts/classpath.sh) CalendarLogic.java CalendarGenerator.java CalendarTest.java
+</code></pre><p>对于<code>.:$(/path/to/jqf/scripts/classpath.sh)</code>解释：</p><ul><li>$(): 执行括号中的内容，然后将执行所得结果填充到该位置</li><li><code>JQF/scripts/classpath.sh</code>是获取当前JQF所依赖的所有JAR包</li><li><code>:</code> 并列当前目录下的和<code>classpath.sh</code>获取的内容</li></ul><h3 id=通过junit和quickcheck进行测试>通过JUnit和QuickCheck进行测试</h3><pre><code class=language-bash>java -cp .:$(/path/to/jqf/scripts/classpath.sh) org.junit.runner.JUnitCore CalendarTest
+</code></pre><p><code>-cp</code>参数的意义同上，但是这次是运行过程中依赖的jar，意义上也许略有不同？</p><p>可能会获得错误消息<code>Assumption is too strong; too many inputs discarded</code>（反正我试了几次没试出来），原因是随机生成的时间落到闰年的二月二十九的概率太小了，可能结束之后都找不到一个能通过<code>Assume</code>的数据&mldr;（好惨）</p><h3 id=命令行开启模糊测试>命令行开启模糊测试</h3><pre><code class=language-bash>/path/to/jqf/bin/jqf-zest -c .:$(/path/to/jqf/scripts/classpath.sh) CalendarTest testLeapYear
+</code></pre><p>这是调用了<code>jqf-zest</code>，-c参数是提供了配置类的路径，配置类还是从<code>classpath.sh</code>中获取。通过<code>testLeapYear</code>方法，测试了<code>Calendartest</code>的内容，命令行看起来比较混乱，以后还是用mvn插件吧&mldr;运行起来之后如下图，加一些注释</p><pre><code class=language-bash>Zest: Validity Fuzzing with Parametric Generators
+-------------------------------------------------
+# 通过通过 testLeapYear 方法，测试了 Calendartest 的内容
+Test name:            CalendarTest#testLeapYear
+# 模糊测试结果的保存路径，路径下既有成功的数据，也有失败的的数据
+Results directory:    /path/to/tutorial/fuzz-results
+# 模糊测试时长，可以在mvn插件中指定测试时长
+Elapsed time:         5s (no time limit)
+# 已经进行德测试数量，即总投入的数据量
+Number of executions: 5,856
+# 总量中有效的数据以及占比，因为那个闰年的条件太苛刻，所以有效比看起来不太高
+Valid inputs:         271 (4.63%)
+Cycles completed:     4
+# 导致错误的输入的数量（可能导致的错误都是同一种类型）
+Unique failures:      1
+# 模糊测试中S集的大小
+Queue size:           3 (3 favored last cycle)
+Current parent input: 0 (favored) {240/240 mutations}
+Execution speed:      1,300/sec now | 1,098/sec overall
+# 覆盖率
+Total coverage:       8 (0.01% of map)
+Valid coverage:       6 (0.01% of map)
+</code></pre><h3 id=命令行查看模糊测试结果>命令行查看模糊测试结果</h3><pre><code class=language-bash>/path/to/jqf/bin/jqf-repro -c .:$(/path/to/jqf/scripts/classpath.sh) CalendarTest testLeapYear 
+</code></pre><p>具体内容的解释和上文一样，不做注解了</p><h1 id=tutorial-2>Tutorial 2</h1><p>上一个Tutorial使用的命令行操作JQF+Zest的工具，这个用了更加简洁的mvn插件。</p><h2 id=依赖以及插件配置通过pomxml>依赖以及插件配置（通过pom.xml）</h2><p>调用插件的话，需要把<strong>测试用的文件</strong>以及<strong>生成器文件</strong>放在一个maven的框架中，并在maven框架的<code>pom.xml</code>中增加插件，具体信息如下。</p><pre><code class=language-xml>&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; 
+  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+  xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;examples&lt;/groupId&gt;
+    &lt;artifactId&gt;zest-tutorial&lt;/artifactId&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+
+    &lt;properties&gt;
+    &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+    &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;
+        &lt;!-- Google Closure: 被检测的文件 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.google.javascript&lt;/groupId&gt;
+            &lt;artifactId&gt;closure-compiler&lt;/artifactId&gt;
+            &lt;version&gt;v20180204&lt;/version&gt;
+            &lt;!-- 使用阶段：test：仅参与测试相关的内容，包括测试的编译和执行 --&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- JQF: @Fuzz标签要用到的依赖 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;edu.berkeley.cs.jqf&lt;/groupId&gt;
+            &lt;artifactId&gt;jqf-fuzz&lt;/artifactId&gt;
+            &lt;!-- 确保安装最新版 https://mvnrepository.com/artifact/edu.berkeley.cs.jqf --&gt;
+            &lt;version&gt;1.1&lt;/version&gt; 
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- JUnit-QuickCheck: 编写生成器要用到的API --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.pholser&lt;/groupId&gt;
+            &lt;artifactId&gt;junit-quickcheck-generators&lt;/artifactId&gt;
+            &lt;version&gt;0.8&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+    &lt;/dependencies&gt;
+
+    &lt;!-- 安装mvn调用jqf-zest的插件 --&gt;
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;edu.berkeley.cs.jqf&lt;/groupId&gt;
+                &lt;artifactId&gt;jqf-maven-plugin&lt;/artifactId&gt;
+                &lt;!-- 确保安装最新版 https://mvnrepository.com/artifact/edu.berkeley.cs.jqf --&gt;
+                &lt;version&gt;1.1&lt;/version&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+&lt;/project&gt;
+</code></pre><h2 id=test代码-1>Test代码</h2><p>内容保存到<code>src/test/java/examples/CompilerTest.java</code>，即maven的资源文件下，用于test的、java语言的、examples包。</p><pre><code class=language-java>package examples;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+// 以下这些应该时被测试的内容，需要调用这些内容然后检查是否正确
+import com.google.javascript.jscomp.CompilationLevel;
+import com.google.javascript.jscomp.Compiler;
+import com.google.javascript.jscomp.CompilerOptions;
+import com.google.javascript.jscomp.Result;
+import com.google.javascript.jscomp.SourceFile;
+// 以下这些应该是和@出的标签配套的内容（猜测）
+import com.pholser.junit.quickcheck.From;
+import edu.berkeley.cs.jqf.fuzz.Fuzz;
+import edu.berkeley.cs.jqf.fuzz.JQF;
+import org.junit.Before;
+import org.junit.runner.RunWith;
+
+import static org.junit.Assume.*;
+
+@RunWith(JQF.class)
+public class CompilerTest {
+    static {
+        // 禁用所有因为Closure运行导致的日志读写操作，这样可以加快测试速度
+        java.util.logging.LogManager.getLogManager().reset();
+    }
+
+    // 用到的的编译器
+    private Compiler compiler = new Compiler(new PrintStream(new ByteArrayOutputStream(), false));
+    // 可供修改的默认编译选项
+    private CompilerOptions options = new CompilerOptions();
+    // 这个是啥？？？
+    private SourceFile externs = SourceFile.fromCode(&quot;externs&quot;, &quot;&quot;);
+
+    @Before // 以下方法为在测试开始前运行一次的内容
+    public void initCompiler() {
+        // 禁用多线程以及过程信息打印
+        compiler.disableThreads();
+        options.setPrintConfig(false);
+        // 开启所有的安全优化（为啥？？？）
+        CompilationLevel.SIMPLE_OPTIMIZATIONS.setOptionsForCompilationLevel(options);
+    }
+
+    // 进行编译并返回编译结果（期待在这个过程中发现未知的错误）
+    private Result compile(SourceFile input) {
+        Result result = compiler.compile(externs, input, options);
+        assumeTrue(result.success); // 这里看不懂了，为啥要有这个assume？？？
+        return result;
+    }
+
+    // 调用已有的默认的Generator，生成随机的字符串来进行测试（未结构化）
+    @Fuzz
+    public void testWithString(String code) {
+        SourceFile input = SourceFile.fromCode(&quot;input&quot;, code);
+        // 下句并未使用断言，想获取在编译过程中出乎意料的报错，而非我们可以预想到的问题
+        compile(input);
+    }
+}
+</code></pre><h2 id=生成器代码>生成器代码</h2><pre><code class=language-java>package examples;
+
+import java.util.*;
+import java.util.function.*;
+
+import com.pholser.junit.quickcheck.generator.GenerationStatus;
+import com.pholser.junit.quickcheck.generator.Generator;
+import com.pholser.junit.quickcheck.random.SourceOfRandomness;
+
+/* Generates random strings that are syntactically valid JavaScript */
+public class JavaScriptCodeGenerator extends Generator&lt;String&gt; {
+    public JavaScriptCodeGenerator() {
+        super(String.class); // Register type of generated object
+    }
+
+    private GenerationStatus status; // saved state object when generating
+    private static final int MAX_IDENTIFIERS = 100;
+    private static final int MAX_EXPRESSION_DEPTH = 10;
+    private static final int MAX_STATEMENT_DEPTH = 6;
+    private static Set&lt;String&gt; identifiers; // Stores generated IDs, to promote re-use
+    private int statementDepth; // Keeps track of how deep the AST is at any point
+    private int expressionDepth; // Keeps track of how nested an expression is at any point
+
+    private static final String[] UNARY_TOKENS = {
+            &quot;!&quot;, &quot;++&quot;, &quot;--&quot;, &quot;~&quot;,
+            &quot;delete&quot;, &quot;new&quot;, &quot;typeof&quot;
+    };
+
+    private static final String[] BINARY_TOKENS = {
+            &quot;!=&quot;, &quot;!==&quot;, &quot;%&quot;, &quot;%=&quot;, &quot;&amp;&quot;, &quot;&amp;&amp;&quot;, &quot;&amp;=&quot;, &quot;*&quot;, &quot;*=&quot;, &quot;+&quot;, &quot;+=&quot;, &quot;,&quot;,
+            &quot;-&quot;, &quot;-=&quot;, &quot;/&quot;, &quot;/=&quot;, &quot;&lt;&quot;, &quot;&lt;&lt;&quot;, &quot;&gt;&gt;=&quot;, &quot;&lt;=&quot;, &quot;=&quot;, &quot;==&quot;, &quot;===&quot;,
+            &quot;&gt;&quot;, &quot;&gt;=&quot;, &quot;&gt;&gt;&quot;, &quot;&gt;&gt;=&quot;, &quot;&gt;&gt;&gt;&quot;, &quot;&gt;&gt;&gt;=&quot;, &quot;^&quot;, &quot;^=&quot;, &quot;|&quot;, &quot;|=&quot;, &quot;||&quot;,
+            &quot;in&quot;, &quot;instanceof&quot;
+    };
+
+    /** Main entry point. Called once per test case. Returns a random JS program. */
+    @Override
+    public String generate(SourceOfRandomness random, GenerationStatus status) {
+        this.status = status; // we save this so that we can pass it on to other generators
+        this.identifiers = new HashSet&lt;&gt;();
+        this.statementDepth = 0;
+        this.expressionDepth = 0;
+        return generateStatement(random).toString();
+    }
+
+    /** Utility method for generating a random list of items (e.g. statements, arguments, attributes) */
+    private static List&lt;String&gt; generateItems(Function&lt;SourceOfRandomness, String&gt; genMethod, SourceOfRandomness random,
+                                             int mean) {
+        int len = random.nextInt(mean*2); // Generate random number in [0, mean*2) 
+        List&lt;String&gt; items = new ArrayList&lt;&gt;(len);
+        for (int i = 0; i &lt; len; i++) {
+            items.add(genMethod.apply(random));
+        }
+        return items;
+    }
+
+    /** Generates a random JavaScript statement */
+    private String generateStatement(SourceOfRandomness random) {
+        statementDepth++;
+        String result;
+        // If depth is too high, then generate only simple statements to prevent infinite recursion
+        // If not, generate simple statements after the flip of a coin
+        if (statementDepth &gt;= MAX_STATEMENT_DEPTH || random.nextBoolean()) {
+            // Choose a random private method from this class, and then call it with `random`
+            result = random.choose(Arrays.&lt;Function&lt;SourceOfRandomness, String&gt;&gt;asList(
+                    this::generateExpressionStatement,
+                    this::generateBreakNode,
+                    this::generateContinueNode,
+                    this::generateReturnNode,
+                    this::generateThrowNode,
+                    this::generateVarNode,
+                    this::generateEmptyNode
+            )).apply(random);
+        } else {
+            // If depth is low and we won the flip, then generate compound statements
+            // (that is, statements that contain other statements)
+            result = random.choose(Arrays.&lt;Function&lt;SourceOfRandomness, String&gt;&gt;asList(
+                    this::generateIfNode,
+                    this::generateForNode,
+                    this::generateWhileNode,
+                    this::generateNamedFunctionNode,
+                    this::generateSwitchNode,
+                    this::generateTryNode,
+                    this::generateBlock
+            )).apply(random);
+        }
+        statementDepth--; // Reset statement depth when going up the recursive tree
+        return result;
+    }
+
+    /** Generates a random JavaScript expression using recursive calls */
+    private String generateExpression(SourceOfRandomness random) {
+        expressionDepth++;
+        String result;
+        // Choose terminal if nesting depth is too high or based on a random flip of a coin
+        if (expressionDepth &gt;= MAX_EXPRESSION_DEPTH || random.nextBoolean()) {
+            result = random.choose(Arrays.&lt;Function&lt;SourceOfRandomness, String&gt;&gt;asList(
+                    this::generateLiteralNode,
+                    this::generateIdentNode
+            )).apply(random);
+        } else {
+            // Otherwise, choose a non-terminal generating function
+            result = random.choose(Arrays.&lt;Function&lt;SourceOfRandomness, String&gt;&gt;asList(
+                    this::generateBinaryNode,
+                    this::generateUnaryNode,
+                    this::generateTernaryNode,
+                    this::generateCallNode,
+                    this::generateFunctionNode,
+                    this::generatePropertyNode,
+                    this::generateIndexNode,
+                    this::generateArrowFunctionNode
+            )).apply(random);
+        }
+        expressionDepth--;
+        return &quot;(&quot; + result + &quot;)&quot;;
+    }
+
+    /** Generates a random binary expression (e.g. A op B) */
+    private String generateBinaryNode(SourceOfRandomness random) {
+        String token = random.choose(BINARY_TOKENS); // Choose a binary operator at random
+        String lhs = generateExpression(random);
+        String rhs = generateExpression(random);
+
+        return lhs + &quot; &quot; + token + &quot; &quot; + rhs;
+    }
+
+    /** Generates a block of statements delimited by ';' and enclosed by '{' '}' */
+    private String generateBlock(SourceOfRandomness random) {
+        return &quot;{ &quot; + String.join(&quot;;&quot;, generateItems(this::generateStatement, random, 4)) + &quot; }&quot;;
+    }
+
+    private String generateBreakNode(SourceOfRandomness random) {
+        return &quot;break&quot;;
+    }
+
+    private String generateCallNode(SourceOfRandomness random) {
+        String func = generateExpression(random);
+        String args = String.join(&quot;,&quot;, generateItems(this::generateExpression, random, 3));
+
+        String call = func + &quot;(&quot; + args + &quot;)&quot;;
+        if (random.nextBoolean()) {
+            return call;
+        } else {
+            return &quot;new &quot; + call;
+        }
+    }
+
+    private String generateCaseNode(SourceOfRandomness random) {
+        return &quot;case &quot; + generateExpression(random) + &quot;: &quot; +  generateBlock(random);
+    }
+
+    private String generateCatchNode(SourceOfRandomness random) {
+        return &quot;catch (&quot; + generateIdentNode(random) + &quot;) &quot; +
+                generateBlock(random);
+    }
+
+    private String generateContinueNode(SourceOfRandomness random) {
+        return &quot;continue&quot;;
+    }
+
+    private String generateEmptyNode(SourceOfRandomness random) {
+        return &quot;&quot;;
+    }
+
+    private String generateExpressionStatement(SourceOfRandomness random) {
+        return generateExpression(random);
+    }
+
+    private String generateForNode(SourceOfRandomness random) {
+        String s = &quot;for(&quot;;
+        if (random.nextBoolean()) {
+            s += generateExpression(random);
+        }
+        s += &quot;;&quot;;
+        if (random.nextBoolean()) {
+            s += generateExpression(random);
+        }
+        s += &quot;;&quot;;
+        if (random.nextBoolean()) {
+            s += generateExpression(random);
+        }
+        s += &quot;)&quot;;
+        s += generateBlock(random);
+        return s;
+    }
+
+    private String generateFunctionNode(SourceOfRandomness random) {
+        return &quot;function(&quot; + String.join(&quot;, &quot;, generateItems(this::generateIdentNode, random, 5)) + &quot;)&quot; + generateBlock(random);
+    }
+
+    private String generateNamedFunctionNode(SourceOfRandomness random) {
+        return &quot;function &quot; + generateIdentNode(random) + &quot;(&quot; + String.join(&quot;, &quot;, generateItems(this::generateIdentNode, random, 5)) + &quot;)&quot; + generateBlock(random);
+    }
+
+    private String generateArrowFunctionNode(SourceOfRandomness random) {
+        String params = &quot;(&quot; + String.join(&quot;, &quot;, generateItems(this::generateIdentNode, random, 3)) + &quot;)&quot;;
+        if (random.nextBoolean()) {
+            return params + &quot; =&gt; &quot; + generateBlock(random);
+        } else {
+            return params + &quot; =&gt; &quot; + generateExpression(random);
+        }
+
+    }
+
+    private String generateIdentNode(SourceOfRandomness random) {
+        // Either generate a new identifier or use an existing one
+        String identifier;
+        if (identifiers.isEmpty() || (identifiers.size() &lt; MAX_IDENTIFIERS &amp;&amp; random.nextBoolean())) {
+            identifier = random.nextChar('a', 'z') + &quot;_&quot; + identifiers.size();
+            identifiers.add(identifier);
+        } else {
+            identifier = random.choose(identifiers);
+        }
+
+        return identifier;
+    }
+
+    private String generateIfNode(SourceOfRandomness random) {
+        return &quot;if (&quot; +
+                generateExpression(random) + &quot;) &quot; +
+                generateBlock(random) +
+                (random.nextBoolean() ? generateBlock(random) : &quot;&quot;);
+    }
+
+    private String generateIndexNode(SourceOfRandomness random) {
+        return generateExpression(random) + &quot;[&quot; + generateExpression(random) + &quot;]&quot;;
+    }
+
+    private String generateObjectProperty(SourceOfRandomness random) {
+        return generateIdentNode(random) + &quot;: &quot; + generateExpression(random);
+    }
+
+    private String generateLiteralNode(SourceOfRandomness random) {
+        // If we are not too deeply nested, then it is okay to generate array/object literals
+        if (expressionDepth &lt; MAX_EXPRESSION_DEPTH &amp;&amp; random.nextBoolean()) {
+            if (random.nextBoolean()) {
+                // Array literal
+                return &quot;[&quot; + String.join(&quot;, &quot;, generateItems(this::generateExpression, random, 3)) + &quot;]&quot;;
+            } else {
+                // Object literal
+                return &quot;{&quot; + String.join(&quot;, &quot;, generateItems(this::generateObjectProperty, random, 3)) + &quot;}&quot;;
+
+            }
+        } else {
+            // Otherwise, generate primitive literals
+            return random.choose(Arrays.&lt;Supplier&lt;String&gt;&gt;asList(
+                    () -&gt; String.valueOf(random.nextInt(-10, 1000)), // int literal
+                    () -&gt; String.valueOf(random.nextBoolean()),      // bool literal
+                    () -&gt; generateStringLiteral(random),
+                    () -&gt; &quot;undefined&quot;,
+                    () -&gt; &quot;null&quot;,
+                    () -&gt; &quot;this&quot;
+            )).get();
+        }
+    }
+
+    private String generateStringLiteral(SourceOfRandomness random) {
+        // Generate an arbitrary string using the default string generator, and quote it
+        return '&quot;' + gen().type(String.class).generate(random, status) + '&quot;';
+    }
+
+    private String generatePropertyNode(SourceOfRandomness random) {
+        return generateExpression(random) + &quot;.&quot; + generateIdentNode(random);
+    }
+
+    private String generateReturnNode(SourceOfRandomness random) {
+        return random.nextBoolean() ? &quot;return&quot; : &quot;return &quot; + generateExpression(random);
+    }
+
+    private String generateSwitchNode(SourceOfRandomness random) {
+        return &quot;switch(&quot; + generateExpression(random) + &quot;) {&quot;
+                + String.join(&quot; &quot;, generateItems(this::generateCaseNode, random, 2)) + &quot;}&quot;;
+    }
+
+    private String generateTernaryNode(SourceOfRandomness random) {
+        return generateExpression(random) + &quot; ? &quot; + generateExpression(random) +
+                &quot; : &quot; + generateExpression(random);
+    }
+
+    private String generateThrowNode(SourceOfRandomness random) {
+        return &quot;throw &quot; + generateExpression(random);
+    }
+
+    private String generateTryNode(SourceOfRandomness random) {
+        return &quot;try &quot; + generateBlock(random) + generateCatchNode(random);
+    }
+
+    private String generateUnaryNode(SourceOfRandomness random) {
+        String token = random.choose(UNARY_TOKENS);
+        return token + &quot; &quot; + generateExpression(random);
+    }
+
+    private String generateVarNode(SourceOfRandomness random) {
+        return &quot;var &quot; + generateIdentNode(random);
+    }
+
+    private String generateWhileNode(SourceOfRandomness random) {
+        return &quot;while (&quot; + generateExpression(random) + &quot;)&quot; + generateBlock(random);
+    }
+}
+</code></pre><h1 id=在使用idea阅读代码过程中遇到的问题>在使用IDEA阅读代码过程中遇到的问题</h1><h2 id=cant-find-the-declaration-to-go-to>can&rsquo;t find the declaration to go to</h2><h3 id=问题背景>问题背景</h3><p>在使用IDEA过程中，需要通过<code>Ctrl + click</code>的操作去方便阅读代码的上下文，更快确定父类、库之类的东西。但是在直接导入JQF的过程中发现无法找到，总是返回如题的报错。</p><h3 id=解决过程>解决过程</h3><p>上网搜索发现是IDEA的配置中没有配置好本地已有的maven插件，IDEA中的maven插件与本地的maven插件发生了冲突，在File - New Project Settings 中修改Build - Build Tools - Maven中修改就行，然后清除掉之前已有的问题文件，重新建立依赖关系，就能准确定位了。</p><p>在此过程中，需要注意IDEA的Open和Import是不同的功能，在从外部导入的文件（git下载的，svn下载的，直接拷贝的）建议直接使用Import，而已经在本地Import过的文件如果需要再次打开，则使用Open。</p></div><div class=article-footer><blockquote class=mt-2x><ul class="post-copyright list-unstyled"><li class="post-copyright-link hidden-xs"><strong>本文链接:</strong>
+<a href=https://example.com/2020/03/%E8%AE%BA%E6%96%87%E7%BB%99%E5%87%BA%E4%BE%8B%E5%AD%90%E5%AE%9E%E7%8E%B0%E4%B8%AD%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/ title=论文给出例子实现中遇到问题 target=_blank rel=external>https://example.com/2020/03/%E8%AE%BA%E6%96%87%E7%BB%99%E5%87%BA%E4%BE%8B%E5%AD%90%E5%AE%9E%E7%8E%B0%E4%B8%AD%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/</a></li><li class=post-copyright-license><strong>License:</strong>
+<a href=http://creativecommons.org/licenses/by/4.0/deed.zh target=_blank rel=external>CC BY 4.0 CN</a></li></ul></blockquote><div class="panel panel-default panel-badger"><div class=panel-body><figure class=media><div class=media-left><a href=https://github.com/qeryu target=_blank class="img-burn thumb-sm visible-lg"><img src=https://example.com/avatar.png class="img-rounded w-full" alt></a></div><div class=media-body><h3 class=media-heading><a href=https://github.com/qeryu target=_blank><span class=text-dark>Qeryu</span><small class=ml-1x>author title</small></a></h3><div>Good Good Study, Day Day Up~</div></div></figure></div></div></div></article></div><nav class="bar bar-footer clearfix" data-stick-bottom><div class=bar-inner><ul class="pager pull-left"><li class=prev><a href=https://example.com/2020/03/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0maven/ title=Java学习笔记——Maven><i class="icon icon-angle-left" aria-hidden=true></i><span>&nbsp;&nbsp;下一篇</span></a></li><li class=next><a href=https://example.com/2020/04/beego%E6%A1%86%E6%9E%B6%E4%B8%8B%E7%9A%84coolq%E5%B9%B3%E5%8F%B0qqbotddl%E6%8F%90%E9%86%92%E5%91%98/ title=beego框架下的coolq平台qqbot——DDL提醒员><span>上一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden=true></i></a></li><li class=toggle-toc><a class="toggle-btn collapsed" data-toggle=collapse href=#collapseToc aria-expanded=false title=文章目录 role=button><span>[&nbsp;</span><span>文章目录</span>
+<i class="text-collapsed icon icon-anchor"></i>
+<i class="text-in icon icon-close"></i>
+<span>]</span></a></li></ul><div class=bar-right><div class=share-component data-sites=weibo,qq,wechat,facebook,twitter data-mobile-sites=weibo,qq,qzone></div></div></div></nav></main><footer class=footer itemscope itemtype=http://schema.org/WPFooter><ul class=social-links><li><a href=https://github.com/qeryu target=_blank title=github data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li><li><a href=https://example.com/index.xml target=_blank title=rss data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li></ul><div class=copyright>&copy;2017 -
+2021<div class=publishby>Theme by <a href=https://github.com/xiaoheiAh target=_blank>xiaoheiAh </a>base on<a href=https://github.com/xiaoheiAh/hugo-theme-pure target=_blank> pure</a>.</div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><script type=text/x-mathjax-config>
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script><script src=https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js></script><script>window.jQuery||document.write('<script src="js/jquery.min.js"><\/script>')</script><script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js></script><script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js defer></script><script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js defer></script><script>hljs.configure({tabReplace:'    ',classPrefix:''}),hljs.initHighlightingOnLoad()</script><script src=https://example.com/js/application.min.a94ab19cb63a95c8d7fbd7b85cab3ddeea8c369bdf75b9cab6708787ead123af.js></script><script src=https://example.com/js/plugin.min.19c5bcb2fb0789ab4f2b7834e5ceb5e92635645605bab902c1024b25f1502364.js></script><script>(function(a){var b={TRANSLATION:{POSTS:'文章',PAGES:'页面',CATEGORIES:'分类',TAGS:'标签',UNTITLED:'(未命名)'},ROOT_URL:'https://example.com/',CONTENT_URL:'https://example.com//searchindex.json '};a.INSIGHT_CONFIG=b})(window)</script><script type=text/javascript src=https://example.com/js/insight.min.4a2d52de4bfff73e0c688404fe3d17c9a3ae12d9888e1e1ac9c690e4890de2ded50fe55f2b819c2ba55435a76f396f3ea6805765f0b0af5635cdf74ea459eab0.js defer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js></script><script>tocbot.init({tocSelector:'.js-toc',contentSelector:'.js-toc-content',headingSelector:'h1, h2, h3',hasInnerContainers:!0})</script></body></html>
