@@ -1,18 +1,104 @@
-<!doctype html><html lang=zh><head><title>模糊测试调查综述阅读笔记 - 胡思乱想集散中心</title><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui"><meta name=renderer content="webkit"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="black"><meta name=format-detection content="telephone=no,email=no,adress=no"><meta name=theme-color content="#000000"><meta http-equiv=window-target content="_top"><meta name=description content="arXiv:1812.00140 (cs) The Art, Science, and Engineering of Fuzzing: A Survey的阅读感想与过程中遇到的问题
+<!doctype html><html lang=zh>
+<head>
+<title>
+模糊测试调查综述阅读笔记 - 胡思乱想集散中心
+</title><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui">
+<meta name=renderer content="webkit">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="black">
+<meta name=format-detection content="telephone=no,email=no,adress=no">
+<meta name=theme-color content="#000000">
+<meta http-equiv=window-target content="_top">
+<meta name=description content="arXiv:1812.00140 (cs) The Art, Science, and Engineering of Fuzzing: A Survey的阅读感想与过程中遇到的问题
 我太菜了，一篇论文读了两个星期，真的好多不会的，要加紧学习了
-"><meta name=generator content="Hugo 0.83.1 with theme pure"><title>模糊测试调查综述阅读笔记 - 胡思乱想集散中心</title><link rel=stylesheet href=https://Qeryu.github.io/css/style.min.084a5eb24fb0cf9d5aade7246f19ba0c820cf904996a28ffe88039427693ac68.css><link rel=stylesheet href=https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css async><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css async><meta property="og:title" content="模糊测试调查综述阅读笔记"><meta property="og:description" content="arXiv:1812.00140 (cs) The Art, Science, and Engineering of Fuzzing: A Survey的阅读感想与过程中遇到的问题
-我太菜了，一篇论文读了两个星期，真的好多不会的，要加紧学习了"><meta property="og:type" content="article"><meta property="og:url" content="https://Qeryu.github.io/2020/05/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95%E8%B0%83%E6%9F%A5%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-05-22T00:00:00+00:00"><meta property="article:modified_time" content="2020-05-22T00:00:00+00:00"><meta itemprop=name content="模糊测试调查综述阅读笔记"><meta itemprop=description content="arXiv:1812.00140 (cs) The Art, Science, and Engineering of Fuzzing: A Survey的阅读感想与过程中遇到的问题
-我太菜了，一篇论文读了两个星期，真的好多不会的，要加紧学习了"><meta itemprop=datePublished content="2020-05-22T00:00:00+00:00"><meta itemprop=dateModified content="2020-05-22T00:00:00+00:00"><meta itemprop=wordCount content="2696"><meta itemprop=keywords content="Fuzzing,论文阅读,"><meta name=twitter:card content="summary"><meta name=twitter:title content="模糊测试调查综述阅读笔记"><meta name=twitter:description content="arXiv:1812.00140 (cs) The Art, Science, and Engineering of Fuzzing: A Survey的阅读感想与过程中遇到的问题
-我太菜了，一篇论文读了两个星期，真的好多不会的，要加紧学习了"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body class="main-center theme-black" itemscope itemtype=http://schema.org/WebPage><header class=header itemscope itemtype=http://schema.org/WPHeader><div class=slimContent><div class=navbar-header><div class="profile-block text-center"><a id=avatar href=https://github.com/qeryu target=_blank><img class="img-circle img-rotate" src=https://Qeryu.github.io/qeryu.jpg width=200 height=200></a><h2 id=name class="hidden-xs hidden-sm">Qeryu</h2><h3 id=title class="hidden-xs hidden-sm hidden-md"></h3><small id=location class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Wuhan, China</small></div><div class=search id=search-form-wrap><form class="search-form sidebar-form"><div class=input-group><input type=text class="search-form-input form-control" placeholder=搜索>
-<span class=input-group-btn><button type=submit class="search-form-submit btn btn-flat" onclick=return!1><i class="icon icon-search"></i></button></span></div><div class=ins-search><div class=ins-search-mask></div><div class=ins-search-container><div class=ins-input-wrapper><input type=text class=ins-search-input placeholder=想要查找什么... x-webkit-speech>
-<button type=button class="close ins-close ins-selectable" data-dismiss=modal aria-label=Close><span aria-hidden=true>×</span></button></div><div class=ins-section-wrapper><div class=ins-section-container></div></div></div></div></form></div><button class="navbar-toggle collapsed" type=button data-toggle=collapse data-target=#main-navbar aria-controls=main-navbar aria-expanded=false>
+">
+<meta name=generator content="Hugo 0.93.2 with theme pure">
+<title>模糊测试调查综述阅读笔记 - 胡思乱想集散中心</title><link rel=stylesheet href=https://Qeryu.github.io/css/style.min.084a5eb24fb0cf9d5aade7246f19ba0c820cf904996a28ffe88039427693ac68.css>
+<link rel=stylesheet href=https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css async>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css async>
+<meta property="og:title" content="模糊测试调查综述阅读笔记">
+<meta property="og:description" content="arXiv:1812.00140 (cs) The Art, Science, and Engineering of Fuzzing: A Survey的阅读感想与过程中遇到的问题
+我太菜了，一篇论文读了两个星期，真的好多不会的，要加紧学习了">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://Qeryu.github.io/2020/05/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95%E8%B0%83%E6%9F%A5%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2020-05-22T00:00:00+00:00">
+<meta property="article:modified_time" content="2020-05-22T00:00:00+00:00">
+<meta itemprop=name content="模糊测试调查综述阅读笔记">
+<meta itemprop=description content="arXiv:1812.00140 (cs) The Art, Science, and Engineering of Fuzzing: A Survey的阅读感想与过程中遇到的问题
+我太菜了，一篇论文读了两个星期，真的好多不会的，要加紧学习了"><meta itemprop=datePublished content="2020-05-22T00:00:00+00:00">
+<meta itemprop=dateModified content="2020-05-22T00:00:00+00:00">
+<meta itemprop=wordCount content="2696">
+<meta itemprop=keywords content="Fuzzing,论文阅读,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="模糊测试调查综述阅读笔记">
+<meta name=twitter:description content="arXiv:1812.00140 (cs) The Art, Science, and Engineering of Fuzzing: A Survey的阅读感想与过程中遇到的问题
+我太菜了，一篇论文读了两个星期，真的好多不会的，要加紧学习了"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head><body class="main-center theme-black" itemscope itemtype=http://schema.org/WebPage><header class=header itemscope itemtype=http://schema.org/WPHeader>
+<div class=slimContent>
+<div class=navbar-header>
+<div class="profile-block text-center">
+<a id=avatar href=https://github.com/qeryu target=_blank>
+<img class="img-circle img-rotate" src=https://Qeryu.github.io/qeryu.jpg width=200 height=200>
+</a>
+<h2 id=name class="hidden-xs hidden-sm">Qeryu</h2><h3 id=title class="hidden-xs hidden-sm hidden-md"></h3><small id=location class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Wuhan, China</small>
+</div><div class=search id=search-form-wrap>
+<form class="search-form sidebar-form">
+<div class=input-group>
+<input type=text class="search-form-input form-control" placeholder=搜索>
+<span class=input-group-btn>
+<button type=submit class="search-form-submit btn btn-flat" onclick=return!1><i class="icon icon-search"></i></button>
+</span>
+</div><div class=ins-search>
+<div class=ins-search-mask></div><div class=ins-search-container>
+<div class=ins-input-wrapper>
+<input type=text class=ins-search-input placeholder=想要查找什么... x-webkit-speech>
+<button type=button class="close ins-close ins-selectable" data-dismiss=modal aria-label=Close><span aria-hidden=true>×</span></button>
+</div><div class=ins-section-wrapper>
+<div class=ins-section-container></div></div></div></div></form></div><button class="navbar-toggle collapsed" type=button data-toggle=collapse data-target=#main-navbar aria-controls=main-navbar aria-expanded=false>
 <span class=sr-only>Toggle navigation</span>
-<span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button></div><nav id=main-navbar class="collapse navbar-collapse" itemscope itemtype=http://schema.org/SiteNavigationElement role=navigation><ul class="nav navbar-nav main-nav"><li class="menu-item menu-item-home"><a href=/><i class="icon icon-home-fill"></i>
-<span class=menu-title>Home</span></a></li><li class="menu-item menu-item-archives"><a href=/posts/><i class="icon icon-archives-fill"></i>
-<span class=menu-title>Archives</span></a></li><li class="menu-item menu-item-categories"><a href=/categories/><i class="icon icon-folder"></i>
-<span class=menu-title>Categories</span></a></li><li class="menu-item menu-item-tags"><a href=/tags/><i class="icon icon-tags"></i>
-<span class=menu-title>Tags</span></a></li><li class="menu-item menu-item-about"><a href=/about/index.html><i class="icon icon-cup-fill"></i>
-<span class=menu-title>About</span></a></li></ul></nav></div></header><aside class=sidebar itemscope itemtype=http://schema.org/WPSideBar><div class=slimContent><div class=widget><h3 class=widget-title>公告</h3><div class=widget-body><div id=board><div class=content><p>enjoy~</p></div></div></div></div><div class=widget><h3 class=widget-title>标签</h3><div id=tag-cloud-list class=widget-body><a href=https://Qeryu.github.io/tags/beego/ class=tag-list-link rel=1>beego<span class=tag-list-count>1</span></a>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+</div><nav id=main-navbar class="collapse navbar-collapse" itemscope itemtype=http://schema.org/SiteNavigationElement role=navigation>
+<ul class="nav navbar-nav main-nav">
+<li class="menu-item menu-item-home">
+<a href=/>
+<i class="icon icon-home-fill"></i>
+<span class=menu-title>Home</span>
+</a>
+</li><li class="menu-item menu-item-archives">
+<a href=/posts/>
+<i class="icon icon-archives-fill"></i>
+<span class=menu-title>Archives</span>
+</a>
+</li><li class="menu-item menu-item-categories">
+<a href=/categories/>
+<i class="icon icon-folder"></i>
+<span class=menu-title>Categories</span>
+</a>
+</li><li class="menu-item menu-item-tags">
+<a href=/tags/>
+<i class="icon icon-tags"></i>
+<span class=menu-title>Tags</span>
+</a>
+</li><li class="menu-item menu-item-about">
+<a href=/about/index.html>
+<i class="icon icon-cup-fill"></i>
+<span class=menu-title>About</span>
+</a>
+</li></ul></nav></div></header><aside class=sidebar itemscope itemtype=http://schema.org/WPSideBar>
+<div class=slimContent>
+<div class=widget>
+<h3 class=widget-title>公告</h3><div class=widget-body>
+<div id=board>
+<div class=content><p>enjoy~</p></div></div></div></div><div class=widget>
+<h3 class=widget-title> 标签</h3><div id=tag-cloud-list class=widget-body>
+<a href=https://Qeryu.github.io/tags/beego/ class=tag-list-link rel=1>beego<span class=tag-list-count>1</span></a>
 <a href=https://Qeryu.github.io/tags/blog/ class=tag-list-link rel=2>blog<span class=tag-list-count>2</span></a>
 <a href=https://Qeryu.github.io/tags/c++/ class=tag-list-link rel=1>c++<span class=tag-list-count>1</span></a>
 <a href=https://Qeryu.github.io/tags/coolq/ class=tag-list-link rel=1>coolq<span class=tag-list-count>1</span></a>
@@ -40,26 +126,149 @@
 <a href=https://Qeryu.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/ class=tag-list-link rel=1>渗透测试<span class=tag-list-count>1</span></a>
 <a href=https://Qeryu.github.io/tags/%E7%88%AC%E8%99%AB/ class=tag-list-link rel=1>爬虫<span class=tag-list-count>1</span></a>
 <a href=https://Qeryu.github.io/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/ class=tag-list-link rel=1>科学上网<span class=tag-list-count>1</span></a>
-<a href=https://Qeryu.github.io/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ class=tag-list-link rel=1>论文阅读<span class=tag-list-count>1</span></a></div><script>document.onreadystatechange=()=>{document.readyState==='complete'&&tagCloud('#tag-cloud-list a',8,20)};function tagCloud(c,d,e){let b=0,a=0;$(c).each(function(){let c=Number($(this).attr("rel"));b<c&&(b=c),(a>c||a==0)&&(a=c)});let f=(e-d)/(b-a);$(c).each(function(){let b=$(this).attr("rel")-a;$(this).css({"font-size":d+b*f+'px'})})}</script></div><div class=widget><h3 class=widget-title>分类</h3><div class=widget-body><ul class=category-list><li class=category-list-item><a href=https://Qeryu.github.io/categories/cs61a/ class=category-list-link>cs61a</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://Qeryu.github.io/categories/fuzzing/ class=category-list-link>fuzzing</a><span class=category-list-count>3</span></li><li class=category-list-item><a href=https://Qeryu.github.io/categories/javascrip/ class=category-list-link>javascrip</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://Qeryu.github.io/categories/language/ class=category-list-link>language</a><span class=category-list-count>4</span></li><li class=category-list-item><a href=https://Qeryu.github.io/categories/linux/ class=category-list-link>linux</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://Qeryu.github.io/categories/lstm/ class=category-list-link>lstm</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://Qeryu.github.io/categories/machine-learning/ class=category-list-link>machine-learning</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://Qeryu.github.io/categories/notes/ class=category-list-link>notes</a><span class=category-list-count>3</span></li><li class=category-list-item><a href=https://Qeryu.github.io/categories/web/ class=category-list-link>web</a><span class=category-list-count>6</span></li><li class=category-list-item><a href=https://Qeryu.github.io/categories/xml/ class=category-list-link>xml</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://Qeryu.github.io/categories/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5/ class=category-list-link>网安实践</a><span class=category-list-count>1</span></li></ul></div></div><div class=widget><h3 class=widget-title>标签</h3><div class=widget-body><ul class=tag-list><li class=tag-list-item><a href=https://Qeryu.github.io/tags/beego/ class=tag-list-link>beego</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/blog/ class=tag-list-link>blog</a><span class=tag-list-count>2</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/c++/ class=tag-list-link>c++</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/coolq/ class=tag-list-link>coolq</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/docker/ class=tag-list-link>docker</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/eslint/ class=tag-list-link>eslint</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/fuzzing/ class=tag-list-link>fuzzing</a><span class=tag-list-count>3</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/git/ class=tag-list-link>git</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/golang/ class=tag-list-link>golang</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/java/ class=tag-list-link>java</a><span class=tag-list-count>3</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/javascript/ class=tag-list-link>javascript</a><span class=tag-list-count>3</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/linux/ class=tag-list-link>linux</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/lstm/ class=tag-list-link>lstm</a><span class=tag-list-count>2</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/maven/ class=tag-list-link>maven</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/metasploit3/ class=tag-list-link>metasploit3</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/montage/ class=tag-list-link>montage</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/python/ class=tag-list-link>python</a><span class=tag-list-count>2</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/rnn/ class=tag-list-link>rnn</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/semanticfuzzing/ class=tag-list-link>semanticfuzzing</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/v2ray/ class=tag-list-link>v2ray</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/vim/ class=tag-list-link>vim</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/wordpress/ class=tag-list-link>wordpress</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/xml/ class=tag-list-link>xml</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/zest/ class=tag-list-link>zest</a><span class=tag-list-count>2</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ class=tag-list-link>学习笔记</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/ class=tag-list-link>渗透测试</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/%E7%88%AC%E8%99%AB/ class=tag-list-link>爬虫</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/ class=tag-list-link>科学上网</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ class=tag-list-link>论文阅读</a><span class=tag-list-count>1</span></li></ul></div></div><div class=widget><h3 class=widget-title>最新文章</h3><div class=widget-body><ul class="recent-post-list list-unstyled no-thumbnail"><li><div class=item-inner><p class=item-title><a href=https://Qeryu.github.io/2021/05/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%952/ class=title>网安实践 渗透测试2</a></p><p class=item-date><time datetime="2021-05-26 10:06:51 +0800 +0800" itemprop=datePublished>2021-05-26</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://Qeryu.github.io/2021/05/hexo%E8%BF%81hugo%E6%90%AC%E5%AE%B6%E8%AE%B0/ class=title>Hexo迁Hugo搬家记</a></p><p class=item-date><time datetime="2021-05-25 14:33:30 +0800 +0800" itemprop=datePublished>2021-05-25</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://Qeryu.github.io/2020/09/%E7%9B%B8%E4%BC%BC%E8%AE%BA%E6%96%87lstm%E6%A8%A1%E5%9E%8B%E9%83%A8%E5%88%86%E5%AD%A6%E4%B9%A0/ class=title>相似论文LSTM模型部分学习</a></p><p class=item-date><time datetime="2020-09-20 22:32:27 +0000 UTC" itemprop=datePublished>2020-09-20</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://Qeryu.github.io/2020/08/lstm%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/ class=title>LSTM入门笔记</a></p><p class=item-date><time datetime="2020-08-24 00:00:00 +0000 UTC" itemprop=datePublished>2020-08-24</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://Qeryu.github.io/2020/06/tinyxml-2%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ class=title>TinyXML-2学习笔记</a></p><p class=item-date><time datetime="2020-06-08 21:44:48 +0000 UTC" itemprop=datePublished>2020-06-08</time></p></div></li></ul></div></div></div></aside><aside class="sidebar sidebar-toc collapse" id=collapseToc itemscope itemtype=http://schema.org/WPSideBar><div class=slimContent><h4 class=toc-title>文章目录</h4><nav id=toc class="js-toc toc"></nav></div></aside><main class=main role=main><div class=content><article id=- class="article article-type-" itemscope itemtype=http://schema.org/BlogPosting><div class=article-header><h1 itemprop=name><a class=article-title href=/2020/05/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95%E8%B0%83%E6%9F%A5%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/>模糊测试调查综述阅读笔记</a></h1><div class=article-meta><span class=article-date><i class="icon icon-calendar-check"></i>&nbsp;
-<a href=https://Qeryu.github.io/2020/05/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95%E8%B0%83%E6%9F%A5%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/ class=article-date><time datetime="2020-05-22 00:00:00 +0000 UTC" itemprop=datePublished>2020-05-22</time></a></span>
-<span class=article-category><i class="icon icon-folder"></i>&nbsp;
-<a class=article-category-link href=/categories/fuzzing/>Fuzzing</a></span>
-<span class=article-tag><i class="icon icon-tags"></i>&nbsp;
-<a class=article-tag-link href=/tags/fuzzing/>Fuzzing</a>
-<a class=article-tag-link href=/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/>论文阅读</a></span>
+<a href=https://Qeryu.github.io/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ class=tag-list-link rel=1>论文阅读<span class=tag-list-count>1</span></a>
+</div><script>document.onreadystatechange=()=>{document.readyState==="complete"&&tagCloud("#tag-cloud-list a",8,20)};function tagCloud(n,s,o){let t=0,e=0;$(n).each(function(){let n=Number($(this).attr("rel"));t<n&&(t=n),(e>n||e==0)&&(e=n)});let i=(o-s)/(t-e);$(n).each(function(){let t=$(this).attr("rel")-e;$(this).css({"font-size":s+t*i+"px"})})}</script>
+</div><div class=widget>
+<h3 class=widget-title> 分类</h3><div class=widget-body>
+<ul class=category-list>
+<li class=category-list-item><a href=https://Qeryu.github.io/categories/cs61a/ class=category-list-link>cs61a</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://Qeryu.github.io/categories/fuzzing/ class=category-list-link>fuzzing</a><span class=category-list-count>3</span></li><li class=category-list-item><a href=https://Qeryu.github.io/categories/javascrip/ class=category-list-link>javascrip</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://Qeryu.github.io/categories/language/ class=category-list-link>language</a><span class=category-list-count>4</span></li><li class=category-list-item><a href=https://Qeryu.github.io/categories/linux/ class=category-list-link>linux</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://Qeryu.github.io/categories/lstm/ class=category-list-link>lstm</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://Qeryu.github.io/categories/machine-learning/ class=category-list-link>machine-learning</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://Qeryu.github.io/categories/notes/ class=category-list-link>notes</a><span class=category-list-count>3</span></li><li class=category-list-item><a href=https://Qeryu.github.io/categories/web/ class=category-list-link>web</a><span class=category-list-count>6</span></li><li class=category-list-item><a href=https://Qeryu.github.io/categories/xml/ class=category-list-link>xml</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://Qeryu.github.io/categories/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5/ class=category-list-link>网安实践</a><span class=category-list-count>1</span></li></ul></div></div><div class=widget>
+<h3 class=widget-title> 标签</h3><div class=widget-body>
+<ul class=tag-list>
+<li class=tag-list-item><a href=https://Qeryu.github.io/tags/beego/ class=tag-list-link>beego</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/blog/ class=tag-list-link>blog</a><span class=tag-list-count>2</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/c++/ class=tag-list-link>c++</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/coolq/ class=tag-list-link>coolq</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/docker/ class=tag-list-link>docker</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/eslint/ class=tag-list-link>eslint</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/fuzzing/ class=tag-list-link>fuzzing</a><span class=tag-list-count>3</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/git/ class=tag-list-link>git</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/golang/ class=tag-list-link>golang</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/java/ class=tag-list-link>java</a><span class=tag-list-count>3</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/javascript/ class=tag-list-link>javascript</a><span class=tag-list-count>3</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/linux/ class=tag-list-link>linux</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/lstm/ class=tag-list-link>lstm</a><span class=tag-list-count>2</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/maven/ class=tag-list-link>maven</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/metasploit3/ class=tag-list-link>metasploit3</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/montage/ class=tag-list-link>montage</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/python/ class=tag-list-link>python</a><span class=tag-list-count>2</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/rnn/ class=tag-list-link>rnn</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/semanticfuzzing/ class=tag-list-link>semanticfuzzing</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/v2ray/ class=tag-list-link>v2ray</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/vim/ class=tag-list-link>vim</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/wordpress/ class=tag-list-link>wordpress</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/xml/ class=tag-list-link>xml</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/zest/ class=tag-list-link>zest</a><span class=tag-list-count>2</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ class=tag-list-link>学习笔记</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/ class=tag-list-link>渗透测试</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/%E7%88%AC%E8%99%AB/ class=tag-list-link>爬虫</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/ class=tag-list-link>科学上网</a><span class=tag-list-count>1</span></li><li class=tag-list-item><a href=https://Qeryu.github.io/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ class=tag-list-link>论文阅读</a><span class=tag-list-count>1</span></li></ul></div></div><div class=widget>
+<h3 class=widget-title>最新文章</h3><div class=widget-body>
+<ul class="recent-post-list list-unstyled no-thumbnail">
+<li>
+<div class=item-inner>
+<p class=item-title>
+<a href=https://Qeryu.github.io/2021/05/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%952/ class=title>网安实践 渗透测试2</a>
+</p><p class=item-date>
+<time datetime="2021-05-26 10:06:51 +0800 +0800" itemprop=datePublished>2021-05-26</time>
+</p></div></li><li>
+<div class=item-inner>
+<p class=item-title>
+<a href=https://Qeryu.github.io/2021/05/hexo%E8%BF%81hugo%E6%90%AC%E5%AE%B6%E8%AE%B0/ class=title>Hexo迁Hugo搬家记</a>
+</p><p class=item-date>
+<time datetime="2021-05-25 14:33:30 +0800 +0800" itemprop=datePublished>2021-05-25</time>
+</p></div></li><li>
+<div class=item-inner>
+<p class=item-title>
+<a href=https://Qeryu.github.io/2020/09/%E7%9B%B8%E4%BC%BC%E8%AE%BA%E6%96%87lstm%E6%A8%A1%E5%9E%8B%E9%83%A8%E5%88%86%E5%AD%A6%E4%B9%A0/ class=title>相似论文LSTM模型部分学习</a>
+</p><p class=item-date>
+<time datetime="2020-09-20 22:32:27 +0000 UTC" itemprop=datePublished>2020-09-20</time>
+</p></div></li><li>
+<div class=item-inner>
+<p class=item-title>
+<a href=https://Qeryu.github.io/2020/08/lstm%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/ class=title>LSTM入门笔记</a>
+</p><p class=item-date>
+<time datetime="2020-08-24 00:00:00 +0000 UTC" itemprop=datePublished>2020-08-24</time>
+</p></div></li><li>
+<div class=item-inner>
+<p class=item-title>
+<a href=https://Qeryu.github.io/2020/06/tinyxml-2%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ class=title>TinyXML-2学习笔记</a>
+</p><p class=item-date>
+<time datetime="2020-06-08 21:44:48 +0000 UTC" itemprop=datePublished>2020-06-08</time>
+</p></div></li></ul></div></div></div></aside><aside class="sidebar sidebar-toc collapse" id=collapseToc itemscope itemtype=http://schema.org/WPSideBar>
+<div class=slimContent>
+<h4 class=toc-title>文章目录</h4><nav id=toc class="js-toc toc">
+</nav></div></aside><main class=main role=main><div class=content>
+<article id=- class="article article-type-" itemscope itemtype=http://schema.org/BlogPosting>
+<div class=article-header>
+<h1 itemprop=name>
+<a class=article-title href=/2020/05/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95%E8%B0%83%E6%9F%A5%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/>模糊测试调查综述阅读笔记</a>
+</h1><div class=article-meta>
+<span class=article-date>
+<i class="icon icon-calendar-check"></i>&nbsp;
+<a href=https://Qeryu.github.io/2020/05/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95%E8%B0%83%E6%9F%A5%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/ class=article-date>
+<time datetime="2020-05-22 00:00:00 +0000 UTC" itemprop=datePublished>2020-05-22</time>
+</a>
+</span>
+<span class=article-category>
+<i class="icon icon-folder"></i>&nbsp;
+<a class=article-category-link href=/categories/fuzzing/> Fuzzing </a>
+</span>
+<span class=article-tag>
+<i class="icon icon-tags"></i>&nbsp;
+<a class=article-tag-link href=/tags/fuzzing/> Fuzzing </a>
+<a class=article-tag-link href=/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/> 论文阅读 </a>
+</span>
 <span class="post-wordcount hidden-xs" itemprop=wordCount>字数统计: 2696字</span>
-<span class="post-readcount hidden-xs" itemprop=timeRequired>阅读时长: 6分</span></div></div><div class="article-entry marked-body js-toc-content" itemprop=articleBody><p><a href=https://arxiv.org/abs/1812.00140>arXiv:<em>1812.00140</em> (cs) The Art, Science, and Engineering of Fuzzing: A Survey</a>的阅读感想与过程中遇到的问题</p><p>我太菜了，一篇论文读了两个星期，真的好多不会的，要加紧学习了</p><h1 id=目标论文大致内容>目标论文大致内容</h1><p>文章将现有的模糊测试的研究进行了总结，并对现有的杂乱无章的模糊测试相关术语提出了一个统一的命名。</p><p>还根据对模糊测试的过程的拆分，对现有的模糊测试研究（包括论文以及GitHub上的项目）进行了分类汇总。</p><p>将模糊测试出现以来的大部分重要论文进行了归类。</p><h1 id=模糊测试过程>模糊测试过程</h1><p>这一部分正好在我这篇文章的过程中，文明老师讲过一遍了&mldr;节约大量时间</p><p>相关的论文内容已经做好分类了，我也不在这里说了，直接上一个链接吧，在第八页有，以后有时间可以读读</p><p>【腾讯文档】模糊测试技术进展报告_文明
-<a href=https://docs.qq.com/slide/DSVZNY3p0am13RE1V>https://docs.qq.com/slide/DSVZNY3p0am13RE1V</a></p><h2 id=预处理器processor>预处理器（Processor）</h2><p>主要进行两件事，<strong>程序插装</strong>、<strong>选择初始种子</strong></p><h3 id=程序插桩>程序插桩</h3><ul><li>分为动态插装 和 静态插装</li><li>可以对程序的分支进行插装，记录分支的覆盖情况。但是同时有些技术会引起<strong>路径冲突</strong>，<strong>CollAFL</strong> <strong>[S&P 2018]</strong> 提出<strong>路径敏感的哈希方法</strong>，来记录路径覆盖信息，如此可以解决路径冲突的问题</li><li>还可以通过对程序的指定的关键信息进行插装，进行<strong>定向模糊测试</strong></li></ul><h3 id=选择初始种子seed-selection>选择初始种子（Seed Selection）</h3><p>通过一些算法去尽可能减小初始种子池（seed pool），选择最大覆盖率的最小种子集。</p><h3 id=种子修剪seed-trimming>种子修剪（Seed Trimming）</h3><p>更小的种子可能会有更小的内存消耗，产生更加全面的效果。所以有些Fuzzer会选择调高小种子的优先级。</p><h3 id=准备驱动程序preparing-a-driver-application>准备驱动程序（Preparing a Driver Application）</h3><p>要让Fuzzer能够成功调用PUT，需要在开始之前自己手写一个驱动。</p><h2 id=调度器scheduler>调度器（Scheduler）</h2><p><strong>Fuzz Configuration Scheduling(FCS) Algorithm</strong>: 在此区分黑灰白盒，</p><p>在模糊测试中，调度指选择一组合适的测试参数来开展下一轮测试迭代。<code>BFF</code>和<code>AFLFast</code>成功的关键在于他们创新的调度算法。</p><p>模糊测试中，动态的添加与删除种子库中的种子，是探索程序不同状态，以保障测试有效性的关键。</p><h2 id=种子生成器input-generator>种子生成器（Input Generator）</h2><h3 id=随机生成random-based-generator>随机生成（Random-based Generator）</h3><p>随机生成字符串、数字，进行测试，这样具有一定的盲目性，比较难获得有效的结果</p><h3 id=基于模型生成model-based-generator>基于模型生成（Model-based Generator）</h3><ul><li>基于语法生成：<strong>Zest [ISSTA 2019]</strong> 生成满足语法语义的JavaScript/XML</li><li>基于协议生成：<strong>T-Fuzz [ICST 2014]</strong> 生成满足网络协议的输入</li><li>基于预定义模型：内核模糊测试通常以系统调用模板的形式定义输入模型，例如参数数量与类型</li><li>基于编码模型：当检测某些类型文件的解码器的时候，可以通过稍稍变异已有的编码器来生成变异输出</li></ul><h3 id=基于变异生成mutation-based-generator>基于变异生成（Mutation-based Generator）</h3><ul><li>比特翻转：直接翻转固定数量的比特 AFL/HongGFuzz/<strong>SymFuzz[S&P 2015]</strong></li><li>算数变异：将选定的字节序列视为整数，然后对该值执行简单的算术运算</li><li>基于块的变异：块，指二进制种子的一个序列。通过对块的增删位移进行变异。</li><li>基于字典的变异：定义一组可能具有语义意义的预定义值用于变异<strong>LibFuzzer</strong></li></ul><h2 id=种子评价器input-evaluator>种子评价器（Input Evaluator）</h2><h3 id=判断种子是否触发漏洞>判断种子是否触发漏洞</h3><p>这里用到了Bug Oracle的概念，把违反安全规定的行为定义为，程序因为一个危险信号而终止。</p><p>需要注意的是，bug与crash不是一一对应的关系，有的bug可能不会产生crash，有的bug代码可能离crash处很远，有的不同的bug可能产生相同的crash，这都是可能造成判定种子的失误。可能出现的crash类型大致有以下</p><h4 id=内存与类型安全-memory-and-type-safety>内存与类型安全 Memory and Type Safety</h4><ul><li>空间上的内存安全错误——在指针的作用域外取消了指针的指向</li><li>时间上的内存安全错误——在指针已经失效后重新引用指针</li></ul><h4 id=未定义行为-undefined-behaviors>未定义行为 Undefined Behaviors</h4><h4 id=输入验证漏洞-input-validation>输入验证漏洞 Input Validation</h4><h4 id=语义差异漏洞-sematic-difference>语义差异漏洞 Sematic Difference</h4><h3 id=分流-triage>分流 Triage</h3><p>这个词我也不知道怎么翻译，就先这样写着吧，Triage是指分析以及上报违反安全规则的行为的测试用例的过程。</p><p>大致分为以下几步</p><h4 id=重复数据删除-deduplication>重复数据删除 Deduplication</h4><p>重复数据删除是要从结果集合中，剔除掉那些因为同一个bug引起的问题</p><p>重复数据删除通常有以下几种方法</p><ul><li><p>堆栈回溯哈希 Stack Back-trace Hashing</p><p>在PUT崩溃时，进行堆栈的回溯，给回溯的内容分配一个哈希值。不过因为这种方法唯一标记的是崩溃信息，在原理上有些问题，无法保证相同的崩溃一定是由相同的bug产生的</p></li><li><p>基于覆盖的重复数据删除</p><p>最常见的是用于AFL中，AFL是一个灰盒的Fuzzer，判定规则如下</p><ul><li>当崩溃覆盖了一个之前从未发现的内容</li><li>当本次崩溃并未完全覆盖之前所有的崩溃的交集的时候</li></ul></li><li><p>语义感知的重复数据删除</p></li></ul><h4 id=优先级与可利用性确定-prioritization-and-exploitability>优先级与可利用性确定 Prioritization and Exploitability</h4><p>优先级就是指显示给用户的优先级，这取决于发现的bug的严重性和独特性。当bug严重且容易被利用的时候，攻击者很容易就会从这方面下手，所以要优先处理这一类的bug。</p><h4 id=测试用例规模最小化-test-case-minization>测试用例规模最小化 Test case minization</h4><p>识别出违规用例中最小的一个子集，保证这个子集能够触发所有的违规。有时还可以去主动制作一个更小更简单但是依然能导致违规的测试用例。</p><h2 id=更新器updater>更新器（Updater）</h2><p>更新器一般是用于更新<strong>种子池</strong> 以及 <strong>模糊测试配置</strong>的</p><h3 id=更新种子池-seed-pool-update>更新种子池 Seed Pool Update</h3><ul><li>基于遗传算法的更新：基于启发式的方法，模仿生物学进化机制，对种子进行变异，重组和选择</li><li>基于统计模型的更新：从历史数据中学习有效模型，来指导种子池的更新</li><li>基于复杂程序语义的更新：判断是否覆盖了复杂分支？定向模糊测试</li></ul><h3 id=维护最小集合-maintaining-a-minset>维护最小集合 Maintaining a Minset</h3><ul><li>在最大化目标（分支覆盖率）的情况下，维护最少数量的测试参数</li></ul><h1 id=模糊测试分类>模糊测试分类</h1><h2 id=黑盒>黑盒</h2><ul><li>无法访问PUT的内部，无法获取PUT内部与运行相关的任何数据</li><li>仅能观测PUT的<strong>输入</strong>与<strong>输出</strong></li></ul><h2 id=灰盒>灰盒</h2><ul><li>能观测PUT中的部分信息，可以利用<strong>简单的</strong>静态分析技术，来记录动态执行信息，例如程序的覆盖率信息</li><li>之前遇到的代码插桩的事情，可能就是与这个有点关系</li></ul><h2 id=白盒>白盒</h2><ul><li>能够全面的系统的访问PUT的内部状态</li><li>通常能够结合动态符号执行以及污点分析等技术进行模糊测试</li></ul><h1 id=模糊测试名词解释>模糊测试名词解释</h1><h2 id=put>PUT</h2><p>Program Under Test 指被测试的程序</p><h2 id=fuzzing>Fuzzing</h2><p>是指PUT从模糊测试的 input space 中执行一个 input，需要注意的是：</p><ul><li>模糊测试的输入不必要包含程序所有预期输入，只要有包含一个不在程序预期输入中的input就行</li><li>通常情况下，一般会进行多轮迭代，需要精心设计迭代内容</li></ul><h2 id=fuzz-testing>Fuzz Testing</h2><p>使用Fuzzing技术去测试PUT是否触发了一个安全策略</p><h2 id=fuzzer>Fuzzer</h2><p>对PUT进行模糊测试的工具</p><h2 id=fuzz-campaign>Fuzz Campaign</h2><p>针对某一个安全规则，使用一组特定input数据的一次PUT执行</p><h2 id=bug-oracle>Bug Oracle</h2><p>判定一次执行的结果是否触发了PUT的一种安全策略</p><h2 id=fuzz-configuration>Fuzz Configuration</h2><p>应用于Fuzz的算法的一组参数，比如种子输入、已发现的不同的bug树、程序的覆盖率、测试已经执行的时间</p><h1 id=遇到的问题黑洞>遇到的问题黑洞</h1><h2 id=符号执行>符号执行</h2><p><a href=https://www.k0rz3n.com/2019/02/28/%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E7%AC%A6%E5%8F%B7%E6%89%A7%E8%A1%8C%E6%8A%80%E6%9C%AF/>简单理解符号执行技术</a></p><h2 id=污点分析>污点分析</h2><p><a href=https://www.k0rz3n.com/2019/03/01/%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E6%B1%A1%E7%82%B9%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF/>简单理解污点分析技术</a></p><h2 id=梯度下降算法>梯度下降算法</h2><p><a href=https://www.jianshu.com/p/c7e642877b0e>深入浅出——梯度下降法及其实现</a></p><h1 id=吸取的经验教训>吸取的经验教训</h1><p>文章中举的大部分例子我都看不懂，可以先选择新跳过的，在这方面耽误了很多时间。</p></div><div class=article-footer><blockquote class=mt-2x><ul class="post-copyright list-unstyled"><li class="post-copyright-link hidden-xs"><strong>本文链接:</strong>
-<a href=https://Qeryu.github.io/2020/05/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95%E8%B0%83%E6%9F%A5%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/ title=模糊测试调查综述阅读笔记 target=_blank rel=external>https://Qeryu.github.io/2020/05/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95%E8%B0%83%E6%9F%A5%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</a></li><li class=post-copyright-license><strong>License:</strong>
-<a href=http://creativecommons.org/licenses/by/4.0/deed.zh target=_blank rel=external>CC BY 4.0 CN</a></li></ul></blockquote><div class="panel panel-default panel-badger"><div class=panel-body><figure class=media><div class=media-left><a href=https://github.com/qeryu target=_blank class="img-burn thumb-sm visible-lg"><img src=https://Qeryu.github.io/qeryu.jpg class="img-rounded w-full" alt></a></div><div class=media-body><h3 class=media-heading><a href=https://github.com/qeryu target=_blank><span class=text-dark>Qeryu</span><small class=ml-1x></small></a></h3><div>这课怎么就突然听不懂了呢？！</div></div></figure></div></div></div></article></div><nav class="bar bar-footer clearfix" data-stick-bottom><div class=bar-inner><ul class="pager pull-left"><li class=prev><a href=https://Qeryu.github.io/2020/05/wsl%E6%8A%98%E8%85%BE%E7%AC%94%E8%AE%B0/ title=WSL折腾笔记><i class="icon icon-angle-left" aria-hidden=true></i><span>&nbsp;&nbsp;下一篇</span></a></li><li class=next><a href=https://Qeryu.github.io/2020/05/eslint%E8%B0%83%E7%A0%94%E5%AD%A6%E4%B9%A0%E4%BD%BF%E7%94%A8/ title=ESlint调研学习使用><span>上一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden=true></i></a></li><li class=toggle-toc><a class="toggle-btn collapsed" data-toggle=collapse href=#collapseToc aria-expanded=false title=文章目录 role=button><span>[&nbsp;</span><span>文章目录</span>
+<span class="post-readcount hidden-xs" itemprop=timeRequired>阅读时长: 6分 </span>
+</div></div><div class="article-entry marked-body js-toc-content" itemprop=articleBody>
+<p><a href=https://arxiv.org/abs/1812.00140>arXiv:<em>1812.00140</em> (cs) The Art, Science, and Engineering of Fuzzing: A Survey</a>的阅读感想与过程中遇到的问题</p><p>我太菜了，一篇论文读了两个星期，真的好多不会的，要加紧学习了</p><h1 id=目标论文大致内容>目标论文大致内容</h1><p>文章将现有的模糊测试的研究进行了总结，并对现有的杂乱无章的模糊测试相关术语提出了一个统一的命名。</p><p>还根据对模糊测试的过程的拆分，对现有的模糊测试研究（包括论文以及GitHub上的项目）进行了分类汇总。</p><p>将模糊测试出现以来的大部分重要论文进行了归类。</p><h1 id=模糊测试过程>模糊测试过程</h1><p>这一部分正好在我这篇文章的过程中，文明老师讲过一遍了&mldr;节约大量时间</p><p>相关的论文内容已经做好分类了，我也不在这里说了，直接上一个链接吧，在第八页有，以后有时间可以读读</p><p>【腾讯文档】模糊测试技术进展报告_文明
+<a href=https://docs.qq.com/slide/DSVZNY3p0am13RE1V>https://docs.qq.com/slide/DSVZNY3p0am13RE1V</a></p><h2 id=预处理器processor>预处理器（Processor）</h2><p>主要进行两件事，<strong>程序插装</strong>、<strong>选择初始种子</strong></p><h3 id=程序插桩>程序插桩</h3><ul>
+<li>分为动态插装 和 静态插装</li><li>可以对程序的分支进行插装，记录分支的覆盖情况。但是同时有些技术会引起<strong>路径冲突</strong>，<strong>CollAFL</strong> <strong>[S&P 2018]</strong> 提出<strong>路径敏感的哈希方法</strong>，来记录路径覆盖信息，如此可以解决路径冲突的问题</li><li>还可以通过对程序的指定的关键信息进行插装，进行<strong>定向模糊测试</strong></li></ul><h3 id=选择初始种子seed-selection>选择初始种子（Seed Selection）</h3><p>通过一些算法去尽可能减小初始种子池（seed pool），选择最大覆盖率的最小种子集。</p><h3 id=种子修剪seed-trimming>种子修剪（Seed Trimming）</h3><p>更小的种子可能会有更小的内存消耗，产生更加全面的效果。所以有些Fuzzer会选择调高小种子的优先级。</p><h3 id=准备驱动程序preparing-a-driver-application>准备驱动程序（Preparing a Driver Application）</h3><p>要让Fuzzer能够成功调用PUT，需要在开始之前自己手写一个驱动。</p><h2 id=调度器scheduler>调度器（Scheduler）</h2><p><strong>Fuzz Configuration Scheduling(FCS) Algorithm</strong>: 在此区分黑灰白盒，</p><p>在模糊测试中，调度指选择一组合适的测试参数来开展下一轮测试迭代。<code>BFF</code>和<code>AFLFast</code>成功的关键在于他们创新的调度算法。</p><p>模糊测试中，动态的添加与删除种子库中的种子，是探索程序不同状态，以保障测试有效性的关键。</p><h2 id=种子生成器input-generator>种子生成器（Input Generator）</h2><h3 id=随机生成random-based-generator>随机生成（Random-based Generator）</h3><p>随机生成字符串、数字，进行测试，这样具有一定的盲目性，比较难获得有效的结果</p><h3 id=基于模型生成model-based-generator>基于模型生成（Model-based Generator）</h3><ul>
+<li>基于语法生成：<strong>Zest [ISSTA 2019]</strong> 生成满足语法语义的JavaScript/XML</li><li>基于协议生成：<strong>T-Fuzz [ICST 2014]</strong> 生成满足网络协议的输入</li><li>基于预定义模型：内核模糊测试通常以系统调用模板的形式定义输入模型，例如参数数量与类型</li><li>基于编码模型：当检测某些类型文件的解码器的时候，可以通过稍稍变异已有的编码器来生成变异输出</li></ul><h3 id=基于变异生成mutation-based-generator>基于变异生成（Mutation-based Generator）</h3><ul>
+<li>比特翻转：直接翻转固定数量的比特 AFL/HongGFuzz/<strong>SymFuzz[S&P 2015]</strong></li><li>算数变异：将选定的字节序列视为整数，然后对该值执行简单的算术运算</li><li>基于块的变异：块，指二进制种子的一个序列。通过对块的增删位移进行变异。</li><li>基于字典的变异：定义一组可能具有语义意义的预定义值用于变异<strong>LibFuzzer</strong></li></ul><h2 id=种子评价器input-evaluator>种子评价器（Input Evaluator）</h2><h3 id=判断种子是否触发漏洞>判断种子是否触发漏洞</h3><p>这里用到了Bug Oracle的概念，把违反安全规定的行为定义为，程序因为一个危险信号而终止。</p><p>需要注意的是，bug与crash不是一一对应的关系，有的bug可能不会产生crash，有的bug代码可能离crash处很远，有的不同的bug可能产生相同的crash，这都是可能造成判定种子的失误。可能出现的crash类型大致有以下</p><h4 id=内存与类型安全-memory-and-type-safety>内存与类型安全 Memory and Type Safety</h4><ul>
+<li>空间上的内存安全错误——在指针的作用域外取消了指针的指向</li><li>时间上的内存安全错误——在指针已经失效后重新引用指针</li></ul><h4 id=未定义行为-undefined-behaviors>未定义行为 Undefined Behaviors</h4><h4 id=输入验证漏洞-input-validation>输入验证漏洞 Input Validation</h4><h4 id=语义差异漏洞-sematic-difference>语义差异漏洞 Sematic Difference</h4><h3 id=分流-triage>分流 Triage</h3><p>这个词我也不知道怎么翻译，就先这样写着吧，Triage是指分析以及上报违反安全规则的行为的测试用例的过程。</p><p>大致分为以下几步</p><h4 id=重复数据删除-deduplication>重复数据删除 Deduplication</h4><p>重复数据删除是要从结果集合中，剔除掉那些因为同一个bug引起的问题</p><p>重复数据删除通常有以下几种方法</p><ul>
+<li>
+<p>堆栈回溯哈希 Stack Back-trace Hashing</p><p>在PUT崩溃时，进行堆栈的回溯，给回溯的内容分配一个哈希值。不过因为这种方法唯一标记的是崩溃信息，在原理上有些问题，无法保证相同的崩溃一定是由相同的bug产生的</p></li><li>
+<p>基于覆盖的重复数据删除</p><p>最常见的是用于AFL中，AFL是一个灰盒的Fuzzer，判定规则如下</p><ul>
+<li>当崩溃覆盖了一个之前从未发现的内容</li><li>当本次崩溃并未完全覆盖之前所有的崩溃的交集的时候</li></ul></li><li>
+<p>语义感知的重复数据删除</p></li></ul><h4 id=优先级与可利用性确定-prioritization-and-exploitability>优先级与可利用性确定 Prioritization and Exploitability</h4><p>优先级就是指显示给用户的优先级，这取决于发现的bug的严重性和独特性。当bug严重且容易被利用的时候，攻击者很容易就会从这方面下手，所以要优先处理这一类的bug。</p><h4 id=测试用例规模最小化-test-case-minization>测试用例规模最小化 Test case minization</h4><p>识别出违规用例中最小的一个子集，保证这个子集能够触发所有的违规。有时还可以去主动制作一个更小更简单但是依然能导致违规的测试用例。</p><h2 id=更新器updater>更新器（Updater）</h2><p>更新器一般是用于更新<strong>种子池</strong> 以及 <strong>模糊测试配置</strong>的</p><h3 id=更新种子池-seed-pool-update>更新种子池 Seed Pool Update</h3><ul>
+<li>基于遗传算法的更新：基于启发式的方法，模仿生物学进化机制，对种子进行变异，重组和选择</li><li>基于统计模型的更新：从历史数据中学习有效模型，来指导种子池的更新</li><li>基于复杂程序语义的更新：判断是否覆盖了复杂分支？定向模糊测试</li></ul><h3 id=维护最小集合-maintaining-a-minset>维护最小集合 Maintaining a Minset</h3><ul>
+<li>在最大化目标（分支覆盖率）的情况下，维护最少数量的测试参数</li></ul><h1 id=模糊测试分类>模糊测试分类</h1><h2 id=黑盒>黑盒</h2><ul>
+<li>无法访问PUT的内部，无法获取PUT内部与运行相关的任何数据</li><li>仅能观测PUT的<strong>输入</strong>与<strong>输出</strong></li></ul><h2 id=灰盒>灰盒</h2><ul>
+<li>能观测PUT中的部分信息，可以利用<strong>简单的</strong>静态分析技术，来记录动态执行信息，例如程序的覆盖率信息</li><li>之前遇到的代码插桩的事情，可能就是与这个有点关系</li></ul><h2 id=白盒>白盒</h2><ul>
+<li>能够全面的系统的访问PUT的内部状态</li><li>通常能够结合动态符号执行以及污点分析等技术进行模糊测试</li></ul><h1 id=模糊测试名词解释>模糊测试名词解释</h1><h2 id=put>PUT</h2><p>Program Under Test 指被测试的程序</p><h2 id=fuzzing>Fuzzing</h2><p>是指PUT从模糊测试的 input space 中执行一个 input，需要注意的是：</p><ul>
+<li>模糊测试的输入不必要包含程序所有预期输入，只要有包含一个不在程序预期输入中的input就行</li><li>通常情况下，一般会进行多轮迭代，需要精心设计迭代内容</li></ul><h2 id=fuzz-testing>Fuzz Testing</h2><p>使用Fuzzing技术去测试PUT是否触发了一个安全策略</p><h2 id=fuzzer>Fuzzer</h2><p>对PUT进行模糊测试的工具</p><h2 id=fuzz-campaign>Fuzz Campaign</h2><p>针对某一个安全规则，使用一组特定input数据的一次PUT执行</p><h2 id=bug-oracle>Bug Oracle</h2><p>判定一次执行的结果是否触发了PUT的一种安全策略</p><h2 id=fuzz-configuration>Fuzz Configuration</h2><p>应用于Fuzz的算法的一组参数，比如种子输入、已发现的不同的bug树、程序的覆盖率、测试已经执行的时间</p><h1 id=遇到的问题黑洞>遇到的问题黑洞</h1><h2 id=符号执行>符号执行</h2><p><a href=https://www.k0rz3n.com/2019/02/28/%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E7%AC%A6%E5%8F%B7%E6%89%A7%E8%A1%8C%E6%8A%80%E6%9C%AF/>简单理解符号执行技术</a></p><h2 id=污点分析>污点分析</h2><p><a href=https://www.k0rz3n.com/2019/03/01/%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E6%B1%A1%E7%82%B9%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF/>简单理解污点分析技术</a></p><h2 id=梯度下降算法>梯度下降算法</h2><p><a href=https://www.jianshu.com/p/c7e642877b0e>深入浅出——梯度下降法及其实现</a></p><h1 id=吸取的经验教训>吸取的经验教训</h1><p>文章中举的大部分例子我都看不懂，可以先选择新跳过的，在这方面耽误了很多时间。</p></div><div class=article-footer>
+<blockquote class=mt-2x>
+<ul class="post-copyright list-unstyled">
+<li class="post-copyright-link hidden-xs">
+<strong>本文链接: </strong>
+<a href=https://Qeryu.github.io/2020/05/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95%E8%B0%83%E6%9F%A5%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/ title=模糊测试调查综述阅读笔记 target=_blank rel=external>https://Qeryu.github.io/2020/05/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95%E8%B0%83%E6%9F%A5%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</a>
+</li><li class=post-copyright-license>
+<strong>License: </strong>
+<a href=http://creativecommons.org/licenses/by/4.0/deed.zh target=_blank rel=external>CC BY 4.0 CN</a>
+</li></ul></blockquote><div class="panel panel-default panel-badger">
+<div class=panel-body>
+<figure class=media>
+<div class=media-left>
+<a href=https://github.com/qeryu target=_blank class="img-burn thumb-sm visible-lg">
+<img src=https://Qeryu.github.io/qeryu.jpg class="img-rounded w-full" alt>
+</a>
+</div><div class=media-body>
+<h3 class=media-heading><a href=https://github.com/qeryu target=_blank><span class=text-dark>Qeryu</span><small class=ml-1x></small></a></h3><div>这课怎么就突然听不懂了呢？！</div></div></figure></div></div></div></article></div><nav class="bar bar-footer clearfix" data-stick-bottom>
+<div class=bar-inner>
+<ul class="pager pull-left">
+<li class=prev>
+<a href=https://Qeryu.github.io/2020/05/wsl%E6%8A%98%E8%85%BE%E7%AC%94%E8%AE%B0/ title=WSL折腾笔记><i class="icon icon-angle-left" aria-hidden=true></i><span>&nbsp;&nbsp;下一篇</span></a>
+</li><li class=next>
+<a href=https://Qeryu.github.io/2020/05/eslint%E8%B0%83%E7%A0%94%E5%AD%A6%E4%B9%A0%E4%BD%BF%E7%94%A8/ title=ESlint调研学习使用><span>上一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden=true></i></a>
+</li><li class=toggle-toc>
+<a class="toggle-btn collapsed" data-toggle=collapse href=#collapseToc aria-expanded=false title=文章目录 role=button>
+<span>[&nbsp;</span><span>文章目录</span>
 <i class="text-collapsed icon icon-anchor"></i>
 <i class="text-in icon icon-close"></i>
-<span>]</span></a></li></ul><div class=bar-right><div class=share-component data-sites=weibo,qq,wechat,facebook,twitter data-mobile-sites=weibo,qq,qzone></div></div></div></nav></main><footer class=footer itemscope itemtype=http://schema.org/WPFooter><ul class=social-links><li><a href=https://github.com/qeryu target=_blank title=github data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li><li><a href=https://Qeryu.github.io/index.xml target=_blank title=rss data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li></ul><div class=copyright>&copy;2017 -
-2021<div class=publishby>Theme by <a href=https://github.com/xiaoheiAh target=_blank>xiaoheiAh </a>base on<a href=https://github.com/xiaoheiAh/hugo-theme-pure target=_blank> pure</a>.</div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><script type=text/x-mathjax-config>
+<span>]</span>
+</a>
+</li></ul><div class=bar-right>
+<div class=share-component data-sites=weibo,qq,wechat,facebook,twitter data-mobile-sites=weibo,qq,qzone></div></div></div></nav></main><footer class=footer itemscope itemtype=http://schema.org/WPFooter>
+<ul class=social-links>
+<li><a href=https://github.com/qeryu target=_blank title=github data-toggle=tooltip data-placement=top>
+<i class="icon icon-github"></i></a></li><li><a href=https://Qeryu.github.io/index.xml target=_blank title=rss data-toggle=tooltip data-placement=top>
+<i class="icon icon-rss"></i></a></li></ul><div class=copyright>
+&copy;2017 -
+2022
+<div class=publishby>
+Theme by <a href=https://github.com/xiaoheiAh target=_blank> xiaoheiAh </a>base on<a href=https://github.com/xiaoheiAh/hugo-theme-pure target=_blank> pure</a>.
+</div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type=text/x-mathjax-config>
     MathJax.Hub.Config({
             showMathMenu: false, //disables context menu
             tex2jax: {
             inlineMath: [ ['$','$'], ['\\(','\\)'] ]
            }
     });
-</script><script src=https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js></script><script>window.jQuery||document.write('<script src="js/jquery.min.js"><\/script>')</script><script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js></script><script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js defer></script><script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js defer></script><script>hljs.configure({tabReplace:'    ',classPrefix:''}),hljs.initHighlightingOnLoad()</script><script src=https://Qeryu.github.io/js/application.min.a94ab19cb63a95c8d7fbd7b85cab3ddeea8c369bdf75b9cab6708787ead123af.js></script><script src=https://Qeryu.github.io/js/plugin.min.19c5bcb2fb0789ab4f2b7834e5ceb5e92635645605bab902c1024b25f1502364.js></script><script>(function(a){var b={TRANSLATION:{POSTS:'文章',PAGES:'页面',CATEGORIES:'分类',TAGS:'标签',UNTITLED:'(未命名)'},ROOT_URL:'https://Qeryu.github.io/',CONTENT_URL:'https://Qeryu.github.io//searchindex.json '};a.INSIGHT_CONFIG=b})(window)</script><script type=text/javascript src=https://Qeryu.github.io/js/insight.min.4a2d52de4bfff73e0c688404fe3d17c9a3ae12d9888e1e1ac9c690e4890de2ded50fe55f2b819c2ba55435a76f396f3ea6805765f0b0af5635cdf74ea459eab0.js defer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js></script><script>tocbot.init({tocSelector:'.js-toc',contentSelector:'.js-toc-content',headingSelector:'h1, h2, h3',hasInnerContainers:!0})</script></body></html>
+</script>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js></script>
+<script>window.jQuery||document.write('<script src="js/jquery.min.js"><\/script>')</script>
+<script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js></script>
+<script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js defer></script>
+<script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js defer></script><script>hljs.configure({tabReplace:"    ",classPrefix:''}),hljs.initHighlightingOnLoad()</script>
+<script src=https://Qeryu.github.io/js/application.min.e720b935330b2a176cfb4b8bd9a6cc632caf6b752f94e87c62152a9557ff6d15.js></script>
+<script src=https://Qeryu.github.io/js/plugin.min.334875d4d4a72afb866e446df61b5f4bf1f0a516d1303166f52f7804d17ef3ab.js></script>
+<script>(function(e){var t={TRANSLATION:{POSTS:"文章",PAGES:"页面",CATEGORIES:"分类",TAGS:"标签",UNTITLED:"(未命名)"},ROOT_URL:"https://Qeryu.github.io/",CONTENT_URL:"https://Qeryu.github.io//searchindex.json "};e.INSIGHT_CONFIG=t})(window)</script>
+<script type=text/javascript src=https://Qeryu.github.io/js/insight.min.759e5002714e12761afcd512f103d39c86573165db51972dd3b24df6eddf238ed3e3e85c1988e96cba09419d1deccdeb68c15284f2c3d03049fad53c11774524.js defer></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js></script>
+<script>tocbot.init({tocSelector:".js-toc",contentSelector:".js-toc-content",headingSelector:"h1, h2, h3",hasInnerContainers:!0})</script>
+</body></html>
