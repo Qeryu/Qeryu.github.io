@@ -1,100 +1,17 @@
-<!doctype html><html lang=zh>
-<head>
-<title>
-网安实践 渗透测试2 - 胡思乱想集散中心
-</title><meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui">
-<meta name=renderer content="webkit">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="black">
-<meta name=format-detection content="telephone=no,email=no,adress=no">
-<meta name=theme-color content="#000000">
-<meta http-equiv=window-target content="_top">
-<meta name=description content="2021年第四次网安实践内容笔记
-">
-<meta name=generator content="Hugo 0.93.2 with theme pure">
-<title>网安实践 渗透测试2 - 胡思乱想集散中心</title><link rel=stylesheet href=https://qeryu.github.io/css/style.min.084a5eb24fb0cf9d5aade7246f19ba0c820cf904996a28ffe88039427693ac68.css>
-<link rel=stylesheet href=https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css async>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css async>
-<meta property="og:title" content="网安实践 渗透测试2">
-<meta property="og:description" content="2021年第四次网安实践内容笔记">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://qeryu.github.io/2021/05/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%952/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-05-26T10:06:51+08:00">
-<meta property="article:modified_time" content="2021-05-26T10:06:51+08:00">
-<meta itemprop=name content="网安实践 渗透测试2">
-<meta itemprop=description content="2021年第四次网安实践内容笔记"><meta itemprop=datePublished content="2021-05-26T10:06:51+08:00">
-<meta itemprop=dateModified content="2021-05-26T10:06:51+08:00">
-<meta itemprop=wordCount content="8236">
-<meta itemprop=keywords content="Metasploit3,渗透测试,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="网安实践 渗透测试2">
-<meta name=twitter:description content="2021年第四次网安实践内容笔记"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head><body class="main-center theme-black" itemscope itemtype=http://schema.org/WebPage><header class=header itemscope itemtype=http://schema.org/WPHeader>
-<div class=slimContent>
-<div class=navbar-header>
-<div class="profile-block text-center">
-<a id=avatar href=https://github.com/qeryu target=_blank>
-<img class="img-circle img-rotate" src=https://qeryu.github.io/avatar/qeryu.jpg width=200 height=200>
-</a>
-<h2 id=name class="hidden-xs hidden-sm">Qeryu</h2><h3 id=title class="hidden-xs hidden-sm hidden-md">信息安全学生</h3><small id=location class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Wuhan, China</small>
-</div><div class=search id=search-form-wrap>
-<form class="search-form sidebar-form">
-<div class=input-group>
-<input type=text class="search-form-input form-control" placeholder=搜索>
-<span class=input-group-btn>
-<button type=submit class="search-form-submit btn btn-flat" onclick=return!1><i class="icon icon-search"></i></button>
-</span>
-</div><div class=ins-search>
-<div class=ins-search-mask></div><div class=ins-search-container>
-<div class=ins-input-wrapper>
-<input type=text class=ins-search-input placeholder=想要查找什么... x-webkit-speech>
-<button type=button class="close ins-close ins-selectable" data-dismiss=modal aria-label=Close><span aria-hidden=true>×</span></button>
-</div><div class=ins-section-wrapper>
-<div class=ins-section-container></div></div></div></div></form></div><button class="navbar-toggle collapsed" type=button data-toggle=collapse data-target=#main-navbar aria-controls=main-navbar aria-expanded=false>
+<!doctype html><html lang=zh><head><title>网安实践 渗透测试2 - 胡思乱想集散中心</title><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui"><meta name=renderer content="webkit"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="black"><meta name=format-detection content="telephone=no,email=no,adress=no"><meta name=theme-color content="#000000"><meta http-equiv=window-target content="_top"><meta name=description content="2021年第四次网安实践内容笔记
+"><meta name=generator content="Hugo 0.96.0 with theme pure"><title>网安实践 渗透测试2 - 胡思乱想集散中心</title><link rel=stylesheet href=https://qeryu.github.io/css/style.min.084a5eb24fb0cf9d5aade7246f19ba0c820cf904996a28ffe88039427693ac68.css><link rel=stylesheet href=https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css async><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css async><meta property="og:title" content="网安实践 渗透测试2"><meta property="og:description" content="2021年第四次网安实践内容笔记"><meta property="og:type" content="article"><meta property="og:url" content="https://qeryu.github.io/2021/05/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%952/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-05-26T10:06:51+08:00"><meta property="article:modified_time" content="2021-05-26T10:06:51+08:00"><meta itemprop=name content="网安实践 渗透测试2"><meta itemprop=description content="2021年第四次网安实践内容笔记"><meta itemprop=datePublished content="2021-05-26T10:06:51+08:00"><meta itemprop=dateModified content="2021-05-26T10:06:51+08:00"><meta itemprop=wordCount content="8236"><meta itemprop=keywords content="Metasploit3,渗透测试,"><meta name=twitter:card content="summary"><meta name=twitter:title content="网安实践 渗透测试2"><meta name=twitter:description content="2021年第四次网安实践内容笔记"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body class="main-center theme-black" itemscope itemtype=http://schema.org/WebPage><header class=header itemscope itemtype=http://schema.org/WPHeader><div class=slimContent><div class=navbar-header><div class="profile-block text-center"><a id=avatar href=https://github.com/qeryu target=_blank><img class="img-circle img-rotate" src=https://qeryu.github.io/avatar/qeryu.jpg width=200 height=200></a><h2 id=name class="hidden-xs hidden-sm">Qeryu</h2><h3 id=title class="hidden-xs hidden-sm hidden-md">信息安全学生</h3><small id=location class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Wuhan, China</small></div><div class=search id=search-form-wrap><form class="search-form sidebar-form"><div class=input-group><input type=text class="search-form-input form-control" placeholder=搜索>
+<span class=input-group-btn><button type=submit class="search-form-submit btn btn-flat" onclick=return!1><i class="icon icon-search"></i></button></span></div><div class=ins-search><div class=ins-search-mask></div><div class=ins-search-container><div class=ins-input-wrapper><input type=text class=ins-search-input placeholder=想要查找什么... x-webkit-speech>
+<button type=button class="close ins-close ins-selectable" data-dismiss=modal aria-label=Close><span aria-hidden=true>×</span></button></div><div class=ins-section-wrapper><div class=ins-section-container></div></div></div></div></form></div><button class="navbar-toggle collapsed" type=button data-toggle=collapse data-target=#main-navbar aria-controls=main-navbar aria-expanded=false>
 <span class=sr-only>Toggle navigation</span>
 <span class=icon-bar></span>
 <span class=icon-bar></span>
-<span class=icon-bar></span>
-</button>
-</div><nav id=main-navbar class="collapse navbar-collapse" itemscope itemtype=http://schema.org/SiteNavigationElement role=navigation>
-<ul class="nav navbar-nav main-nav">
-<li class="menu-item menu-item-home">
-<a href=/>
-<i class="icon icon-home-fill"></i>
-<span class=menu-title>Home</span>
-</a>
-</li><li class="menu-item menu-item-archives">
-<a href=/posts/>
-<i class="icon icon-archives-fill"></i>
-<span class=menu-title>Archives</span>
-</a>
-</li><li class="menu-item menu-item-categories">
-<a href=/categories/>
-<i class="icon icon-folder"></i>
-<span class=menu-title>Categories</span>
-</a>
-</li><li class="menu-item menu-item-tags">
-<a href=/tags/>
-<i class="icon icon-tags"></i>
-<span class=menu-title>Tags</span>
-</a>
-</li><li class="menu-item menu-item-about">
-<a href=/about/>
-<i class="icon icon-cup-fill"></i>
-<span class=menu-title>About</span>
-</a>
-</li></ul></nav></div></header><aside class=sidebar itemscope itemtype=http://schema.org/WPSideBar>
-<div class=slimContent>
-<div class=widget>
-<h3 class=widget-title>公告</h3><div class=widget-body>
-<div id=board>
-<div class=content><p>enjoy~</p></div></div></div></div><div class=widget>
-<h3 class=widget-title> 标签</h3><div id=tag-cloud-list class=widget-body>
-<a href=https://qeryu.github.io/tags/beego/ class=tag-list-link rel=1>beego<span class=tag-list-count>1</span></a>
+<span class=icon-bar></span></button></div><nav id=main-navbar class="collapse navbar-collapse" itemscope itemtype=http://schema.org/SiteNavigationElement role=navigation><ul class="nav navbar-nav main-nav"><li class="menu-item menu-item-home"><a href=/><i class="icon icon-home-fill"></i>
+<span class=menu-title>Home</span></a></li><li class="menu-item menu-item-archives"><a href=/posts/><i class="icon icon-archives-fill"></i>
+<span class=menu-title>Archives</span></a></li><li class="menu-item menu-item-categories"><a href=/categories/><i class="icon icon-folder"></i>
+<span class=menu-title>Categories</span></a></li><li class="menu-item menu-item-tags"><a href=/tags/><i class="icon icon-tags"></i>
+<span class=menu-title>Tags</span></a></li><li class="menu-item menu-item-about"><a href=/about/><i class="icon icon-cup-fill"></i>
+<span class=menu-title>About</span></a></li></ul></nav></div></header><aside class=sidebar itemscope itemtype=http://schema.org/WPSideBar><div class=slimContent><div class=widget><h3 class=widget-title>公告</h3><div class=widget-body><div id=board><div class=content><p>enjoy~</p></div></div></div></div><div class=widget><h3 class=widget-title>标签</h3><div id=tag-cloud-list class=widget-body><a href=https://qeryu.github.io/tags/beego/ class=tag-list-link rel=1>beego<span class=tag-list-count>1</span></a>
 <a href=https://qeryu.github.io/tags/blog/ class=tag-list-link rel=2>blog<span class=tag-list-count>2</span></a>
 <a href=https://qeryu.github.io/tags/c++/ class=tag-list-link rel=1>c++<span class=tag-list-count>1</span></a>
 <a href=https://qeryu.github.io/tags/coolq/ class=tag-list-link rel=1>coolq<span class=tag-list-count>1</span></a>
@@ -122,87 +39,20 @@
 <a href=https://qeryu.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/ class=tag-list-link rel=1>渗透测试<span class=tag-list-count>1</span></a>
 <a href=https://qeryu.github.io/tags/%E7%88%AC%E8%99%AB/ class=tag-list-link rel=1>爬虫<span class=tag-list-count>1</span></a>
 <a href=https://qeryu.github.io/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/ class=tag-list-link rel=1>科学上网<span class=tag-list-count>1</span></a>
-<a href=https://qeryu.github.io/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ class=tag-list-link rel=1>论文阅读<span class=tag-list-count>1</span></a>
-</div><script>document.onreadystatechange=()=>{document.readyState==="complete"&&tagCloud("#tag-cloud-list a",8,20)};function tagCloud(n,s,o){let t=0,e=0;$(n).each(function(){let n=Number($(this).attr("rel"));t<n&&(t=n),(e>n||e==0)&&(e=n)});let i=(o-s)/(t-e);$(n).each(function(){let t=$(this).attr("rel")-e;$(this).css({"font-size":s+t*i+"px"})})}</script>
-</div><div class=widget>
-<h3 class=widget-title> 分类</h3><div class=widget-body>
-<ul class=category-list>
-<li class=category-list-item><a href=https://qeryu.github.io/categories/cs61a/ class=category-list-link>cs61a</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/fuzzing/ class=category-list-link>fuzzing</a><span class=category-list-count>3</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/javascrip/ class=category-list-link>javascrip</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/language/ class=category-list-link>language</a><span class=category-list-count>4</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/linux/ class=category-list-link>linux</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/lstm/ class=category-list-link>lstm</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/machine-learning/ class=category-list-link>machine-learning</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/notes/ class=category-list-link>notes</a><span class=category-list-count>3</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/web/ class=category-list-link>web</a><span class=category-list-count>6</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/xml/ class=category-list-link>xml</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5/ class=category-list-link>网安实践</a><span class=category-list-count>1</span></li></ul></div></div><div class=widget>
-<h3 class=widget-title>最新文章</h3><div class=widget-body>
-<ul class="recent-post-list list-unstyled no-thumbnail">
-<li>
-<div class=item-inner>
-<p class=item-title>
-<a href=https://qeryu.github.io/2021/05/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%952/ class=title>网安实践 渗透测试2</a>
-</p><p class=item-date>
-<time datetime="2021-05-26 10:06:51 +0800 +0800" itemprop=datePublished>2021-05-26</time>
-</p></div></li><li>
-<div class=item-inner>
-<p class=item-title>
-<a href=https://qeryu.github.io/2021/05/hexo%E8%BF%81hugo%E6%90%AC%E5%AE%B6%E8%AE%B0/ class=title>Hexo迁Hugo搬家记</a>
-</p><p class=item-date>
-<time datetime="2021-05-25 14:33:30 +0800 +0800" itemprop=datePublished>2021-05-25</time>
-</p></div></li><li>
-<div class=item-inner>
-<p class=item-title>
-<a href=https://qeryu.github.io/2020/09/%E7%9B%B8%E4%BC%BC%E8%AE%BA%E6%96%87lstm%E6%A8%A1%E5%9E%8B%E9%83%A8%E5%88%86%E5%AD%A6%E4%B9%A0/ class=title>相似论文LSTM模型部分学习</a>
-</p><p class=item-date>
-<time datetime="2020-09-20 22:32:27 +0000 UTC" itemprop=datePublished>2020-09-20</time>
-</p></div></li><li>
-<div class=item-inner>
-<p class=item-title>
-<a href=https://qeryu.github.io/2020/08/lstm%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/ class=title>LSTM入门笔记</a>
-</p><p class=item-date>
-<time datetime="2020-08-24 00:00:00 +0000 UTC" itemprop=datePublished>2020-08-24</time>
-</p></div></li><li>
-<div class=item-inner>
-<p class=item-title>
-<a href=https://qeryu.github.io/2020/06/tinyxml-2%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ class=title>TinyXML-2学习笔记</a>
-</p><p class=item-date>
-<time datetime="2020-06-08 21:44:48 +0000 UTC" itemprop=datePublished>2020-06-08</time>
-</p></div></li></ul></div></div></div></aside><aside class="sidebar sidebar-toc collapse" id=collapseToc itemscope itemtype=http://schema.org/WPSideBar>
-<div class=slimContent>
-<h4 class=toc-title>文章目录</h4><nav id=toc class="js-toc toc">
-</nav></div></aside><main class=main role=main><div class=content>
-<article id=- class="article article-type-" itemscope itemtype=http://schema.org/BlogPosting>
-<div class=article-header>
-<h1 itemprop=name>
-<a class=article-title href=/2021/05/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%952/>网安实践 渗透测试2</a>
-</h1><div class=article-meta>
-<span class=article-date>
-<i class="icon icon-calendar-check"></i>&nbsp;
-<a href=https://qeryu.github.io/2021/05/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%952/ class=article-date>
-<time datetime="2021-05-26 10:06:51 +0800 +0800" itemprop=datePublished>2021-05-26</time>
-</a>
-</span>
-<span class=article-category>
-<i class="icon icon-folder"></i>&nbsp;
-<a class=article-category-link href=/categories/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5/> 网安实践 </a>
-</span>
-<span class=article-tag>
-<i class="icon icon-tags"></i>&nbsp;
-<a class=article-tag-link href=/tags/metasploit3/> Metasploit3 </a>
-<a class=article-tag-link href=/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/> 渗透测试 </a>
-</span>
+<a href=https://qeryu.github.io/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ class=tag-list-link rel=1>论文阅读<span class=tag-list-count>1</span></a></div><script>document.onreadystatechange=()=>{document.readyState==="complete"&&tagCloud("#tag-cloud-list a",8,20)};function tagCloud(n,s,o){let t=0,e=0;$(n).each(function(){let n=Number($(this).attr("rel"));t<n&&(t=n),(e>n||e==0)&&(e=n)});let i=(o-s)/(t-e);$(n).each(function(){let t=$(this).attr("rel")-e;$(this).css({"font-size":s+t*i+"px"})})}</script></div><div class=widget><h3 class=widget-title>分类</h3><div class=widget-body><ul class=category-list><li class=category-list-item><a href=https://qeryu.github.io/categories/cs61a/ class=category-list-link>cs61a</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/fuzzing/ class=category-list-link>fuzzing</a><span class=category-list-count>3</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/javascrip/ class=category-list-link>javascrip</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/language/ class=category-list-link>language</a><span class=category-list-count>4</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/linux/ class=category-list-link>linux</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/lstm/ class=category-list-link>lstm</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/machine-learning/ class=category-list-link>machine-learning</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/notes/ class=category-list-link>notes</a><span class=category-list-count>3</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/web/ class=category-list-link>web</a><span class=category-list-count>6</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/xml/ class=category-list-link>xml</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5/ class=category-list-link>网安实践</a><span class=category-list-count>1</span></li></ul></div></div><div class=widget><h3 class=widget-title>最新文章</h3><div class=widget-body><ul class="recent-post-list list-unstyled no-thumbnail"><li><div class=item-inner><p class=item-title><a href=https://qeryu.github.io/2022/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-scapy%E5%AE%9E%E9%AA%8C/ class=title>计算机网络安全 Scapy实验</a></p><p class=item-date><time datetime="2022-03-30 21:43:09 +0800 +0800" itemprop=datePublished>2022-03-30</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://qeryu.github.io/2021/05/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%952/ class=title>网安实践 渗透测试2</a></p><p class=item-date><time datetime="2021-05-26 10:06:51 +0800 +0800" itemprop=datePublished>2021-05-26</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://qeryu.github.io/2021/05/hexo%E8%BF%81hugo%E6%90%AC%E5%AE%B6%E8%AE%B0/ class=title>Hexo迁Hugo搬家记</a></p><p class=item-date><time datetime="2021-05-25 14:33:30 +0800 +0800" itemprop=datePublished>2021-05-25</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://qeryu.github.io/2020/09/%E7%9B%B8%E4%BC%BC%E8%AE%BA%E6%96%87lstm%E6%A8%A1%E5%9E%8B%E9%83%A8%E5%88%86%E5%AD%A6%E4%B9%A0/ class=title>相似论文LSTM模型部分学习</a></p><p class=item-date><time datetime="2020-09-20 22:32:27 +0000 UTC" itemprop=datePublished>2020-09-20</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://qeryu.github.io/2020/08/lstm%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/ class=title>LSTM入门笔记</a></p><p class=item-date><time datetime="2020-08-24 00:00:00 +0000 UTC" itemprop=datePublished>2020-08-24</time></p></div></li></ul></div></div></div></aside><aside class="sidebar sidebar-toc collapse" id=collapseToc itemscope itemtype=http://schema.org/WPSideBar><div class=slimContent><h4 class=toc-title>文章目录</h4><nav id=toc class="js-toc toc"></nav></div></aside><main class=main role=main><div class=content><article id=- class="article article-type-" itemscope itemtype=http://schema.org/BlogPosting><div class=article-header><h1 itemprop=name><a class=article-title href=/2021/05/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%952/>网安实践 渗透测试2</a></h1><div class=article-meta><span class=article-date><i class="icon icon-calendar-check"></i>&nbsp;
+<a href=https://qeryu.github.io/2021/05/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%952/ class=article-date><time datetime="2021-05-26 10:06:51 +0800 +0800" itemprop=datePublished>2021-05-26</time></a></span>
+<span class=article-category><i class="icon icon-folder"></i>&nbsp;
+<a class=article-category-link href=/categories/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5/>网安实践</a></span>
+<span class=article-tag><i class="icon icon-tags"></i>&nbsp;
+<a class=article-tag-link href=/tags/metasploit3/>Metasploit3</a>
+<a class=article-tag-link href=/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/>渗透测试</a></span>
 <span class="post-wordcount hidden-xs" itemprop=wordCount>字数统计: 8236字</span>
-<span class="post-readcount hidden-xs" itemprop=timeRequired>阅读时长: 17分 </span>
-</div></div><div class="article-entry marked-body js-toc-content" itemprop=articleBody>
-<p>2021年第四次网安实践内容笔记</p><h1 id=实验环境>实验环境</h1><h2 id=操作系统>操作系统</h2><ul>
-<li>攻击机Attacker：Linux kali 5.7.0-kali1-amd64 #1 SMP Debian 5.7.6-1kali2 (2020-07-01) x86_64 GNU/Linux</li><li>靶机Target：Windows XP Professional 2002 Service Pack 3</li></ul><h2 id=metasploit>Metasploit</h2><ul>
-<li>版本Version：
-<ul>
-<li>Framework: 6.0.41-dev</li><li>Console : 6.0.41-dev</li></ul></li></ul><h1 id=漏洞简述-cve-2008-1498>漏洞简述 CVE-2008-1498</h1><p><a href=https://www.exploit-db.com/exploits/5259>NetWin Surgemail 3.8k4-4 - IMAP (Authenticated) Remote LIST Universal</a></p><p>有关漏洞的基础信息在该网站上都有，包括：</p><ul>
-<li>用于演示的特定版本的Surgemail</li><li>Python的漏洞利用Exploit代码</li></ul><h2 id=漏洞内容>漏洞内容</h2><p>NetWin Surgemail 3.8k4-4和更早版本中的IMAP服务，会允许能够完成身份验证的用户，通过构造一个超长的LIST命令的参数，来利用堆栈缓冲区溢出的漏洞，达到执行任意代码的目的。</p><h1 id=模糊测试-fuzz>模糊测试 Fuzz</h1><p>模糊测试简单来说就是自动化生成大量随机的、非预期的输入，触发一些平常很难触及的程序逻辑分支，以期让目标程序Crash</p><p>对导致目标程序Crash的输入内容进行分析，有可能发现目标程序的一些漏洞。</p><p>[<a href=https://bbs.pediy.com/thread-225766.htm>翻译]模糊测试: 初学者入门指南-外文翻译-看雪论坛-安全社区|安全招聘|bbs.pediy.com</a></p><h1 id=结构化异常处理-seh>结构化异常处理 SEH</h1><h2 id=什么是异常处理exception-handler>什么是异常处理Exception Handler</h2><p>异常处理Exception Handler是程序中用于处理程序运行中的报错的代码，一般表现为如下的try-catch结构</p><pre><code class=language-C>try {
+<span class="post-readcount hidden-xs" itemprop=timeRequired>阅读时长: 17分</span></div></div><div class="article-entry marked-body js-toc-content" itemprop=articleBody><p>2021年第四次网安实践内容笔记</p><h1 id=实验环境>实验环境</h1><h2 id=操作系统>操作系统</h2><ul><li>攻击机Attacker：Linux kali 5.7.0-kali1-amd64 #1 SMP Debian 5.7.6-1kali2 (2020-07-01) x86_64 GNU/Linux</li><li>靶机Target：Windows XP Professional 2002 Service Pack 3</li></ul><h2 id=metasploit>Metasploit</h2><ul><li>版本Version：<ul><li>Framework: 6.0.41-dev</li><li>Console : 6.0.41-dev</li></ul></li></ul><h1 id=漏洞简述-cve-2008-1498>漏洞简述 CVE-2008-1498</h1><p><a href=https://www.exploit-db.com/exploits/5259>NetWin Surgemail 3.8k4-4 - IMAP (Authenticated) Remote LIST Universal</a></p><p>有关漏洞的基础信息在该网站上都有，包括：</p><ul><li>用于演示的特定版本的Surgemail</li><li>Python的漏洞利用Exploit代码</li></ul><h2 id=漏洞内容>漏洞内容</h2><p>NetWin Surgemail 3.8k4-4和更早版本中的IMAP服务，会允许能够完成身份验证的用户，通过构造一个超长的LIST命令的参数，来利用堆栈缓冲区溢出的漏洞，达到执行任意代码的目的。</p><h1 id=模糊测试-fuzz>模糊测试 Fuzz</h1><p>模糊测试简单来说就是自动化生成大量随机的、非预期的输入，触发一些平常很难触及的程序逻辑分支，以期让目标程序Crash</p><p>对导致目标程序Crash的输入内容进行分析，有可能发现目标程序的一些漏洞。</p><p>[<a href=https://bbs.pediy.com/thread-225766.htm>翻译]模糊测试: 初学者入门指南-外文翻译-看雪论坛-安全社区|安全招聘|bbs.pediy.com</a></p><h1 id=结构化异常处理-seh>结构化异常处理 SEH</h1><h2 id=什么是异常处理exception-handler>什么是异常处理Exception Handler</h2><p>异常处理Exception Handler是程序中用于处理程序运行中的报错的代码，一般表现为如下的try-catch结构</p><pre><code class=language-C>try {
   // 尝试运行的代码，如果无法出现异常则跳转到catch中的代码处理异常
 } catch {
   // 当异常出现时用于处理异常的代码
 }
-</code></pre><p>而SEH是结构化异常处理的简称（Structure Exception Handler），是Windows操作系统用于处理异常的一种<strong>数据结构</strong>，每个SEH包含两个DWORD指针，分别为：</p><ul>
-<li>DWORD: Pointer to next SEH record
-<ul>
-<li>指向下一个SEH，如果当前SEH无法处理这个异常，将会从当前跳转到下一个</li></ul></li><li>DWORD: Pointer to Exception Handler
-<ul>
-<li>指向保存异常处理的代码，即常说的Exception Handler代码</li></ul></li></ul><p>SEH是基于线程的，当线程<strong>初始化</strong>的时候，Windows系统会自动向栈中安装一个SEH作为线程默认的异常处理，即直接退出线程，弹窗报错 “xxx has encountered a problem and needs to close” 。</p><p>如果源程序代码中使用了异常处理机制，如<strong>try-catch结构</strong>或者<strong>Assert断言</strong>，编译器将会根据这些内容向当前函数的栈帧中安装一个SEH。所以一般来说，栈中一般会同时存在多个SEH，这些SEH以链式的结构进行存储，称为<strong>SEH-chain</strong>。</p><p>在栈上的保存结构如下图</p><p><img src=https://www.corelan.be/wp-content/uploads/2009/07/image_thumb45.png alt=image></p><h2 id=当出现异常时>当出现异常时</h2><p>当系统开始处理出现的异常时，会开始调用EXCEPTION_DISPOSITION函数，此时在<strong>ESP+8</strong>的位置存放着Establisher Frame指针，该指针指向SEH-chain中的第一个SEH的第一个DWORD指针，即指向了一个指向了下一个SEH的指针。此时程序开始执行第一个SEH的Exception Handler部分。</p><p>我们要做的SEH溢出漏洞利用，攻击串的结构如下所示：</p><p>[一段任意的缓冲区填充 | NOP空指令滑行区 | ShellCode | Near JMP | Short JMP | PPR]</p><p>我们所要做的是，让攻击串的Short JMP指令（四个字节）覆盖第一个SEH结构的第一个DWORD指针，即覆盖指向下一个SEH的指针，让攻击串中的指向pop-pop-ret序列的指针，覆盖第一个SEH的第二个DWORD指针，即覆盖EH。</p><p>从上文可以看出，SEH漏洞利用几乎是要和pop-pop-ret序列绑定的。</p><p>当处理异常的过程中，系统尝试使用第一个SEH的EH指向的代码处理异常时，将会根据地址找到我们预先找好的pop-pop-ret序列，两个pop指令执行结束后，ESP就指向了Establisher Frame指针，此时再执行一次ret指令，将会引导EIP指向Establisher Frame所保存的地址，即指向了栈中第一个SEH的第一个DWORD指针，即下一条命令执行Short JMP。</p><p>执行一次短跳转后，EIP将被我们引导到更低地址的近跳转Near JMP，再通过一次跳转，将EIP引导到较远的位置，再通过NOP指令让EIP滑到ShellCode的起始位置，来执行比较长的ShellCode。</p><p>图示如下</p><p><img src=https://gitee.com/Uniqsy/qeryu-image/raw/master/img/image_thumb13.png alt=image_thumb13></p><h3 id=为什么不直接让eh指向shellcode>为什么不直接让EH指向ShellCode</h3><p>因为根据操作系统不同，版本不同，被读入的攻击串的存放地址也是不同的。</p><p>直接给EH指定ShellCode地址的话，如果换了另一个操作系统，比如Windows 7，那脚本在攻击过程中是大概率找不到ShellCode的。</p><p>因为存在这种问题，所以要尽量使用程序中已有的信息，不依赖于绝对的地址，来构建更加具有泛用性的攻击脚本。</p><h3 id=为什么要用两次跳转>为什么要用两次跳转</h3><p>因为一个DWORD是4个字节，一次近跳转是5个字节，而一次短跳转是4个字节。</p><p>显然无法直接填充一个近跳转，但是填充短跳转的话，跳转距离又不够写入ShellCode的，所以就需要跳转两次，将EIP引导到较远的位置，再通过NOP指令让EIP滑到ShellCode的起始位置，来执行比较长的ShellCode。</p><h2 id=参考资料>参考资料</h2><p><a href=https://blog.csdn.net/weixin_43713800/article/details/106305156>攻击windows异常处理机制SEH_0pt1mus-CSDN博客</a></p><p><a href=https://www.corelan.be/index.php/2009/07/25/writing-buffer-overflow-exploits-a-quick-and-basic-tutorial-part-3-seh/>Exploit writing tutorial part 3 : SEH Based Exploits | Corelan Cybersecurity ResearchCorelan Cybersecurity Research</a></p><p><a href=https://www.cnblogs.com/yilang/p/11233935.html>结构化异常SEH处理机制详细介绍(一） - 活着的虫子 - 博客园 (cnblogs.com)</a></p><p><a href=https://dkalemis.wordpress.com/2010/10/27/the-need-for-a-pop-pop-ret-instruction-sequence/>The need for a POP POP RET instruction sequence | Dimitrios Kalemis (wordpress.com)</a></p><h1 id=具体操作流程>具体操作流程</h1><p>脚本保存位置</p><pre><code class=language-bash>~/.msf4/modules/脚本具体分类
+</code></pre><p>而SEH是结构化异常处理的简称（Structure Exception Handler），是Windows操作系统用于处理异常的一种<strong>数据结构</strong>，每个SEH包含两个DWORD指针，分别为：</p><ul><li>DWORD: Pointer to next SEH record<ul><li>指向下一个SEH，如果当前SEH无法处理这个异常，将会从当前跳转到下一个</li></ul></li><li>DWORD: Pointer to Exception Handler<ul><li>指向保存异常处理的代码，即常说的Exception Handler代码</li></ul></li></ul><p>SEH是基于线程的，当线程<strong>初始化</strong>的时候，Windows系统会自动向栈中安装一个SEH作为线程默认的异常处理，即直接退出线程，弹窗报错 “xxx has encountered a problem and needs to close” 。</p><p>如果源程序代码中使用了异常处理机制，如<strong>try-catch结构</strong>或者<strong>Assert断言</strong>，编译器将会根据这些内容向当前函数的栈帧中安装一个SEH。所以一般来说，栈中一般会同时存在多个SEH，这些SEH以链式的结构进行存储，称为<strong>SEH-chain</strong>。</p><p>在栈上的保存结构如下图</p><p><img src=https://www.corelan.be/wp-content/uploads/2009/07/image_thumb45.png alt=image></p><h2 id=当出现异常时>当出现异常时</h2><p>当系统开始处理出现的异常时，会开始调用EXCEPTION_DISPOSITION函数，此时在<strong>ESP+8</strong>的位置存放着Establisher Frame指针，该指针指向SEH-chain中的第一个SEH的第一个DWORD指针，即指向了一个指向了下一个SEH的指针。此时程序开始执行第一个SEH的Exception Handler部分。</p><p>我们要做的SEH溢出漏洞利用，攻击串的结构如下所示：</p><p>[一段任意的缓冲区填充 | NOP空指令滑行区 | ShellCode | Near JMP | Short JMP | PPR]</p><p>我们所要做的是，让攻击串的Short JMP指令（四个字节）覆盖第一个SEH结构的第一个DWORD指针，即覆盖指向下一个SEH的指针，让攻击串中的指向pop-pop-ret序列的指针，覆盖第一个SEH的第二个DWORD指针，即覆盖EH。</p><p>从上文可以看出，SEH漏洞利用几乎是要和pop-pop-ret序列绑定的。</p><p>当处理异常的过程中，系统尝试使用第一个SEH的EH指向的代码处理异常时，将会根据地址找到我们预先找好的pop-pop-ret序列，两个pop指令执行结束后，ESP就指向了Establisher Frame指针，此时再执行一次ret指令，将会引导EIP指向Establisher Frame所保存的地址，即指向了栈中第一个SEH的第一个DWORD指针，即下一条命令执行Short JMP。</p><p>执行一次短跳转后，EIP将被我们引导到更低地址的近跳转Near JMP，再通过一次跳转，将EIP引导到较远的位置，再通过NOP指令让EIP滑到ShellCode的起始位置，来执行比较长的ShellCode。</p><p>图示如下</p><p><img src=https://gitee.com/Uniqsy/qeryu-image/raw/master/img/image_thumb13.png alt=image_thumb13></p><h3 id=为什么不直接让eh指向shellcode>为什么不直接让EH指向ShellCode</h3><p>因为根据操作系统不同，版本不同，被读入的攻击串的存放地址也是不同的。</p><p>直接给EH指定ShellCode地址的话，如果换了另一个操作系统，比如Windows 7，那脚本在攻击过程中是大概率找不到ShellCode的。</p><p>因为存在这种问题，所以要尽量使用程序中已有的信息，不依赖于绝对的地址，来构建更加具有泛用性的攻击脚本。</p><h3 id=为什么要用两次跳转>为什么要用两次跳转</h3><p>因为一个DWORD是4个字节，一次近跳转是5个字节，而一次短跳转是4个字节。</p><p>显然无法直接填充一个近跳转，但是填充短跳转的话，跳转距离又不够写入ShellCode的，所以就需要跳转两次，将EIP引导到较远的位置，再通过NOP指令让EIP滑到ShellCode的起始位置，来执行比较长的ShellCode。</p><h2 id=参考资料>参考资料</h2><p><a href=https://blog.csdn.net/weixin_43713800/article/details/106305156>攻击windows异常处理机制SEH_0pt1mus-CSDN博客</a></p><p><a href=https://www.corelan.be/index.php/2009/07/25/writing-buffer-overflow-exploits-a-quick-and-basic-tutorial-part-3-seh/>Exploit writing tutorial part 3 : SEH Based Exploits | Corelan Cybersecurity ResearchCorelan Cybersecurity Research</a></p><p><a href=https://www.cnblogs.com/yilang/p/11233935.html>结构化异常SEH处理机制详细介绍(一） - 活着的虫子 - 博客园 (cnblogs.com)</a></p><p><a href=https://dkalemis.wordpress.com/2010/10/27/the-need-for-a-pop-pop-ret-instruction-sequence/>The need for a POP POP RET instruction sequence | Dimitrios Kalemis (wordpress.com)</a></p><h1 id=具体操作流程>具体操作流程</h1><p>脚本保存位置</p><pre><code class=language-bash>~/.msf4/modules/脚本具体分类
 </code></pre><p>这个保存位置一般都是保存的用户自己写的脚本。</p><p>这里和老师的课件内容不一样，课件是直接把内容保存在了<code>/usr/share/metasploit-framework/modules</code>中，如果把自己的脚本也保存在那个文件夹下，可能会破坏原有的Metasploit的主干代码。</p><h2 id=靶机上安装surgemail以及immunity-debugger>靶机上安装Surgemail以及Immunity Debugger</h2><p>Surgemail的安装包可以从靶机上直接拿，也可以从上文提到的官网上下载对应含有漏洞的版本。</p><p>Immunity Debugger靶机上也直接有，也可以去网上找<a href=https://www.immunityinc.com/products/debugger/>Immunity Debugger (immunityinc.com)</a>官网下载</p><p>需要注意的是，因为Surgemail是系统服务，所以Immunity Debugger需要用系统的<strong>管理员权限</strong>来运行，靶机的用户密码是<code>test</code></p><h3 id=命令行开启关闭surgemail服务>命令行开启关闭Surgemail服务</h3><pre><code class=language-bash>net start surgemail # 主动开启Surgemail服务
 net stop surgemail # 主动关闭Surgemail服务
 </code></pre><p>在每次发生Crash之后，Surgemail大概率都会进入异常，需要手动关闭（有可能他自己已经关了）然后再手动开启。</p><h3 id=管理员权限运行immunity-debugger>管理员权限运行Immunity Debugger</h3><p>右键点击安装好的Immunity Debugger</p><p>进入之后，<code>Attach</code>到当前正在运行的Surgemail服务上</p><p><img src=https://gitee.com/Uniqsy/qeryu-image/raw/master/img/image-20210526114210314.png alt=image-20210526114210314></p><p><img src=https://gitee.com/Uniqsy/qeryu-image/raw/master/img/image-20210526114646615.png alt=image-20210526114646615></p><p>需要注意的是，刚Attach上去的时候，Debugger会处于Paused状态，需要手动点一下上面的运行。</p><h2 id=模糊测试找到crash点>模糊测试找到Crash点</h2><p>在进行漏洞利用之前首先需要检查靶机上是否存在漏洞，常见方法就是进行模糊测试Fuzz，以下是书中提供的脚本</p><p>模糊测试脚本，做了一些小修改，目前保证可以在我的电脑上稳定跑：</p><pre><code class=language-ruby>require 'msf/core'    # POINT A
@@ -275,8 +125,7 @@ set rhosts 192.168.xxx.xxx # 靶机IP地址
 </code></pre><p>我们将包含核心库中的所有功能。</p><p>MSF具有模块化结构，分为以下几部分：框架核心，基础和ui。</p><p>关于MSF架构的完整讨论不在讨论范围之内，MSF地核心库提供了很多接口，它提供了与漏洞利用模块，会话，插件等进行交互的必需功能。具体内容可参见<a href=http://dev.metasploit.com/redmine/projects/framework/wiki/DeveloperGuide#12-Design-and-Architecture>Metasploit Developer’s Guide</a></p><h4 id=point-b>Point B</h4><pre><code class=language-ruby>class Metasploit4 &lt; Msf::Auxiliary        # POINT B
 </code></pre><p>我们开始定义类并从<code>Msf::Auxiliary</code>继承。 <code>Metasploit</code>的<code>auxiliary</code>模块的特殊之处在于，它们不一定是带有有效<code>Payload</code>的漏洞利用程序。 相反，它们可以被视为侦察工具。 这包括端口扫描程序，模糊测试，信息收集等工具。</p><h4 id=point-c--d>Point C & D</h4><pre><code class=language-ruby>include Msf::Exploit::Remote::Imap    # POINT C
 include Msf::Auxiliary::Dos           # POINT D
-</code></pre><p>如参考资料“第14章所述”，这部分混入（Mixin）了IMAP类和DoS类。</p><blockquote>
-<p>关于Mixin，它是Ruby的include语法、Python的多重继承语法实现的一种编程模式，和Java中的多重继承的语法差不多，Ruby中是将其他模块include到类的定义中，其他模块中的方法、变量都会被mix到新定义的类中。</p></blockquote><p>引用IMAP类可以让你使用它的登录功能，即登录到Surgemail服务</p><p>这个Fuzz测试器的目的则是让服务器崩溃，即这个模块将导致DoS（拒绝服务）</p><p>混入（Mixin）让该模块（module）有了IMAP类的登录功能与DoS类中的一些变量，这些内容在后面都会用到。可以看到，这个脚本中并没有提到<code>imapuser</code>、<code>imappass</code>、<code>rhosts</code>、<code>rport</code>变量，但是在设置参数的时候这些变量都存在，这些变量就是从这两个类中混入得到的。</p><h4 id=point-e>Point E</h4><pre><code class=language-ruby> def initialize    # POINT E
+</code></pre><p>如参考资料“第14章所述”，这部分混入（Mixin）了IMAP类和DoS类。</p><blockquote><p>关于Mixin，它是Ruby的include语法、Python的多重继承语法实现的一种编程模式，和Java中的多重继承的语法差不多，Ruby中是将其他模块include到类的定义中，其他模块中的方法、变量都会被mix到新定义的类中。</p></blockquote><p>引用IMAP类可以让你使用它的登录功能，即登录到Surgemail服务</p><p>这个Fuzz测试器的目的则是让服务器崩溃，即这个模块将导致DoS（拒绝服务）</p><p>混入（Mixin）让该模块（module）有了IMAP类的登录功能与DoS类中的一些变量，这些内容在后面都会用到。可以看到，这个脚本中并没有提到<code>imapuser</code>、<code>imappass</code>、<code>rhosts</code>、<code>rport</code>变量，但是在设置参数的时候这些变量都存在，这些变量就是从这两个类中混入得到的。</p><h4 id=point-e>Point E</h4><pre><code class=language-ruby> def initialize    # POINT E
 	super(
 		'Name'        =&gt; 'Simple IMAP Fuzzer',
 		'Description' =&gt; %q{
@@ -307,8 +156,7 @@ req = '0002 LIST () &quot;/' + fuzzed + '&quot; &quot;PWNED&quot;' + &quot;\r\n&
 </code></pre><p><code>pattern_create()</code>会生成一个长度为11000的串，其四字节长度的子串是不重复的</p><p>执行结果如下：</p><p><img src=https://gitee.com/Uniqsy/qeryu-image/raw/master/img/image-20210528162423560.png alt=image-20210528162423560></p><p>在靶机可以查看第一个SEH的EH部分被覆盖的内容：</p><p><img src=https://gitee.com/Uniqsy/qeryu-image/raw/master/img/image-20210528162514519.png alt=image-20210528162514519></p><p>可以看到第一个SEH的EH被覆盖为了“684E3368”（在其他环境中运行可能是其他的串，但是在网安实践给出的环境中应该都是这个值）。</p><p>然后拿着这个覆盖的内容，回到Kali，使用MSF中，<code>/usr/share/metasploit-framework/tools/exploit </code>中的<code>pattern_offset</code>脚本，可以查看对应的偏移量。</p><pre><code class=language-bash>cd /usr/share/metasploit-framework/tools/exploit/
 ./pattern_offset.rb -q 684E3368 -l 11000
 </code></pre><p><img src=https://gitee.com/Uniqsy/qeryu-image/raw/master/img/image-20210528164319194.png alt=image-20210528164319194></p><p>可以看到EH对应的4个字节的偏移量为，10361-10364</p><p>可以通过修改脚本对该偏移量进行一些验证，修改fuzzed内容如下</p><pre><code class=language-ruby>fuzzed = &quot;\x41&quot; * 10360 + &quot;\x42&quot; * 4 + &quot;\x43&quot; * 636
-</code></pre><p>再次<code>rexploit</code>运行脚本，来到靶机查看seh-chain 的内容发现EH内容已经被覆盖为我们特殊构造的<code>\x42</code></p><p><img src=https://gitee.com/Uniqsy/qeryu-image/raw/master/img/image-20210528164806758.png alt=image-20210528164806758></p><p>再右键点击EH，选择<code>Follow address in stack</code>，可以看到右下角框框中就来到了覆盖的位置，可以看到覆盖的效果如我们所想，中间EH的四个字节被覆盖为了<code>\x42</code>，前后分别为A和C，即<code>\x41</code>和<code>\x43</code>。</p><p>此时我们可以确定我们已经掌握了正确的EH的偏移量，接下来将按照上文SEH中介绍的模式，构造攻击串。</p><h2 id=通过构造payload覆盖eh内容>通过构造Payload覆盖EH内容</h2><p>上文我们所做的所有内容都是在通过模糊测试发现漏洞，所以我们是在<code>auxiliary</code>模块中写脚本，接下来我们将直接编写Surgemail漏洞的真正的渗透攻击代码</p><p>再次说明一次利用SEH漏洞的过程</p><ol>
-<li>通过构造输入出发一次异常处理过程</li><li>用JMP指令覆盖NextSEH即第一个SEH的第一个DWORD指针，来实现跳转到ShellCode</li><li>用指向pop-pop-ret指令序列的指针覆盖SEHandler即第一个SEH的EH部分</li></ol><h3 id=找一个合适的pop-pop-ret序列>找一个合适的pop-pop-ret序列</h3><p>参考资料中给出了两种找PPR序列的方法：使用Debugger的mona脚本；使用MSF的msfpescan工具。</p><h4 id=mona脚本>mona脚本</h4><p>将<a href=https://github.com/corelan/mona>corelan/mona: Corelan Repository for mona.py (github.com)</a>或者老师给出的脚本保存到<code> C:\Program Files\Immunity Inc\Immunity Debugger\PyCommands\</code>文件夹下</p><p><img src=https://gitee.com/Uniqsy/qeryu-image/raw/master/img/image-20210528170640031.png alt=image-20210528170640031></p><p>在Immunity Debugger下方的命令行中输入</p><pre><code class=language-bash>!mona seh
+</code></pre><p>再次<code>rexploit</code>运行脚本，来到靶机查看seh-chain 的内容发现EH内容已经被覆盖为我们特殊构造的<code>\x42</code></p><p><img src=https://gitee.com/Uniqsy/qeryu-image/raw/master/img/image-20210528164806758.png alt=image-20210528164806758></p><p>再右键点击EH，选择<code>Follow address in stack</code>，可以看到右下角框框中就来到了覆盖的位置，可以看到覆盖的效果如我们所想，中间EH的四个字节被覆盖为了<code>\x42</code>，前后分别为A和C，即<code>\x41</code>和<code>\x43</code>。</p><p>此时我们可以确定我们已经掌握了正确的EH的偏移量，接下来将按照上文SEH中介绍的模式，构造攻击串。</p><h2 id=通过构造payload覆盖eh内容>通过构造Payload覆盖EH内容</h2><p>上文我们所做的所有内容都是在通过模糊测试发现漏洞，所以我们是在<code>auxiliary</code>模块中写脚本，接下来我们将直接编写Surgemail漏洞的真正的渗透攻击代码</p><p>再次说明一次利用SEH漏洞的过程</p><ol><li>通过构造输入出发一次异常处理过程</li><li>用JMP指令覆盖NextSEH即第一个SEH的第一个DWORD指针，来实现跳转到ShellCode</li><li>用指向pop-pop-ret指令序列的指针覆盖SEHandler即第一个SEH的EH部分</li></ol><h3 id=找一个合适的pop-pop-ret序列>找一个合适的pop-pop-ret序列</h3><p>参考资料中给出了两种找PPR序列的方法：使用Debugger的mona脚本；使用MSF的msfpescan工具。</p><h4 id=mona脚本>mona脚本</h4><p>将<a href=https://github.com/corelan/mona>corelan/mona: Corelan Repository for mona.py (github.com)</a>或者老师给出的脚本保存到<code> C:\Program Files\Immunity Inc\Immunity Debugger\PyCommands\</code>文件夹下</p><p><img src=https://gitee.com/Uniqsy/qeryu-image/raw/master/img/image-20210528170640031.png alt=image-20210528170640031></p><p>在Immunity Debugger下方的命令行中输入</p><pre><code class=language-bash>!mona seh
 </code></pre><p><img src=https://gitee.com/Uniqsy/qeryu-image/raw/master/img/image-20210528170840830.png alt=image-20210528170840830></p><p>等脚本运行结束，来到<code>C:\Program Files\Immunity Inc\Immunity Debugger</code>，可以看到出现了一个<code>seh.txt</code>文本文件，内容如下</p><p><img src=https://gitee.com/Uniqsy/qeryu-image/raw/master/img/image-20210528170954980.png alt=image-20210528170954980></p><p>通过对SafeSEH功能、ASLR功能是否开启，来筛选出来一个能用的PPR序列</p><p>可以看到参考资料中所选的0x0078517e位置的序列，基本上啥安全功能都没开，可以作为一个可用的PPR序列</p><p><img src=https://gitee.com/Uniqsy/qeryu-image/raw/master/img/image-20210528171235849.png alt=image-20210528171235849></p><h4 id=msfpescan工具>msfpescan工具</h4><p>将Surgemail.exe从靶机中拷贝到Kali下，并在当前路径下开启MSF，使用如下命令</p><pre><code class=language-bash>msfpescan -p ./surgemail.exe
 </code></pre><p>也可以获取其中所有PPR序列的地址，但是信息要比mona脚本少很多。</p><h3 id=漏洞利用代码框架>漏洞利用代码框架</h3><p>框架如下，保存至<code>~/.msf4/modules/exploits/windows/imap/</code>目录。</p><pre><code class=language-ruby>require 'msf/core'
 
@@ -472,46 +320,13 @@ class Metasploit4 &lt; Msf::Exploit::Remote
 		disconnect
 	end
 end
-</code></pre><p>是用于检测靶机上有无目标漏洞的，使用方法如下图</p><p><img src=https://gitee.com/Uniqsy/qeryu-image/raw/master/img/image-20210529150042381.png alt=image-20210529150042381></p></div><div class=article-footer>
-<blockquote class=mt-2x>
-<ul class="post-copyright list-unstyled">
-<li class="post-copyright-link hidden-xs">
-<strong>本文链接: </strong>
-<a href=https://qeryu.github.io/2021/05/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%952/ title="网安实践 渗透测试2" target=_blank rel=external>https://qeryu.github.io/2021/05/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%952/</a>
-</li><li class=post-copyright-license>
-<strong>License: </strong>
-<a href=http://creativecommons.org/licenses/by/4.0/deed.zh target=_blank rel=external>CC BY 4.0 CN</a>
-</li></ul></blockquote><div class="panel panel-default panel-badger">
-<div class=panel-body>
-<figure class=media>
-<div class=media-left>
-<a href=https://github.com/qeryu target=_blank class="img-burn thumb-sm visible-lg">
-<img src=https://qeryu.github.io/avatar/qeryu.jpg class="img-rounded w-full" alt>
-</a>
-</div><div class=media-body>
-<h3 class=media-heading><a href=https://github.com/qeryu target=_blank><span class=text-dark>Qeryu</span><small class=ml-1x>信息安全学生</small></a></h3><div>Good Good Study, Day Day Up~</div></div></figure></div></div></div></article></div><nav class="bar bar-footer clearfix" data-stick-bottom>
-<div class=bar-inner>
-<ul class="pager pull-left">
-<li class=prev>
-<a href=https://qeryu.github.io/about/ title=About><i class="icon icon-angle-left" aria-hidden=true></i><span>&nbsp;&nbsp;下一篇</span></a>
-</li><li class=toggle-toc>
-<a class="toggle-btn collapsed" data-toggle=collapse href=#collapseToc aria-expanded=false title=文章目录 role=button>
-<span>[&nbsp;</span><span>文章目录</span>
+</code></pre><p>是用于检测靶机上有无目标漏洞的，使用方法如下图</p><p><img src=https://gitee.com/Uniqsy/qeryu-image/raw/master/img/image-20210529150042381.png alt=image-20210529150042381></p></div><div class=article-footer><blockquote class=mt-2x><ul class="post-copyright list-unstyled"><li class="post-copyright-link hidden-xs"><strong>本文链接:</strong>
+<a href=https://qeryu.github.io/2021/05/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%952/ title="网安实践 渗透测试2" target=_blank rel=external>https://qeryu.github.io/2021/05/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%952/</a></li><li class=post-copyright-license><strong>License:</strong>
+<a href=http://creativecommons.org/licenses/by/4.0/deed.zh target=_blank rel=external>CC BY 4.0 CN</a></li></ul></blockquote><div class="panel panel-default panel-badger"><div class=panel-body><figure class=media><div class=media-left><a href=https://github.com/qeryu target=_blank class="img-burn thumb-sm visible-lg"><img src=https://qeryu.github.io/avatar/qeryu.jpg class="img-rounded w-full" alt></a></div><div class=media-body><h3 class=media-heading><a href=https://github.com/qeryu target=_blank><span class=text-dark>Qeryu</span><small class=ml-1x>信息安全学生</small></a></h3><div>Good Good Study, Day Day Up~</div></div></figure></div></div></div></article></div><nav class="bar bar-footer clearfix" data-stick-bottom><div class=bar-inner><ul class="pager pull-left"><li class=prev><a href=https://qeryu.github.io/about/ title=About><i class="icon icon-angle-left" aria-hidden=true></i><span>&nbsp;&nbsp;下一篇</span></a></li><li class=next><a href=https://qeryu.github.io/2022/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-scapy%E5%AE%9E%E9%AA%8C/ title="计算机网络安全 Scapy实验"><span>上一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden=true></i></a></li><li class=toggle-toc><a class="toggle-btn collapsed" data-toggle=collapse href=#collapseToc aria-expanded=false title=文章目录 role=button><span>[&nbsp;</span><span>文章目录</span>
 <i class="text-collapsed icon icon-anchor"></i>
 <i class="text-in icon icon-close"></i>
-<span>]</span>
-</a>
-</li></ul><div class=bar-right>
-<div class=share-component data-sites=weibo,qq,wechat,facebook,twitter data-mobile-sites=weibo,qq,qzone></div></div></div></nav></main><footer class=footer itemscope itemtype=http://schema.org/WPFooter>
-<ul class=social-links>
-<li><a href=https://github.com/qeryu target=_blank title=github data-toggle=tooltip data-placement=top>
-<i class="icon icon-github"></i></a></li><li><a href=https://qeryu.github.io/index.xml target=_blank title=rss data-toggle=tooltip data-placement=top>
-<i class="icon icon-rss"></i></a></li></ul><div class=copyright>
-&copy;2019 -
-2022
-<div class=publishby>
-Theme by <a href=https://github.com/xiaoheiAh target=_blank> xiaoheiAh </a>base on<a href=https://github.com/xiaoheiAh/hugo-theme-pure target=_blank> pure</a>.
-</div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<span>]</span></a></li></ul><div class=bar-right><div class=share-component data-sites=weibo,qq,wechat,facebook,twitter data-mobile-sites=weibo,qq,qzone></div></div></div></nav></main><footer class=footer itemscope itemtype=http://schema.org/WPFooter><ul class=social-links><li><a href=https://github.com/qeryu target=_blank title=github data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li><li><a href=https://qeryu.github.io/index.xml target=_blank title=rss data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li></ul><div class=copyright>&copy;2019 -
+2022<div class=publishby>Theme by <a href=https://github.com/xiaoheiAh target=_blank>xiaoheiAh </a>base on<a href=https://github.com/xiaoheiAh/hugo-theme-pure target=_blank> pure</a>.</div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
 <script type=text/x-mathjax-config>
     MathJax.Hub.Config({
             showMathMenu: false, //disables context menu
@@ -519,16 +334,12 @@ Theme by <a href=https://github.com/xiaoheiAh target=_blank> xiaoheiAh </a>base 
             inlineMath: [ ['$','$'], ['\\(','\\)'] ]
            }
     });
-</script>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js></script>
-<script>window.jQuery||document.write('<script src="js/jquery.min.js"><\/script>')</script>
-<script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js></script>
+</script><script src=https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js></script>
+<script>window.jQuery||document.write('<script src="js/jquery.min.js"><\/script>')</script><script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js></script>
 <script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js defer></script>
 <script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js defer></script><script>hljs.configure({tabReplace:"    ",classPrefix:''}),hljs.initHighlightingOnLoad()</script>
 <script src=https://qeryu.github.io/js/application.min.e720b935330b2a176cfb4b8bd9a6cc632caf6b752f94e87c62152a9557ff6d15.js></script>
 <script src=https://qeryu.github.io/js/plugin.min.334875d4d4a72afb866e446df61b5f4bf1f0a516d1303166f52f7804d17ef3ab.js></script>
-<script>(function(e){var t={TRANSLATION:{POSTS:"文章",PAGES:"页面",CATEGORIES:"分类",TAGS:"标签",UNTITLED:"(未命名)"},ROOT_URL:"https://qeryu.github.io/",CONTENT_URL:"https://qeryu.github.io//searchindex.json "};e.INSIGHT_CONFIG=t})(window)</script>
-<script type=text/javascript src=https://qeryu.github.io/js/insight.min.759e5002714e12761afcd512f103d39c86573165db51972dd3b24df6eddf238ed3e3e85c1988e96cba09419d1deccdeb68c15284f2c3d03049fad53c11774524.js defer></script>
+<script>(function(e){var t={TRANSLATION:{POSTS:"文章",PAGES:"页面",CATEGORIES:"分类",TAGS:"标签",UNTITLED:"(未命名)"},ROOT_URL:"https://qeryu.github.io/",CONTENT_URL:"https://qeryu.github.io//searchindex.json "};e.INSIGHT_CONFIG=t})(window)</script><script type=text/javascript src=https://qeryu.github.io/js/insight.min.759e5002714e12761afcd512f103d39c86573165db51972dd3b24df6eddf238ed3e3e85c1988e96cba09419d1deccdeb68c15284f2c3d03049fad53c11774524.js defer></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js></script>
-<script>tocbot.init({tocSelector:".js-toc",contentSelector:".js-toc-content",headingSelector:"h1, h2, h3",hasInnerContainers:!0})</script>
-</body></html>
+<script>tocbot.init({tocSelector:".js-toc",contentSelector:".js-toc-content",headingSelector:"h1, h2, h3",hasInnerContainers:!0})</script></body></html>

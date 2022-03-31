@@ -1,104 +1,21 @@
-<!doctype html><html lang=zh>
-<head>
-<title>
-论文给出例子实现中遇到问题 - 胡思乱想集散中心
-</title><meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui">
-<meta name=renderer content="webkit">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="black">
-<meta name=format-detection content="telephone=no,email=no,adress=no">
-<meta name=theme-color content="#000000">
-<meta http-equiv=window-target content="_top">
-<meta name=description content="虽然论文已经写得挺明白的了（老师学长如是说道），但是本垃圾还是看得五步一百度，十步一谷歌&amp;hellip;
+<!doctype html><html lang=zh><head><title>论文给出例子实现中遇到问题 - 胡思乱想集散中心</title><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui"><meta name=renderer content="webkit"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="black"><meta name=format-detection content="telephone=no,email=no,adress=no"><meta name=theme-color content="#000000"><meta http-equiv=window-target content="_top"><meta name=description content="虽然论文已经写得挺明白的了（老师学长如是说道），但是本垃圾还是看得五步一百度，十步一谷歌&amp;hellip;
 菜死了，理解速度还跟不上，有时候一段文字需要查好几个小时才看明白&amp;hellip;
-">
-<meta name=generator content="Hugo 0.93.2 with theme pure">
-<title>论文给出例子实现中遇到问题 - 胡思乱想集散中心</title><link rel=stylesheet href=https://qeryu.github.io/css/style.min.084a5eb24fb0cf9d5aade7246f19ba0c820cf904996a28ffe88039427693ac68.css>
-<link rel=stylesheet href=https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css async>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css async>
-<meta property="og:title" content="论文给出例子实现中遇到问题">
-<meta property="og:description" content="虽然论文已经写得挺明白的了（老师学长如是说道），但是本垃圾还是看得五步一百度，十步一谷歌&mldr;
-菜死了，理解速度还跟不上，有时候一段文字需要查好几个小时才看明白&mldr;">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://qeryu.github.io/2020/03/%E8%AE%BA%E6%96%87%E7%BB%99%E5%87%BA%E4%BE%8B%E5%AD%90%E5%AE%9E%E7%8E%B0%E4%B8%AD%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2020-03-31T17:43:57+00:00">
-<meta property="article:modified_time" content="2020-03-31T17:43:57+00:00">
-<meta itemprop=name content="论文给出例子实现中遇到问题">
-<meta itemprop=description content="虽然论文已经写得挺明白的了（老师学长如是说道），但是本垃圾还是看得五步一百度，十步一谷歌&mldr;
-菜死了，理解速度还跟不上，有时候一段文字需要查好几个小时才看明白&mldr;"><meta itemprop=datePublished content="2020-03-31T17:43:57+00:00">
-<meta itemprop=dateModified content="2020-03-31T17:43:57+00:00">
-<meta itemprop=wordCount content="5229">
-<meta itemprop=keywords content="Fuzzing,Zest,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="论文给出例子实现中遇到问题">
-<meta name=twitter:description content="虽然论文已经写得挺明白的了（老师学长如是说道），但是本垃圾还是看得五步一百度，十步一谷歌&mldr;
+"><meta name=generator content="Hugo 0.96.0 with theme pure"><title>论文给出例子实现中遇到问题 - 胡思乱想集散中心</title><link rel=stylesheet href=https://qeryu.github.io/css/style.min.084a5eb24fb0cf9d5aade7246f19ba0c820cf904996a28ffe88039427693ac68.css><link rel=stylesheet href=https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css async><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css async><meta property="og:title" content="论文给出例子实现中遇到问题"><meta property="og:description" content="虽然论文已经写得挺明白的了（老师学长如是说道），但是本垃圾还是看得五步一百度，十步一谷歌&mldr;
+菜死了，理解速度还跟不上，有时候一段文字需要查好几个小时才看明白&mldr;"><meta property="og:type" content="article"><meta property="og:url" content="https://qeryu.github.io/2020/03/%E8%AE%BA%E6%96%87%E7%BB%99%E5%87%BA%E4%BE%8B%E5%AD%90%E5%AE%9E%E7%8E%B0%E4%B8%AD%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-03-31T17:43:57+00:00"><meta property="article:modified_time" content="2020-03-31T17:43:57+00:00"><meta itemprop=name content="论文给出例子实现中遇到问题"><meta itemprop=description content="虽然论文已经写得挺明白的了（老师学长如是说道），但是本垃圾还是看得五步一百度，十步一谷歌&mldr;
+菜死了，理解速度还跟不上，有时候一段文字需要查好几个小时才看明白&mldr;"><meta itemprop=datePublished content="2020-03-31T17:43:57+00:00"><meta itemprop=dateModified content="2020-03-31T17:43:57+00:00"><meta itemprop=wordCount content="5229"><meta itemprop=keywords content="Fuzzing,Zest,"><meta name=twitter:card content="summary"><meta name=twitter:title content="论文给出例子实现中遇到问题"><meta name=twitter:description content="虽然论文已经写得挺明白的了（老师学长如是说道），但是本垃圾还是看得五步一百度，十步一谷歌&mldr;
 菜死了，理解速度还跟不上，有时候一段文字需要查好几个小时才看明白&mldr;"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head><body class="main-center theme-black" itemscope itemtype=http://schema.org/WebPage><header class=header itemscope itemtype=http://schema.org/WPHeader>
-<div class=slimContent>
-<div class=navbar-header>
-<div class="profile-block text-center">
-<a id=avatar href=https://github.com/qeryu target=_blank>
-<img class="img-circle img-rotate" src=https://qeryu.github.io/avatar/qeryu.jpg width=200 height=200>
-</a>
-<h2 id=name class="hidden-xs hidden-sm">Qeryu</h2><h3 id=title class="hidden-xs hidden-sm hidden-md">信息安全学生</h3><small id=location class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Wuhan, China</small>
-</div><div class=search id=search-form-wrap>
-<form class="search-form sidebar-form">
-<div class=input-group>
-<input type=text class="search-form-input form-control" placeholder=搜索>
-<span class=input-group-btn>
-<button type=submit class="search-form-submit btn btn-flat" onclick=return!1><i class="icon icon-search"></i></button>
-</span>
-</div><div class=ins-search>
-<div class=ins-search-mask></div><div class=ins-search-container>
-<div class=ins-input-wrapper>
-<input type=text class=ins-search-input placeholder=想要查找什么... x-webkit-speech>
-<button type=button class="close ins-close ins-selectable" data-dismiss=modal aria-label=Close><span aria-hidden=true>×</span></button>
-</div><div class=ins-section-wrapper>
-<div class=ins-section-container></div></div></div></div></form></div><button class="navbar-toggle collapsed" type=button data-toggle=collapse data-target=#main-navbar aria-controls=main-navbar aria-expanded=false>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body class="main-center theme-black" itemscope itemtype=http://schema.org/WebPage><header class=header itemscope itemtype=http://schema.org/WPHeader><div class=slimContent><div class=navbar-header><div class="profile-block text-center"><a id=avatar href=https://github.com/qeryu target=_blank><img class="img-circle img-rotate" src=https://qeryu.github.io/avatar/qeryu.jpg width=200 height=200></a><h2 id=name class="hidden-xs hidden-sm">Qeryu</h2><h3 id=title class="hidden-xs hidden-sm hidden-md">信息安全学生</h3><small id=location class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Wuhan, China</small></div><div class=search id=search-form-wrap><form class="search-form sidebar-form"><div class=input-group><input type=text class="search-form-input form-control" placeholder=搜索>
+<span class=input-group-btn><button type=submit class="search-form-submit btn btn-flat" onclick=return!1><i class="icon icon-search"></i></button></span></div><div class=ins-search><div class=ins-search-mask></div><div class=ins-search-container><div class=ins-input-wrapper><input type=text class=ins-search-input placeholder=想要查找什么... x-webkit-speech>
+<button type=button class="close ins-close ins-selectable" data-dismiss=modal aria-label=Close><span aria-hidden=true>×</span></button></div><div class=ins-section-wrapper><div class=ins-section-container></div></div></div></div></form></div><button class="navbar-toggle collapsed" type=button data-toggle=collapse data-target=#main-navbar aria-controls=main-navbar aria-expanded=false>
 <span class=sr-only>Toggle navigation</span>
 <span class=icon-bar></span>
 <span class=icon-bar></span>
-<span class=icon-bar></span>
-</button>
-</div><nav id=main-navbar class="collapse navbar-collapse" itemscope itemtype=http://schema.org/SiteNavigationElement role=navigation>
-<ul class="nav navbar-nav main-nav">
-<li class="menu-item menu-item-home">
-<a href=/>
-<i class="icon icon-home-fill"></i>
-<span class=menu-title>Home</span>
-</a>
-</li><li class="menu-item menu-item-archives">
-<a href=/posts/>
-<i class="icon icon-archives-fill"></i>
-<span class=menu-title>Archives</span>
-</a>
-</li><li class="menu-item menu-item-categories">
-<a href=/categories/>
-<i class="icon icon-folder"></i>
-<span class=menu-title>Categories</span>
-</a>
-</li><li class="menu-item menu-item-tags">
-<a href=/tags/>
-<i class="icon icon-tags"></i>
-<span class=menu-title>Tags</span>
-</a>
-</li><li class="menu-item menu-item-about">
-<a href=/about/>
-<i class="icon icon-cup-fill"></i>
-<span class=menu-title>About</span>
-</a>
-</li></ul></nav></div></header><aside class=sidebar itemscope itemtype=http://schema.org/WPSideBar>
-<div class=slimContent>
-<div class=widget>
-<h3 class=widget-title>公告</h3><div class=widget-body>
-<div id=board>
-<div class=content><p>enjoy~</p></div></div></div></div><div class=widget>
-<h3 class=widget-title> 标签</h3><div id=tag-cloud-list class=widget-body>
-<a href=https://qeryu.github.io/tags/beego/ class=tag-list-link rel=1>beego<span class=tag-list-count>1</span></a>
+<span class=icon-bar></span></button></div><nav id=main-navbar class="collapse navbar-collapse" itemscope itemtype=http://schema.org/SiteNavigationElement role=navigation><ul class="nav navbar-nav main-nav"><li class="menu-item menu-item-home"><a href=/><i class="icon icon-home-fill"></i>
+<span class=menu-title>Home</span></a></li><li class="menu-item menu-item-archives"><a href=/posts/><i class="icon icon-archives-fill"></i>
+<span class=menu-title>Archives</span></a></li><li class="menu-item menu-item-categories"><a href=/categories/><i class="icon icon-folder"></i>
+<span class=menu-title>Categories</span></a></li><li class="menu-item menu-item-tags"><a href=/tags/><i class="icon icon-tags"></i>
+<span class=menu-title>Tags</span></a></li><li class="menu-item menu-item-about"><a href=/about/><i class="icon icon-cup-fill"></i>
+<span class=menu-title>About</span></a></li></ul></nav></div></header><aside class=sidebar itemscope itemtype=http://schema.org/WPSideBar><div class=slimContent><div class=widget><h3 class=widget-title>公告</h3><div class=widget-body><div id=board><div class=content><p>enjoy~</p></div></div></div></div><div class=widget><h3 class=widget-title>标签</h3><div id=tag-cloud-list class=widget-body><a href=https://qeryu.github.io/tags/beego/ class=tag-list-link rel=1>beego<span class=tag-list-count>1</span></a>
 <a href=https://qeryu.github.io/tags/blog/ class=tag-list-link rel=2>blog<span class=tag-list-count>2</span></a>
 <a href=https://qeryu.github.io/tags/c++/ class=tag-list-link rel=1>c++<span class=tag-list-count>1</span></a>
 <a href=https://qeryu.github.io/tags/coolq/ class=tag-list-link rel=1>coolq<span class=tag-list-count>1</span></a>
@@ -126,73 +43,15 @@
 <a href=https://qeryu.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/ class=tag-list-link rel=1>渗透测试<span class=tag-list-count>1</span></a>
 <a href=https://qeryu.github.io/tags/%E7%88%AC%E8%99%AB/ class=tag-list-link rel=1>爬虫<span class=tag-list-count>1</span></a>
 <a href=https://qeryu.github.io/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/ class=tag-list-link rel=1>科学上网<span class=tag-list-count>1</span></a>
-<a href=https://qeryu.github.io/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ class=tag-list-link rel=1>论文阅读<span class=tag-list-count>1</span></a>
-</div><script>document.onreadystatechange=()=>{document.readyState==="complete"&&tagCloud("#tag-cloud-list a",8,20)};function tagCloud(n,s,o){let t=0,e=0;$(n).each(function(){let n=Number($(this).attr("rel"));t<n&&(t=n),(e>n||e==0)&&(e=n)});let i=(o-s)/(t-e);$(n).each(function(){let t=$(this).attr("rel")-e;$(this).css({"font-size":s+t*i+"px"})})}</script>
-</div><div class=widget>
-<h3 class=widget-title> 分类</h3><div class=widget-body>
-<ul class=category-list>
-<li class=category-list-item><a href=https://qeryu.github.io/categories/cs61a/ class=category-list-link>cs61a</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/fuzzing/ class=category-list-link>fuzzing</a><span class=category-list-count>3</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/javascrip/ class=category-list-link>javascrip</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/language/ class=category-list-link>language</a><span class=category-list-count>4</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/linux/ class=category-list-link>linux</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/lstm/ class=category-list-link>lstm</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/machine-learning/ class=category-list-link>machine-learning</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/notes/ class=category-list-link>notes</a><span class=category-list-count>3</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/web/ class=category-list-link>web</a><span class=category-list-count>6</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/xml/ class=category-list-link>xml</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5/ class=category-list-link>网安实践</a><span class=category-list-count>1</span></li></ul></div></div><div class=widget>
-<h3 class=widget-title>最新文章</h3><div class=widget-body>
-<ul class="recent-post-list list-unstyled no-thumbnail">
-<li>
-<div class=item-inner>
-<p class=item-title>
-<a href=https://qeryu.github.io/2021/05/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%952/ class=title>网安实践 渗透测试2</a>
-</p><p class=item-date>
-<time datetime="2021-05-26 10:06:51 +0800 +0800" itemprop=datePublished>2021-05-26</time>
-</p></div></li><li>
-<div class=item-inner>
-<p class=item-title>
-<a href=https://qeryu.github.io/2021/05/hexo%E8%BF%81hugo%E6%90%AC%E5%AE%B6%E8%AE%B0/ class=title>Hexo迁Hugo搬家记</a>
-</p><p class=item-date>
-<time datetime="2021-05-25 14:33:30 +0800 +0800" itemprop=datePublished>2021-05-25</time>
-</p></div></li><li>
-<div class=item-inner>
-<p class=item-title>
-<a href=https://qeryu.github.io/2020/09/%E7%9B%B8%E4%BC%BC%E8%AE%BA%E6%96%87lstm%E6%A8%A1%E5%9E%8B%E9%83%A8%E5%88%86%E5%AD%A6%E4%B9%A0/ class=title>相似论文LSTM模型部分学习</a>
-</p><p class=item-date>
-<time datetime="2020-09-20 22:32:27 +0000 UTC" itemprop=datePublished>2020-09-20</time>
-</p></div></li><li>
-<div class=item-inner>
-<p class=item-title>
-<a href=https://qeryu.github.io/2020/08/lstm%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/ class=title>LSTM入门笔记</a>
-</p><p class=item-date>
-<time datetime="2020-08-24 00:00:00 +0000 UTC" itemprop=datePublished>2020-08-24</time>
-</p></div></li><li>
-<div class=item-inner>
-<p class=item-title>
-<a href=https://qeryu.github.io/2020/06/tinyxml-2%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ class=title>TinyXML-2学习笔记</a>
-</p><p class=item-date>
-<time datetime="2020-06-08 21:44:48 +0000 UTC" itemprop=datePublished>2020-06-08</time>
-</p></div></li></ul></div></div></div></aside><aside class="sidebar sidebar-toc collapse" id=collapseToc itemscope itemtype=http://schema.org/WPSideBar>
-<div class=slimContent>
-<h4 class=toc-title>文章目录</h4><nav id=toc class="js-toc toc">
-</nav></div></aside><main class=main role=main><div class=content>
-<article id=- class="article article-type-" itemscope itemtype=http://schema.org/BlogPosting>
-<div class=article-header>
-<h1 itemprop=name>
-<a class=article-title href=/2020/03/%E8%AE%BA%E6%96%87%E7%BB%99%E5%87%BA%E4%BE%8B%E5%AD%90%E5%AE%9E%E7%8E%B0%E4%B8%AD%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/>论文给出例子实现中遇到问题</a>
-</h1><div class=article-meta>
-<span class=article-date>
-<i class="icon icon-calendar-check"></i>&nbsp;
-<a href=https://qeryu.github.io/2020/03/%E8%AE%BA%E6%96%87%E7%BB%99%E5%87%BA%E4%BE%8B%E5%AD%90%E5%AE%9E%E7%8E%B0%E4%B8%AD%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/ class=article-date>
-<time datetime="2020-03-31 17:43:57 +0000 UTC" itemprop=datePublished>2020-03-31</time>
-</a>
-</span>
-<span class=article-category>
-<i class="icon icon-folder"></i>&nbsp;
-<a class=article-category-link href=/categories/fuzzing/> Fuzzing </a>
-</span>
-<span class=article-tag>
-<i class="icon icon-tags"></i>&nbsp;
-<a class=article-tag-link href=/tags/fuzzing/> Fuzzing </a>
-<a class=article-tag-link href=/tags/zest/> Zest </a>
-</span>
+<a href=https://qeryu.github.io/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ class=tag-list-link rel=1>论文阅读<span class=tag-list-count>1</span></a></div><script>document.onreadystatechange=()=>{document.readyState==="complete"&&tagCloud("#tag-cloud-list a",8,20)};function tagCloud(n,s,o){let t=0,e=0;$(n).each(function(){let n=Number($(this).attr("rel"));t<n&&(t=n),(e>n||e==0)&&(e=n)});let i=(o-s)/(t-e);$(n).each(function(){let t=$(this).attr("rel")-e;$(this).css({"font-size":s+t*i+"px"})})}</script></div><div class=widget><h3 class=widget-title>分类</h3><div class=widget-body><ul class=category-list><li class=category-list-item><a href=https://qeryu.github.io/categories/cs61a/ class=category-list-link>cs61a</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/fuzzing/ class=category-list-link>fuzzing</a><span class=category-list-count>3</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/javascrip/ class=category-list-link>javascrip</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/language/ class=category-list-link>language</a><span class=category-list-count>4</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/linux/ class=category-list-link>linux</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/lstm/ class=category-list-link>lstm</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/machine-learning/ class=category-list-link>machine-learning</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/notes/ class=category-list-link>notes</a><span class=category-list-count>3</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/web/ class=category-list-link>web</a><span class=category-list-count>6</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/xml/ class=category-list-link>xml</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5/ class=category-list-link>网安实践</a><span class=category-list-count>1</span></li></ul></div></div><div class=widget><h3 class=widget-title>最新文章</h3><div class=widget-body><ul class="recent-post-list list-unstyled no-thumbnail"><li><div class=item-inner><p class=item-title><a href=https://qeryu.github.io/2022/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-scapy%E5%AE%9E%E9%AA%8C/ class=title>计算机网络安全 Scapy实验</a></p><p class=item-date><time datetime="2022-03-30 21:43:09 +0800 +0800" itemprop=datePublished>2022-03-30</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://qeryu.github.io/2021/05/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%952/ class=title>网安实践 渗透测试2</a></p><p class=item-date><time datetime="2021-05-26 10:06:51 +0800 +0800" itemprop=datePublished>2021-05-26</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://qeryu.github.io/2021/05/hexo%E8%BF%81hugo%E6%90%AC%E5%AE%B6%E8%AE%B0/ class=title>Hexo迁Hugo搬家记</a></p><p class=item-date><time datetime="2021-05-25 14:33:30 +0800 +0800" itemprop=datePublished>2021-05-25</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://qeryu.github.io/2020/09/%E7%9B%B8%E4%BC%BC%E8%AE%BA%E6%96%87lstm%E6%A8%A1%E5%9E%8B%E9%83%A8%E5%88%86%E5%AD%A6%E4%B9%A0/ class=title>相似论文LSTM模型部分学习</a></p><p class=item-date><time datetime="2020-09-20 22:32:27 +0000 UTC" itemprop=datePublished>2020-09-20</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://qeryu.github.io/2020/08/lstm%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/ class=title>LSTM入门笔记</a></p><p class=item-date><time datetime="2020-08-24 00:00:00 +0000 UTC" itemprop=datePublished>2020-08-24</time></p></div></li></ul></div></div></div></aside><aside class="sidebar sidebar-toc collapse" id=collapseToc itemscope itemtype=http://schema.org/WPSideBar><div class=slimContent><h4 class=toc-title>文章目录</h4><nav id=toc class="js-toc toc"></nav></div></aside><main class=main role=main><div class=content><article id=- class="article article-type-" itemscope itemtype=http://schema.org/BlogPosting><div class=article-header><h1 itemprop=name><a class=article-title href=/2020/03/%E8%AE%BA%E6%96%87%E7%BB%99%E5%87%BA%E4%BE%8B%E5%AD%90%E5%AE%9E%E7%8E%B0%E4%B8%AD%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/>论文给出例子实现中遇到问题</a></h1><div class=article-meta><span class=article-date><i class="icon icon-calendar-check"></i>&nbsp;
+<a href=https://qeryu.github.io/2020/03/%E8%AE%BA%E6%96%87%E7%BB%99%E5%87%BA%E4%BE%8B%E5%AD%90%E5%AE%9E%E7%8E%B0%E4%B8%AD%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/ class=article-date><time datetime="2020-03-31 17:43:57 +0000 UTC" itemprop=datePublished>2020-03-31</time></a></span>
+<span class=article-category><i class="icon icon-folder"></i>&nbsp;
+<a class=article-category-link href=/categories/fuzzing/>Fuzzing</a></span>
+<span class=article-tag><i class="icon icon-tags"></i>&nbsp;
+<a class=article-tag-link href=/tags/fuzzing/>Fuzzing</a>
+<a class=article-tag-link href=/tags/zest/>Zest</a></span>
 <span class="post-wordcount hidden-xs" itemprop=wordCount>字数统计: 5229字</span>
-<span class="post-readcount hidden-xs" itemprop=timeRequired>阅读时长: 11分 </span>
-</div></div><div class="article-entry marked-body js-toc-content" itemprop=articleBody>
-<p>虽然论文已经写得挺明白的了（老师学长如是说道），但是本垃圾还是看得五步一百度，十步一谷歌&mldr;</p><p>菜死了，理解速度还跟不上，有时候一段文字需要查好几个小时才看明白&mldr;</p><h1 id=xml格式>XML格式</h1><p>XML格式是一种用语传输以及存储数据的文件格式，特点如下：</p><ul>
-<li>纯文本，使用UTF-8编码</li><li>可嵌套，可以充分表示结构化的数据（可以理解为树状结构）</li></ul><h2 id=固定结构>固定结构</h2><pre><code class=language-xml>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt; 
+<span class="post-readcount hidden-xs" itemprop=timeRequired>阅读时长: 11分</span></div></div><div class="article-entry marked-body js-toc-content" itemprop=articleBody><p>虽然论文已经写得挺明白的了（老师学长如是说道），但是本垃圾还是看得五步一百度，十步一谷歌&mldr;</p><p>菜死了，理解速度还跟不上，有时候一段文字需要查好几个小时才看明白&mldr;</p><h1 id=xml格式>XML格式</h1><p>XML格式是一种用语传输以及存储数据的文件格式，特点如下：</p><ul><li>纯文本，使用UTF-8编码</li><li>可嵌套，可以充分表示结构化的数据（可以理解为树状结构）</li></ul><h2 id=固定结构>固定结构</h2><pre><code class=language-xml>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt; 
 &lt;!DOCTYPE note SYSTEM &quot;book.dtd&quot;&gt;
 &lt;book id=&quot;1&quot;&gt;
     &lt;name&gt;Java核心技术&lt;/name&gt;
@@ -204,18 +63,7 @@
     &lt;/tags&gt;
     &lt;pubDate/&gt;
 &lt;/book&gt;
-</code></pre><ul>
-<li>前两行 <code>version</code> <code>encoding</code> <code>dtd</code>（文档定义类型Document Type Definition）都是可以选择的参数</li><li><code>book</code>标签为文档的根节点，一般来说根节点都只有一个</li><li>格式要求完全正确才能被解析，任何没有正确嵌套的标签都会导致错误</li></ul><h2 id=dtd文档>DTD文档</h2><p>上文中的第二行，是把这个xml文件交给了<code>book.dtd</code>文档来验证规则，在DTD文档的内部，可以定义一些xml需要满足的规则，如果不满足就会判定为xml数据结构不符要求。如，可以要求根元素必须是book，还可以要求isbn元素必须有lang元素，甚至可以要求book下的子元素必须含有某些指定元素。</p><h2 id=转义字符>转义字符</h2><p>由于文档格式中大量使用了一些字符，所以&mldr;</p><table>
-<thead>
-<tr>
-<th style=text-align:left>字符</th><th style=text-align:left>表示</th></tr></thead><tbody>
-<tr>
-<td style=text-align:left>&lt;</td><td style=text-align:left>&amp;It;</td></tr><tr>
-<td style=text-align:left>></td><td style=text-align:left>&amp;gt;</td></tr><tr>
-<td style=text-align:left>&</td><td style=text-align:left>&amp;amp;</td></tr><tr>
-<td style=text-align:left>"</td><td style=text-align:left>&amp;quot;</td></tr><tr>
-<td style=text-align:left>'</td><td style=text-align:left>&amp;apos;</td></tr></tbody></table><h2 id=相关拓展>相关拓展</h2><ul>
-<li>DTD和XSD：验证XML结构和数据是否有效；</li><li>Namespace：XML节点和属性的名字空间；</li><li>XSLT：把XML转化为另一种文本；</li><li>XPath：一种XML节点查询语言；</li><li>&mldr;</li></ul><h1 id=dom-api>DOM API</h1><p>DOM将xml文档一次读入，并把内容转换为树状结构放在内存中，在后期调用中十分方便，但是极为消耗内存。对应的也有以流形式读取xml的SAX API，通过一些些奇奇怪怪的方式进行使用（事件回调？）</p><pre><code class=language-java>InputStream input = Main.class.getResourceAsStream(&quot;/book.xml&quot;);
+</code></pre><ul><li>前两行 <code>version</code> <code>encoding</code> <code>dtd</code>（文档定义类型Document Type Definition）都是可以选择的参数</li><li><code>book</code>标签为文档的根节点，一般来说根节点都只有一个</li><li>格式要求完全正确才能被解析，任何没有正确嵌套的标签都会导致错误</li></ul><h2 id=dtd文档>DTD文档</h2><p>上文中的第二行，是把这个xml文件交给了<code>book.dtd</code>文档来验证规则，在DTD文档的内部，可以定义一些xml需要满足的规则，如果不满足就会判定为xml数据结构不符要求。如，可以要求根元素必须是book，还可以要求isbn元素必须有lang元素，甚至可以要求book下的子元素必须含有某些指定元素。</p><h2 id=转义字符>转义字符</h2><p>由于文档格式中大量使用了一些字符，所以&mldr;</p><table><thead><tr><th style=text-align:left>字符</th><th style=text-align:left>表示</th></tr></thead><tbody><tr><td style=text-align:left>&lt;</td><td style=text-align:left>&amp;It;</td></tr><tr><td style=text-align:left>></td><td style=text-align:left>&amp;gt;</td></tr><tr><td style=text-align:left>&</td><td style=text-align:left>&amp;amp;</td></tr><tr><td style=text-align:left>"</td><td style=text-align:left>&amp;quot;</td></tr><tr><td style=text-align:left>'</td><td style=text-align:left>&amp;apos;</td></tr></tbody></table><h2 id=相关拓展>相关拓展</h2><ul><li>DTD和XSD：验证XML结构和数据是否有效；</li><li>Namespace：XML节点和属性的名字空间；</li><li>XSLT：把XML转化为另一种文本；</li><li>XPath：一种XML节点查询语言；</li><li>&mldr;</li></ul><h1 id=dom-api>DOM API</h1><p>DOM将xml文档一次读入，并把内容转换为树状结构放在内存中，在后期调用中十分方便，但是极为消耗内存。对应的也有以流形式读取xml的SAX API，通过一些些奇奇怪怪的方式进行使用（事件回调？）</p><pre><code class=language-java>InputStream input = Main.class.getResourceAsStream(&quot;/book.xml&quot;);
 DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 DocumentBuilder db = dbf.newDocumentBuilder();
 Document doc = db.parse(input);
@@ -243,8 +91,7 @@ Document doc = db.parse(input);
         printNode(child, indent + 1);
     }
 }
-</code></pre><h1 id=单元测试-assume-与-assert>单元测试 Assume 与 Assert</h1><h2 id=junit-单元测试>JUnit 单元测试</h2><p>JUnit会吧带有<code>@Test</code>的方法识别为测试方法，测试类一般明明为<code>**Test</code>，测试方法一般命名为<code>test**</code>。常用断言方法如下：</p><ul>
-<li><code>assertTrue()</code>: 期待结果为<code>true</code></li><li><code>assertFalse()</code>: 期待结果为<code>false</code></li><li><code>assertNotNull()</code>: 期待结果为非<code>null</code></li><li><code>assertArrayEquals()</code>: 期待结果为数组并与期望数组每个元素的值均相等</li></ul><p>导入JUnit之后，可以在Eclipse中快速完成单元测试，<a href=https://www.liaoxuefeng.com/wiki/1252599548343744/1304048154181666>具体内容</a></p><h2 id=assume>Assume</h2><p>对方法的参数进行<strong>合法性校验</strong>，如果校验不合格则直接抛异常，而不执行测试，默认的<code>BlockJUnit4ClassRunner</code>及其子类会捕获这个异常并跳过当前测试，如果使用自定义的Runner则无法保证行为，视Runner的实现而定。</p><p>如果有的时候必须规定<strong>具备某个条件才允许测试</strong>，但又不判断为fail,则可以使用：</p><pre><code class=language-java>@Before  
+</code></pre><h1 id=单元测试-assume-与-assert>单元测试 Assume 与 Assert</h1><h2 id=junit-单元测试>JUnit 单元测试</h2><p>JUnit会吧带有<code>@Test</code>的方法识别为测试方法，测试类一般明明为<code>**Test</code>，测试方法一般命名为<code>test**</code>。常用断言方法如下：</p><ul><li><code>assertTrue()</code>: 期待结果为<code>true</code></li><li><code>assertFalse()</code>: 期待结果为<code>false</code></li><li><code>assertNotNull()</code>: 期待结果为非<code>null</code></li><li><code>assertArrayEquals()</code>: 期待结果为数组并与期望数组每个元素的值均相等</li></ul><p>导入JUnit之后，可以在Eclipse中快速完成单元测试，<a href=https://www.liaoxuefeng.com/wiki/1252599548343744/1304048154181666>具体内容</a></p><h2 id=assume>Assume</h2><p>对方法的参数进行<strong>合法性校验</strong>，如果校验不合格则直接抛异常，而不执行测试，默认的<code>BlockJUnit4ClassRunner</code>及其子类会捕获这个异常并跳过当前测试，如果使用自定义的Runner则无法保证行为，视Runner的实现而定。</p><p>如果有的时候必须规定<strong>具备某个条件才允许测试</strong>，但又不判断为fail,则可以使用：</p><pre><code class=language-java>@Before  
 public void setUp() {  
 	String versionNumber = &quot;7&quot;; //Get it from configuration on runtime  
 	Assume.assumeTrue(Integer.valueOf(versionNumber) == 7);  
@@ -334,8 +181,7 @@ public class CalendarTest {
     }
 }
 </code></pre><p>比较迷惑的是文档中在最后一段的话，为什么这个From的标签没有给List而是给了List的元素，我理解的是，元素才是由<code>CalendarGenerator.class</code>生成的，而把这个元素放到List中进行调用的话，在它Generator的父类中就能自动生成一个包含这些生成元素的List，而Size标签就是为了限制这个随机生成的List大小的。</p><h2 id=编译内容与模糊测试及结果>编译内容与模糊测试及结果</h2><h3 id=javac-编译指令参数--cp>Javac 编译指令参数 -cp</h3><p>如果你这个java文件中，引入其他的jar包，需要用到 <code>-cp</code> 参数，全称是<code>classpath</code></p><pre><code class=language-bash>javac -cp .:$(/path/to/jqf/scripts/classpath.sh) CalendarLogic.java CalendarGenerator.java CalendarTest.java
-</code></pre><p>对于<code>.:$(/path/to/jqf/scripts/classpath.sh)</code>解释：</p><ul>
-<li>$(): 执行括号中的内容，然后将执行所得结果填充到该位置</li><li><code>JQF/scripts/classpath.sh</code>是获取当前JQF所依赖的所有JAR包</li><li><code>:</code> 并列当前目录下的和<code>classpath.sh</code>获取的内容</li></ul><h3 id=通过junit和quickcheck进行测试>通过JUnit和QuickCheck进行测试</h3><pre><code class=language-bash>java -cp .:$(/path/to/jqf/scripts/classpath.sh) org.junit.runner.JUnitCore CalendarTest
+</code></pre><p>对于<code>.:$(/path/to/jqf/scripts/classpath.sh)</code>解释：</p><ul><li>$(): 执行括号中的内容，然后将执行所得结果填充到该位置</li><li><code>JQF/scripts/classpath.sh</code>是获取当前JQF所依赖的所有JAR包</li><li><code>:</code> 并列当前目录下的和<code>classpath.sh</code>获取的内容</li></ul><h3 id=通过junit和quickcheck进行测试>通过JUnit和QuickCheck进行测试</h3><pre><code class=language-bash>java -cp .:$(/path/to/jqf/scripts/classpath.sh) org.junit.runner.JUnitCore CalendarTest
 </code></pre><p><code>-cp</code>参数的意义同上，但是这次是运行过程中依赖的jar，意义上也许略有不同？</p><p>可能会获得错误消息<code>Assumption is too strong; too many inputs discarded</code>（反正我试了几次没试出来），原因是随机生成的时间落到闰年的二月二十九的概率太小了，可能结束之后都找不到一个能通过<code>Assume</code>的数据&mldr;（好惨）</p><h3 id=命令行开启模糊测试>命令行开启模糊测试</h3><pre><code class=language-bash>/path/to/jqf/bin/jqf-zest -c .:$(/path/to/jqf/scripts/classpath.sh) CalendarTest testLeapYear
 </code></pre><p>这是调用了<code>jqf-zest</code>，-c参数是提供了配置类的路径，配置类还是从<code>classpath.sh</code>中获取。通过<code>testLeapYear</code>方法，测试了<code>Calendartest</code>的内容，命令行看起来比较混乱，以后还是用mvn插件吧&mldr;运行起来之后如下图，加一些注释</p><pre><code class=language-bash>Zest: Validity Fuzzing with Parametric Generators
 -------------------------------------------------
@@ -773,48 +619,13 @@ public class JavaScriptCodeGenerator extends Generator&lt;String&gt; {
         return &quot;while (&quot; + generateExpression(random) + &quot;)&quot; + generateBlock(random);
     }
 }
-</code></pre><h1 id=在使用idea阅读代码过程中遇到的问题>在使用IDEA阅读代码过程中遇到的问题</h1><h2 id=cant-find-the-declaration-to-go-to>can&rsquo;t find the declaration to go to</h2><h3 id=问题背景>问题背景</h3><p>在使用IDEA过程中，需要通过<code>Ctrl + click</code>的操作去方便阅读代码的上下文，更快确定父类、库之类的东西。但是在直接导入JQF的过程中发现无法找到，总是返回如题的报错。</p><h3 id=解决过程>解决过程</h3><p>上网搜索发现是IDEA的配置中没有配置好本地已有的maven插件，IDEA中的maven插件与本地的maven插件发生了冲突，在File - New Project Settings 中修改Build - Build Tools - Maven中修改就行，然后清除掉之前已有的问题文件，重新建立依赖关系，就能准确定位了。</p><p>在此过程中，需要注意IDEA的Open和Import是不同的功能，在从外部导入的文件（git下载的，svn下载的，直接拷贝的）建议直接使用Import，而已经在本地Import过的文件如果需要再次打开，则使用Open。</p></div><div class=article-footer>
-<blockquote class=mt-2x>
-<ul class="post-copyright list-unstyled">
-<li class="post-copyright-link hidden-xs">
-<strong>本文链接: </strong>
-<a href=https://qeryu.github.io/2020/03/%E8%AE%BA%E6%96%87%E7%BB%99%E5%87%BA%E4%BE%8B%E5%AD%90%E5%AE%9E%E7%8E%B0%E4%B8%AD%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/ title=论文给出例子实现中遇到问题 target=_blank rel=external>https://qeryu.github.io/2020/03/%E8%AE%BA%E6%96%87%E7%BB%99%E5%87%BA%E4%BE%8B%E5%AD%90%E5%AE%9E%E7%8E%B0%E4%B8%AD%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/</a>
-</li><li class=post-copyright-license>
-<strong>License: </strong>
-<a href=http://creativecommons.org/licenses/by/4.0/deed.zh target=_blank rel=external>CC BY 4.0 CN</a>
-</li></ul></blockquote><div class="panel panel-default panel-badger">
-<div class=panel-body>
-<figure class=media>
-<div class=media-left>
-<a href=https://github.com/qeryu target=_blank class="img-burn thumb-sm visible-lg">
-<img src=https://qeryu.github.io/avatar/qeryu.jpg class="img-rounded w-full" alt>
-</a>
-</div><div class=media-body>
-<h3 class=media-heading><a href=https://github.com/qeryu target=_blank><span class=text-dark>Qeryu</span><small class=ml-1x>信息安全学生</small></a></h3><div>Good Good Study, Day Day Up~</div></div></figure></div></div></div></article></div><nav class="bar bar-footer clearfix" data-stick-bottom>
-<div class=bar-inner>
-<ul class="pager pull-left">
-<li class=prev>
-<a href=https://qeryu.github.io/2020/03/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0maven/ title=Java学习笔记——Maven><i class="icon icon-angle-left" aria-hidden=true></i><span>&nbsp;&nbsp;下一篇</span></a>
-</li><li class=next>
-<a href=https://qeryu.github.io/2020/04/beego%E6%A1%86%E6%9E%B6%E4%B8%8B%E7%9A%84coolq%E5%B9%B3%E5%8F%B0qqbotddl%E6%8F%90%E9%86%92%E5%91%98/ title=beego框架下的coolq平台qqbot——DDL提醒员><span>上一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden=true></i></a>
-</li><li class=toggle-toc>
-<a class="toggle-btn collapsed" data-toggle=collapse href=#collapseToc aria-expanded=false title=文章目录 role=button>
-<span>[&nbsp;</span><span>文章目录</span>
+</code></pre><h1 id=在使用idea阅读代码过程中遇到的问题>在使用IDEA阅读代码过程中遇到的问题</h1><h2 id=cant-find-the-declaration-to-go-to>can&rsquo;t find the declaration to go to</h2><h3 id=问题背景>问题背景</h3><p>在使用IDEA过程中，需要通过<code>Ctrl + click</code>的操作去方便阅读代码的上下文，更快确定父类、库之类的东西。但是在直接导入JQF的过程中发现无法找到，总是返回如题的报错。</p><h3 id=解决过程>解决过程</h3><p>上网搜索发现是IDEA的配置中没有配置好本地已有的maven插件，IDEA中的maven插件与本地的maven插件发生了冲突，在File - New Project Settings 中修改Build - Build Tools - Maven中修改就行，然后清除掉之前已有的问题文件，重新建立依赖关系，就能准确定位了。</p><p>在此过程中，需要注意IDEA的Open和Import是不同的功能，在从外部导入的文件（git下载的，svn下载的，直接拷贝的）建议直接使用Import，而已经在本地Import过的文件如果需要再次打开，则使用Open。</p></div><div class=article-footer><blockquote class=mt-2x><ul class="post-copyright list-unstyled"><li class="post-copyright-link hidden-xs"><strong>本文链接:</strong>
+<a href=https://qeryu.github.io/2020/03/%E8%AE%BA%E6%96%87%E7%BB%99%E5%87%BA%E4%BE%8B%E5%AD%90%E5%AE%9E%E7%8E%B0%E4%B8%AD%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/ title=论文给出例子实现中遇到问题 target=_blank rel=external>https://qeryu.github.io/2020/03/%E8%AE%BA%E6%96%87%E7%BB%99%E5%87%BA%E4%BE%8B%E5%AD%90%E5%AE%9E%E7%8E%B0%E4%B8%AD%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/</a></li><li class=post-copyright-license><strong>License:</strong>
+<a href=http://creativecommons.org/licenses/by/4.0/deed.zh target=_blank rel=external>CC BY 4.0 CN</a></li></ul></blockquote><div class="panel panel-default panel-badger"><div class=panel-body><figure class=media><div class=media-left><a href=https://github.com/qeryu target=_blank class="img-burn thumb-sm visible-lg"><img src=https://qeryu.github.io/avatar/qeryu.jpg class="img-rounded w-full" alt></a></div><div class=media-body><h3 class=media-heading><a href=https://github.com/qeryu target=_blank><span class=text-dark>Qeryu</span><small class=ml-1x>信息安全学生</small></a></h3><div>Good Good Study, Day Day Up~</div></div></figure></div></div></div></article></div><nav class="bar bar-footer clearfix" data-stick-bottom><div class=bar-inner><ul class="pager pull-left"><li class=prev><a href=https://qeryu.github.io/2020/03/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0maven/ title=Java学习笔记——Maven><i class="icon icon-angle-left" aria-hidden=true></i><span>&nbsp;&nbsp;下一篇</span></a></li><li class=next><a href=https://qeryu.github.io/2020/04/beego%E6%A1%86%E6%9E%B6%E4%B8%8B%E7%9A%84coolq%E5%B9%B3%E5%8F%B0qqbotddl%E6%8F%90%E9%86%92%E5%91%98/ title=beego框架下的coolq平台qqbot——DDL提醒员><span>上一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden=true></i></a></li><li class=toggle-toc><a class="toggle-btn collapsed" data-toggle=collapse href=#collapseToc aria-expanded=false title=文章目录 role=button><span>[&nbsp;</span><span>文章目录</span>
 <i class="text-collapsed icon icon-anchor"></i>
 <i class="text-in icon icon-close"></i>
-<span>]</span>
-</a>
-</li></ul><div class=bar-right>
-<div class=share-component data-sites=weibo,qq,wechat,facebook,twitter data-mobile-sites=weibo,qq,qzone></div></div></div></nav></main><footer class=footer itemscope itemtype=http://schema.org/WPFooter>
-<ul class=social-links>
-<li><a href=https://github.com/qeryu target=_blank title=github data-toggle=tooltip data-placement=top>
-<i class="icon icon-github"></i></a></li><li><a href=https://qeryu.github.io/index.xml target=_blank title=rss data-toggle=tooltip data-placement=top>
-<i class="icon icon-rss"></i></a></li></ul><div class=copyright>
-&copy;2019 -
-2022
-<div class=publishby>
-Theme by <a href=https://github.com/xiaoheiAh target=_blank> xiaoheiAh </a>base on<a href=https://github.com/xiaoheiAh/hugo-theme-pure target=_blank> pure</a>.
-</div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<span>]</span></a></li></ul><div class=bar-right><div class=share-component data-sites=weibo,qq,wechat,facebook,twitter data-mobile-sites=weibo,qq,qzone></div></div></div></nav></main><footer class=footer itemscope itemtype=http://schema.org/WPFooter><ul class=social-links><li><a href=https://github.com/qeryu target=_blank title=github data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li><li><a href=https://qeryu.github.io/index.xml target=_blank title=rss data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li></ul><div class=copyright>&copy;2019 -
+2022<div class=publishby>Theme by <a href=https://github.com/xiaoheiAh target=_blank>xiaoheiAh </a>base on<a href=https://github.com/xiaoheiAh/hugo-theme-pure target=_blank> pure</a>.</div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
 <script type=text/x-mathjax-config>
     MathJax.Hub.Config({
             showMathMenu: false, //disables context menu
@@ -822,16 +633,12 @@ Theme by <a href=https://github.com/xiaoheiAh target=_blank> xiaoheiAh </a>base 
             inlineMath: [ ['$','$'], ['\\(','\\)'] ]
            }
     });
-</script>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js></script>
-<script>window.jQuery||document.write('<script src="js/jquery.min.js"><\/script>')</script>
-<script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js></script>
+</script><script src=https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js></script>
+<script>window.jQuery||document.write('<script src="js/jquery.min.js"><\/script>')</script><script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js></script>
 <script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js defer></script>
 <script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js defer></script><script>hljs.configure({tabReplace:"    ",classPrefix:''}),hljs.initHighlightingOnLoad()</script>
 <script src=https://qeryu.github.io/js/application.min.e720b935330b2a176cfb4b8bd9a6cc632caf6b752f94e87c62152a9557ff6d15.js></script>
 <script src=https://qeryu.github.io/js/plugin.min.334875d4d4a72afb866e446df61b5f4bf1f0a516d1303166f52f7804d17ef3ab.js></script>
-<script>(function(e){var t={TRANSLATION:{POSTS:"文章",PAGES:"页面",CATEGORIES:"分类",TAGS:"标签",UNTITLED:"(未命名)"},ROOT_URL:"https://qeryu.github.io/",CONTENT_URL:"https://qeryu.github.io//searchindex.json "};e.INSIGHT_CONFIG=t})(window)</script>
-<script type=text/javascript src=https://qeryu.github.io/js/insight.min.759e5002714e12761afcd512f103d39c86573165db51972dd3b24df6eddf238ed3e3e85c1988e96cba09419d1deccdeb68c15284f2c3d03049fad53c11774524.js defer></script>
+<script>(function(e){var t={TRANSLATION:{POSTS:"文章",PAGES:"页面",CATEGORIES:"分类",TAGS:"标签",UNTITLED:"(未命名)"},ROOT_URL:"https://qeryu.github.io/",CONTENT_URL:"https://qeryu.github.io//searchindex.json "};e.INSIGHT_CONFIG=t})(window)</script><script type=text/javascript src=https://qeryu.github.io/js/insight.min.759e5002714e12761afcd512f103d39c86573165db51972dd3b24df6eddf238ed3e3e85c1988e96cba09419d1deccdeb68c15284f2c3d03049fad53c11774524.js defer></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js></script>
-<script>tocbot.init({tocSelector:".js-toc",contentSelector:".js-toc-content",headingSelector:"h1, h2, h3",hasInnerContainers:!0})</script>
-</body></html>
+<script>tocbot.init({tocSelector:".js-toc",contentSelector:".js-toc-content",headingSelector:"h1, h2, h3",hasInnerContainers:!0})</script></body></html>
