@@ -1,0 +1,138 @@
+<!doctype html><html lang=zh><head><title>计算机网络安全Lab2 - 胡思乱想集散中心</title><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui"><meta name=renderer content="webkit"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="black"><meta name=format-detection content="telephone=no,email=no,adress=no"><meta name=theme-color content="#000000"><meta http-equiv=window-target content="_top"><meta name=description content="20220415 计算机网络安全（王美珍老师） 实验2 DNS协议漏洞利用
+"><meta name=generator content="Hugo 0.98.0 with theme pure"><title>计算机网络安全Lab2 - 胡思乱想集散中心</title><link rel=stylesheet href=https://qeryu.github.io/css/style.min.084a5eb24fb0cf9d5aade7246f19ba0c820cf904996a28ffe88039427693ac68.css><link rel=stylesheet href=https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css async><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css async><meta property="og:title" content="计算机网络安全Lab2"><meta property="og:description" content="20220415 计算机网络安全（王美珍老师） 实验2 DNS协议漏洞利用"><meta property="og:type" content="article"><meta property="og:url" content="https://qeryu.github.io/2022/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8lab2/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-04-15T19:08:28+08:00"><meta property="article:modified_time" content="2022-04-15T19:08:28+08:00"><meta itemprop=name content="计算机网络安全Lab2"><meta itemprop=description content="20220415 计算机网络安全（王美珍老师） 实验2 DNS协议漏洞利用"><meta itemprop=datePublished content="2022-04-15T19:08:28+08:00"><meta itemprop=dateModified content="2022-04-15T19:08:28+08:00"><meta itemprop=wordCount content="1326"><meta itemprop=keywords content="dns,"><meta name=twitter:card content="summary"><meta name=twitter:title content="计算机网络安全Lab2"><meta name=twitter:description content="20220415 计算机网络安全（王美珍老师） 实验2 DNS协议漏洞利用"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body class="main-center theme-black" itemscope itemtype=http://schema.org/WebPage><header class=header itemscope itemtype=http://schema.org/WPHeader><div class=slimContent><div class=navbar-header><div class="profile-block text-center"><a id=avatar href=https://github.com/qeryu target=_blank><img class="img-circle img-rotate" src=https://qeryu.github.io/avatar/qeryu.jpg width=200 height=200></a><h2 id=name class="hidden-xs hidden-sm">Qeryu</h2><h3 id=title class="hidden-xs hidden-sm hidden-md">信息安全学生</h3><small id=location class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Wuhan, China</small></div><div class=search id=search-form-wrap><form class="search-form sidebar-form"><div class=input-group><input type=text class="search-form-input form-control" placeholder=搜索>
+<span class=input-group-btn><button type=submit class="search-form-submit btn btn-flat" onclick=return!1><i class="icon icon-search"></i></button></span></div><div class=ins-search><div class=ins-search-mask></div><div class=ins-search-container><div class=ins-input-wrapper><input type=text class=ins-search-input placeholder=想要查找什么... x-webkit-speech>
+<button type=button class="close ins-close ins-selectable" data-dismiss=modal aria-label=Close><span aria-hidden=true>×</span></button></div><div class=ins-section-wrapper><div class=ins-section-container></div></div></div></div></form></div><button class="navbar-toggle collapsed" type=button data-toggle=collapse data-target=#main-navbar aria-controls=main-navbar aria-expanded=false>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span></button></div><nav id=main-navbar class="collapse navbar-collapse" itemscope itemtype=http://schema.org/SiteNavigationElement role=navigation><ul class="nav navbar-nav main-nav"><li class="menu-item menu-item-home"><a href=/><i class="icon icon-home-fill"></i>
+<span class=menu-title>Home</span></a></li><li class="menu-item menu-item-archives"><a href=/posts/><i class="icon icon-archives-fill"></i>
+<span class=menu-title>Archives</span></a></li><li class="menu-item menu-item-categories"><a href=/categories/><i class="icon icon-folder"></i>
+<span class=menu-title>Categories</span></a></li><li class="menu-item menu-item-tags"><a href=/tags/><i class="icon icon-tags"></i>
+<span class=menu-title>Tags</span></a></li><li class="menu-item menu-item-about"><a href=/about/><i class="icon icon-cup-fill"></i>
+<span class=menu-title>About</span></a></li></ul></nav></div></header><aside class=sidebar itemscope itemtype=http://schema.org/WPSideBar><div class=slimContent><div class=widget><h3 class=widget-title>公告</h3><div class=widget-body><div id=board><div class=content><p>enjoy~</p></div></div></div></div><div class=widget><h3 class=widget-title>标签</h3><div id=tag-cloud-list class=widget-body><a href=https://qeryu.github.io/tags/arp-spoofing/ class=tag-list-link rel=1>arp-spoofing<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/beego/ class=tag-list-link rel=1>beego<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/blog/ class=tag-list-link rel=2>blog<span class=tag-list-count>2</span></a>
+<a href=https://qeryu.github.io/tags/c++/ class=tag-list-link rel=1>c++<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/coolq/ class=tag-list-link rel=1>coolq<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/dns/ class=tag-list-link rel=1>dns<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/docker/ class=tag-list-link rel=2>docker<span class=tag-list-count>2</span></a>
+<a href=https://qeryu.github.io/tags/eslint/ class=tag-list-link rel=1>eslint<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/fuzzing/ class=tag-list-link rel=3>fuzzing<span class=tag-list-count>3</span></a>
+<a href=https://qeryu.github.io/tags/git/ class=tag-list-link rel=1>git<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/golang/ class=tag-list-link rel=1>golang<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/java/ class=tag-list-link rel=3>java<span class=tag-list-count>3</span></a>
+<a href=https://qeryu.github.io/tags/javascript/ class=tag-list-link rel=3>javascript<span class=tag-list-count>3</span></a>
+<a href=https://qeryu.github.io/tags/kali/ class=tag-list-link rel=1>kali<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/linux/ class=tag-list-link rel=1>linux<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/lstm/ class=tag-list-link rel=2>lstm<span class=tag-list-count>2</span></a>
+<a href=https://qeryu.github.io/tags/maven/ class=tag-list-link rel=1>maven<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/metasploit/ class=tag-list-link rel=1>metasploit<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/metasploit3/ class=tag-list-link rel=1>metasploit3<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/montage/ class=tag-list-link rel=1>montage<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/nmap/ class=tag-list-link rel=1>nmap<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/pwn/ class=tag-list-link rel=1>pwn<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/python/ class=tag-list-link rel=2>python<span class=tag-list-count>2</span></a>
+<a href=https://qeryu.github.io/tags/ret2libc/ class=tag-list-link rel=1>ret2libc<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/rnn/ class=tag-list-link rel=1>rnn<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/scapy/ class=tag-list-link rel=1>scapy<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/seed/ class=tag-list-link rel=1>seed<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/semanticfuzzing/ class=tag-list-link rel=1>semanticfuzzing<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/syn-flooding/ class=tag-list-link rel=1>syn-flooding<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/v2ray/ class=tag-list-link rel=1>v2ray<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/vim/ class=tag-list-link rel=1>vim<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/wordpress/ class=tag-list-link rel=1>wordpress<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/xml/ class=tag-list-link rel=1>xml<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/zest/ class=tag-list-link rel=2>zest<span class=tag-list-count>2</span></a>
+<a href=https://qeryu.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ class=tag-list-link rel=1>学习笔记<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/ class=tag-list-link rel=1>渗透测试<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/%E7%88%AC%E8%99%AB/ class=tag-list-link rel=1>爬虫<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/ class=tag-list-link rel=1>科学上网<span class=tag-list-count>1</span></a>
+<a href=https://qeryu.github.io/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ class=tag-list-link rel=1>论文阅读<span class=tag-list-count>1</span></a></div><script>document.onreadystatechange=()=>{document.readyState==="complete"&&tagCloud("#tag-cloud-list a",8,20)};function tagCloud(n,s,o){let t=0,e=0;$(n).each(function(){let n=Number($(this).attr("rel"));t<n&&(t=n),(e>n||e==0)&&(e=n)});let i=(o-s)/(t-e);$(n).each(function(){let t=$(this).attr("rel")-e;$(this).css({"font-size":s+t*i+"px"})})}</script></div><div class=widget><h3 class=widget-title>分类</h3><div class=widget-body><ul class=category-list><li class=category-list-item><a href=https://qeryu.github.io/categories/cs61a/ class=category-list-link>cs61a</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/fuzzing/ class=category-list-link>fuzzing</a><span class=category-list-count>3</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/javascrip/ class=category-list-link>javascrip</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/lab/ class=category-list-link>lab</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/language/ class=category-list-link>language</a><span class=category-list-count>4</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/linux/ class=category-list-link>linux</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/lstm/ class=category-list-link>lstm</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/machine-learning/ class=category-list-link>machine-learning</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/notes/ class=category-list-link>notes</a><span class=category-list-count>3</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/web/ class=category-list-link>web</a><span class=category-list-count>6</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/xml/ class=category-list-link>xml</a><span class=category-list-count>1</span></li><li class=category-list-item><a href=https://qeryu.github.io/categories/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5/ class=category-list-link>网安实践</a><span class=category-list-count>1</span></li></ul></div></div><div class=widget><h3 class=widget-title>最新文章</h3><div class=widget-body><ul class="recent-post-list list-unstyled no-thumbnail"><li><div class=item-inner><p class=item-title><a href=https://qeryu.github.io/2022/04/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%BB%BC%E5%90%88%E5%AE%9E%E8%B7%B5lab3-1/ class=title>网络安全综合实践Lab3-1</a></p><p class=item-date><time datetime="2022-04-25 13:47:10 +0800 +0800" itemprop=datePublished>2022-04-25</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://qeryu.github.io/2022/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8lab2/ class=title>计算机网络安全Lab2</a></p><p class=item-date><time datetime="2022-04-15 19:08:28 +0800 +0800" itemprop=datePublished>2022-04-15</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://qeryu.github.io/2022/04/%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8lab1/ class=title>信息系统安全Lab1</a></p><p class=item-date><time datetime="2022-04-12 14:41:57 +0800 +0800" itemprop=datePublished>2022-04-12</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://qeryu.github.io/2022/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8lab1/ class=title>计算机网络安全Lab1</a></p><p class=item-date><time datetime="2022-03-30 21:43:09 +0800 +0800" itemprop=datePublished>2022-03-30</time></p></div></li><li><div class=item-inner><p class=item-title><a href=https://qeryu.github.io/2021/05/%E7%BD%91%E5%AE%89%E5%AE%9E%E8%B7%B5-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%952/ class=title>网安实践 渗透测试2</a></p><p class=item-date><time datetime="2021-05-26 10:06:51 +0800 +0800" itemprop=datePublished>2021-05-26</time></p></div></li></ul></div></div></div></aside><aside class="sidebar sidebar-toc collapse" id=collapseToc itemscope itemtype=http://schema.org/WPSideBar><div class=slimContent><h4 class=toc-title>文章目录</h4><nav id=toc class="js-toc toc"></nav></div></aside><main class=main role=main><div class=content><article id=- class="article article-type-" itemscope itemtype=http://schema.org/BlogPosting><div class=article-header><h1 itemprop=name><a class=article-title href=/2022/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8lab2/>计算机网络安全Lab2</a></h1><div class=article-meta><span class=article-date><i class="icon icon-calendar-check"></i>&nbsp;
+<a href=https://qeryu.github.io/2022/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8lab2/ class=article-date><time datetime="2022-04-15 19:08:28 +0800 +0800" itemprop=datePublished>2022-04-15</time></a></span>
+<span class=article-tag><i class="icon icon-tags"></i>&nbsp;
+<a class=article-tag-link href=/tags/dns/>dns</a></span>
+<span class="post-wordcount hidden-xs" itemprop=wordCount>字数统计: 1326字</span>
+<span class="post-readcount hidden-xs" itemprop=timeRequired>阅读时长: 3分</span></div></div><div class="article-entry marked-body js-toc-content" itemprop=articleBody><p>20220415 计算机网络安全（王美珍老师） 实验2 DNS协议漏洞利用</p><h1 id=实验环境>实验环境</h1><p>和上个实验一样，用Seed的Ubuntu 16配合Docker</p><ul><li>用户机：192.168.60.2</li><li>DNS服务器：192.168.60.4</li><li>攻击机：192.168.60.1</li></ul><h2 id=配置本地dns服务器>配置本地DNS服务器</h2><p>沿用Lab1的配置，新开一个容器作为DNS服务器</p><pre><code class=language-sh>sudo docker run -it --name=dns --hostname=dns --net=intranet --ip=192.168.60.4 &quot;seedubuntu&quot; /bin/bash
+</code></pre><p>注意这里与之前开容器不一样的是少了<code>--privilege</code>参数，如果带上这个参数的话会导致bind9无法正常启动</p><p>本来想直接从DockerHub上pull个bind9下来，避免配置过程中出现各种问题，结果seed平台系统版本太低了，没有合适的版本&mldr;</p><h3 id=配置dns缓存转储--关闭dnssec功能>配置DNS缓存转储 & 关闭DNSSEC功能</h3><p>为方便查看DNS缓存，需要将信息从DNS cache里转存到文件中。在<code>/etc/bind/named.conf.options</code>配置dump-file条目</p><p>DNSSEC功能可以防止对DNS服务器的spoofing攻击。为了顺利进行实验，需要手动关闭。</p><p>修改 <code>/etc/bind/named.conf.options</code>：</p><ol><li>注释掉dnssec-validation条目</li><li>添加dnssec-enable条目</li></ol><p>修改后如下</p><p><img src=https://raw.githubusercontent.com/Qeryu/PicBed/master/blog/image-20220507145830855.png alt=image-20220507145830855></p><h3 id=创建区域>创建区域</h3><p>进入容器后，修改<code>/etc/bind/name.conf.default-zones</code>的内容如下所示</p><pre><code class=language-cpp>// prime the server with knowledge of the root servers
+zone &quot;.&quot; {
+	type hint;
+	file &quot;/etc/bind/db.root&quot;;
+};
+
+// be authoritative for the localhost forward and reverse zones, and for
+// broadcast zones as per RFC 1912
+
+zone &quot;localhost&quot; {
+	type master;
+	file &quot;/etc/bind/db.local&quot;;
+};
+
+zone &quot;127.in-addr.arpa&quot; {
+	type master;
+	file &quot;/etc/bind/db.127&quot;;
+};
+
+zone &quot;0.in-addr.arpa&quot; {
+	type master;
+	file &quot;/etc/bind/db.0&quot;;
+};
+
+zone &quot;255.in-addr.arpa&quot; {
+	type master;
+	file &quot;/etc/bind/db.255&quot;;
+};
+
+// 配置正向查找区域，从域名到ip地址
+zone &quot;example.com&quot; {
+	type master;
+	file &quot;/etc/bind/example.com.db&quot;;
+};
+
+// 配置反向查找区域，从ip地址到域名
+zone &quot;0.168.192.in-addr.arpa&quot; {
+    type master;
+    file &quot;/etc/bind/192.168.0.db&quot;;
+};
+</code></pre><blockquote><p>指导书中修改的是<code>/etc/bind/named.conf.default-zones</code>和<code>/etc/bind/named.conf.local</code>，由于<code>/etc/bind/named.conf</code>中引用了这三个部分，所以在哪儿修改都一样了，这里挑default-zones修改是为了方便对照格式看，也可以改别的。</p><pre><code class=language-shell>include &quot;/etc/bind/named.conf.options&quot;;
+include &quot;/etc/bind/named.conf.local&quot;;
+include &quot;/etc/bind/named.conf.default-zones&quot;;
+</code></pre></blockquote><p><code>/etc/bind/example.com.db</code>从https://seedsecuritylabs.org/Labs_16.04/Networking/DNS_Local/example.com.db官网上下载，<code>/etc/bind/192.168.0.db</code>从群里下载，内容为</p><pre><code class=language-cpp>$TTL 3D
+@	IN	SOA	ns.example.com. admin.example.com. (
+		2008111001
+		8H
+		2H
+		4W
+		1D)
+@	IN	NS	ns.example.com.
+
+101	IN	PTR	www.example.com.
+102	IN	PTR	mail.example.com.
+10	IN	PTR	ns.example.com.
+</code></pre><p>配置完成后启动bind9</p><pre><code class=language-shell>service bind9 start
+</code></pre><h1 id=本地dns攻击>本地DNS攻击</h1><h2 id=直接欺骗用户>直接欺骗用户</h2><p>使用netwox 105进行攻击，攻击前需要用以下命令清空缓存</p><p><img src=https://raw.githubusercontent.com/Qeryu/PicBed/master/blog/image-20220507151004281.png alt=image-20220507151004281></p><pre><code class=language-shell>sudo netwox 105 -h &quot;www.baidu.com&quot; -H &quot;1.2.3.4&quot; -a &quot;ns.baidu.com&quot; -A &quot;5.6.7.8&quot; --filter &quot;src host 192.168.60.2&quot; --device &quot;docker2&quot;
+</code></pre><table><thead><tr><th>参数</th><th>值</th><th>解释</th></tr></thead><tbody><tr><td>-h</td><td>&ldquo;<a href=https://www.baidu.com>www.baidu.com</a>&rdquo;</td><td>欺骗的域名</td></tr><tr><td>-H</td><td>&ldquo;1.2.3.4&rdquo;</td><td>将域名欺骗到的IP地址</td></tr><tr><td>-a</td><td>&ldquo;ns.baidu.com&rdquo;</td><td>欺骗的域名服务器</td></tr><tr><td>-A</td><td>&ldquo;5.6.7.8&rdquo;</td><td>将域名服务器欺骗到的IP地址</td></tr><tr><td>&ndash;filter</td><td>&ldquo;src host 192.168.60.2&rdquo;</td><td>过滤出从用户机发出的包</td></tr><tr><td>&ndash;device</td><td>&ldquo;docker2&rdquo;</td><td>在docker2网卡上进行截包</td></tr></tbody></table><p>攻击效果如图，在用户机HostA上<code>dig www.baidu.com</code>获取到的信息已经是被欺骗的信息了。说明HostA发出的DNS请求被攻击机的攻击欺骗了。</p><p><img src=https://raw.githubusercontent.com/Qeryu/PicBed/master/blog/13d0b496a5e054b856da59ce23d5ed48.png alt=img></p><h2 id=本地dns缓存中毒>本地DNS缓存中毒</h2><h3 id=netwox攻击>netwox攻击</h3><p>命令依旧，但是效果不是很好，需要注意的是这次过滤的是DNS服务器发出的DNS请求，需要</p><pre><code class=language-shell>sudo netwox 105 -h &quot;www.baidu.com&quot; -H &quot;1.2.3.4&quot; -a &quot;ns.baidu.com&quot; -A &quot;5.6.7.8&quot; --filter &quot;src host 192.168.60.4&quot; --device &quot;docker2&quot; --spoofip &quot;raw&quot; --ttl 259200
+</code></pre><h3 id=scapy攻击>scapy攻击</h3><h1 id=远程dns攻击>远程DNS攻击</h1></div><div class=article-footer><blockquote class=mt-2x><ul class="post-copyright list-unstyled"><li class="post-copyright-link hidden-xs"><strong>本文链接:</strong>
+<a href=https://qeryu.github.io/2022/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8lab2/ title=计算机网络安全Lab2 target=_blank rel=external>https://qeryu.github.io/2022/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8lab2/</a></li><li class=post-copyright-license><strong>License:</strong>
+<a href=http://creativecommons.org/licenses/by/4.0/deed.zh target=_blank rel=external>CC BY 4.0 CN</a></li></ul></blockquote><div class="panel panel-default panel-badger"><div class=panel-body><figure class=media><div class=media-left><a href=https://github.com/qeryu target=_blank class="img-burn thumb-sm visible-lg"><img src=https://qeryu.github.io/avatar/qeryu.jpg class="img-rounded w-full" alt></a></div><div class=media-body><h3 class=media-heading><a href=https://github.com/qeryu target=_blank><span class=text-dark>Qeryu</span><small class=ml-1x>信息安全学生</small></a></h3><div>Good Good Study, Day Day Up~</div></div></figure></div></div></div></article></div><nav class="bar bar-footer clearfix" data-stick-bottom><div class=bar-inner><ul class="pager pull-left"><li class=prev><a href=https://qeryu.github.io/2022/04/%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8lab1/ title=信息系统安全Lab1><i class="icon icon-angle-left" aria-hidden=true></i><span>&nbsp;&nbsp;下一篇</span></a></li><li class=next><a href=https://qeryu.github.io/2022/04/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%BB%BC%E5%90%88%E5%AE%9E%E8%B7%B5lab3-1/ title=网络安全综合实践Lab3-1><span>上一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden=true></i></a></li><li class=toggle-toc><a class="toggle-btn collapsed" data-toggle=collapse href=#collapseToc aria-expanded=false title=文章目录 role=button><span>[&nbsp;</span><span>文章目录</span>
+<i class="text-collapsed icon icon-anchor"></i>
+<i class="text-in icon icon-close"></i>
+<span>]</span></a></li></ul><div class=bar-right><div class=share-component data-sites=weibo,qq,wechat,facebook,twitter data-mobile-sites=weibo,qq,qzone></div></div></div></nav></main><footer class=footer itemscope itemtype=http://schema.org/WPFooter><ul class=social-links><li><a href=https://github.com/qeryu target=_blank title=github data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li><li><a href=https://qeryu.github.io/index.xml target=_blank title=rss data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li></ul><div class=copyright>&copy;2019 -
+2022<div class=publishby>Theme by <a href=https://github.com/xiaoheiAh target=_blank>xiaoheiAh </a>base on<a href=https://github.com/xiaoheiAh/hugo-theme-pure target=_blank> pure</a>.</div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type=text/x-mathjax-config>
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script><script src=https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js></script>
+<script>window.jQuery||document.write('<script src="js/jquery.min.js"><\/script>')</script><script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js></script>
+<script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js defer></script>
+<script type=text/javascript src=https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js defer></script><script>hljs.configure({tabReplace:"    ",classPrefix:''}),hljs.initHighlightingOnLoad()</script>
+<script src=https://qeryu.github.io/js/application.min.c181e6b0c036798c7731cfb85b41b44c80689fd48fee546b73d449386ce6ccfb.js></script>
+<script src=https://qeryu.github.io/js/plugin.min.cf6ab047215536635a92ff5defe1e5174ee0acd6c4950757b2732693f7f196f3.js></script>
+<script>(function(e){var t={TRANSLATION:{POSTS:"文章",PAGES:"页面",CATEGORIES:"分类",TAGS:"标签",UNTITLED:"(未命名)"},ROOT_URL:"https://qeryu.github.io/",CONTENT_URL:"https://qeryu.github.io//searchindex.json "};e.INSIGHT_CONFIG=t})(window)</script><script type=text/javascript src=https://qeryu.github.io/js/insight.min.853c5d4062a8c262b2490c70df2f6d2b232483f85227b30b28013788b8c4da8ab59c1a735b9b31c9006f2962ef62213fea9d17cb9469c297f201772ce94e8fdf.js defer></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js></script>
+<script>tocbot.init({tocSelector:".js-toc",contentSelector:".js-toc-content",headingSelector:"h1, h2, h3",hasInnerContainers:!0})</script></body></html>
